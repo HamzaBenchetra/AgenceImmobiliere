@@ -29,13 +29,13 @@ public class SignUp {
 	public static boolean Inscription(Client c) {
 		ConnecterBD();
 		try {
-			PreparedStatement pst=connexion.prepareStatement("insert into operateur(nom,prenom,numtel,adresse,datenais,user,mdpss,sexe) values(?,?,?,?,?,?,?,?);");
+			PreparedStatement pst=connexion.prepareStatement("insert into operateur(nom,prenom,numtel,adresse,datenais,mail,mdpss,sexe) values(?,?,?,?,?,?,?,?);");
 			pst.setString(1, c.getNom());
 			pst.setString(2, c.getPrenom());
 			pst.setString(3, c.getNumtel());
 			pst.setString(4, c.getAdresse());
 			pst.setString(5, c.getDatenais());
-			pst.setString(6, c.getUser());
+			pst.setString(6, c.getMail());
 			pst.setString(7, c.getMdpss());
 			pst.setString(8, c.getSexe());
 			pst.executeUpdate();

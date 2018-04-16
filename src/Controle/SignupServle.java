@@ -28,31 +28,23 @@ public class SignupServle extends HttpServlet {
 		c.setAdresse(request.getParameter("Adresse"));
 		c.setDatenais(request.getParameter("datenais"));
 		c.setNumtel(request.getParameter("NumTel"));
-		c.setUser(request.getParameter("pseudo"));
+		c.setMail(request.getParameter("mail"));
 		c.setMdpss(request.getParameter("Mdpss"));
 		c.setSexe(request.getParameter("sexe"));
-		String type=request.getParameter("type");
+		//String type=request.getParameter("type");
 		
 		SignUp.Inscription(c);
-		request.setAttribute("nom", c.getNom());
-		request.setAttribute("prenom", c.getPrenom());
-		request.setAttribute("adresse", c.getAdresse());
-		request.setAttribute("numtel", c.getNumtel());
-		request.setAttribute("user", c.getUser());
-		request.setAttribute("pass", c.getMdpss());
-		request.setAttribute("datenais", c.getDatenais());
-		request.setAttribute("sexe", c.getSexe());
-		//this.getServletContext().getRequestDispatcher("/InscriptionReussie.jsp").forward(request, response);
+		
 		
 		System.out.println(c.getNom());
 		System.out.println(c.getPrenom());
 		System.out.println(c.getAdresse());
 		System.out.println(c.getNumtel());
-		System.out.println(c.getUser());
+		System.out.println(c.getMail());
 		System.out.println(c.getMdpss());
 		System.out.println(c.getDatenais());
 		System.out.println(c.getSexe());
-		System.out.println(type);
+		//System.out.println(type);
 
 	}
 

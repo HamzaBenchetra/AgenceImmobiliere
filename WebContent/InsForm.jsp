@@ -40,7 +40,7 @@
       <div class="container-fluid formm">
 
 
-        <form action="" method="" class="form-horizontal">
+        <form action="http://localhost:8080/AgenceImmobiliere/SignupServlet" method="post" class="form-horizontal">
 <fieldset>
 
 <!-- Form Name -->
@@ -59,7 +59,7 @@
 <div class="form-group">
 <label class="col-md-2 control-label" for="nom">Nom</label>
 <div class="col-md-9">
-<input id="nom" name="nom" type="text" placeholder="Votre nom" class="form-control input-md" required>
+<input id="nom" name="Nom" type="text" placeholder="Votre nom" class="form-control input-md" required>
 
 </div>
 </div>
@@ -77,16 +77,16 @@
 <div class="form-group">
 <label class="col-md-2 control-label" for="numtel">Mobile</label>
 <div class="col-md-9">
-<input id="numtel" name="numtel" type="text" placeholder="Votre mobile" class="form-control input-md" required>
+<input id="numtel" name="NumTel" type="text" placeholder="Votre mobile" class="form-control input-md" required>
 
 </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-<label class="col-md-2 control-label" for="adresse">Adresse</label>
+<label class="col-md-2 control-label" for="Adresse">Adresse</label>
 <div class="col-md-9">
-<input id="adresse" name="adresse" type="text" placeholder="Votre Adresse" class="form-control input-md" required>
+<input id="adresse" name="Adresse" type="text" placeholder="Votre Adresse" class="form-control input-md" required>
 
 </div>
 </div>
@@ -95,7 +95,7 @@
 <div class="form-group">
 <label class="col-md-2 control-label" for="datenais">Date naissance</label>
 <div class="col-md-9">
-<input id="datenais" name="datenais" type="text" placeholder="jj-mm-aaaa" class="form-control input-md" required>
+<input id="datenais" name="datenais" type="date" placeholder="jj-mm-aaaa" class="form-control input-md" required>
 
 </div>
 </div>
@@ -104,7 +104,7 @@
 <div class="form-group">
 <label class="col-md-2 control-label" for="mdpss">Mot de pass</label>
 <div class="col-md-9">
-<input id="mdpss" name="mdpss" type="password" placeholder="8 caractères minimum" class="form-control input-md" required>
+<input id="mdpss" name="Mdpss" type="password" placeholder="8 caractères minimum" class="form-control input-md" required>
 
 </div>
 </div>

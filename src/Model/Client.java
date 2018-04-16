@@ -2,7 +2,7 @@ package Model;
 
 
 public class Client {
-	private String nom,prenom,numtel,adresse,user,mdpss,sexe,datenais;
+	private String nom,prenom,numtel,adresse,mail,mdpss,sexe,datenais;
 	
 	public String getNom() {
 		return nom;
@@ -28,11 +28,11 @@ public class Client {
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
-	public String getUser() {
-		return user;
+	public String getMail() {
+		return mail;
 	}
-	public void setUser(String user) {
-		this.user = user;
+	public void setMail(String user) {
+		this.mail = user;
 	}
 	public String getMdpss() {
 		return mdpss;
