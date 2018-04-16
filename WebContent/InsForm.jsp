@@ -5,33 +5,99 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<!-- links-->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/Style1.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
-<form action="http://localhost:8080/AgenceImmobiliere/SignupServlet" method="post">
-<div>Nom: <input type="text" name="Nom" required></div>
-<div>Prenom: <input type="text" name="Prenom" required>
-</div>
-<div>Agresse: <input type="text" name="Adresse" required>
-</div>
-<div>datenais: <input type="DATE" name="datenais" required>
-</div>
-<div>Numero de telephone: <input type="text" name="NumTel" required>
-</div>
-<div>Pseudo :<input type="text" name="pseudo" required>
-</div>
-<div>Mot de pass: <input type="password" name="Mdpss" required>
-</div>
-<div>
-<h3>Sexe :</h3>
-<input type="radio" name="sexe" value="homme" required> Homme
-<input type="radio" name="sexe" value="femme" required> Femme
-</div>
+<body>
+  <!-- head-->
 
-<div>
-<h3>Postuler en tant que : </h3>
-<input type="radio" name="type" value="agent" required> Agent
-<input type="radio" name="type" value="operateur" required> Operateur
+<header class="container-fluid header" >
+  <div class="container">
+    <a href="#" class="logo">Mon site</a>
+    <nav class="menu">
+      <a href="#">Accueil</a>
+      <a href="#">S'inscrire</a>
+      <a href="#">Se connecter</a>
+      <a href="#">Travailler avec nous</a>
+      <a href="#contacter">Nou contacter</a>
+      <a href="#about">A propos</a>
+    </nav>
+  </div>
+</header>
+
+<!--baniere du site-->
+<section class="container-fluid banner">
+    <div class="ban">
+      <img src="img/1013.jpg" alt="Banniere du site">
+    </div>
+    <div class="inner-banner">
+      <h1>Bienvenue</h1>
+      <button class="btn btn-custom">Contactez nous</button>
+    </div>
+</section>
+<!--formulaire inscripetion-->
+
+<section class="container-fluid form">
+
+
+</section>
+<!--Apropos-->
+
+<section class="container-fluid about">
+  <div class="container">
+    <div class="row">
+      <h2 id="about">A propos de nous</h2>
+      <hr class="separator">
+      <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
+        <h2>Etudes</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </article>
+      <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
+        <h2>Experiances</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </article>
+      <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
+        <h2>Hobbies</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </article>
+
+    </div>
+  </div>
+
+</section>
+
+
+<!--footer-->
+<section class="container-fluid footer">
+  <div class="container">
+    <div class="row">
+      <h2 id="contacter">Nous contacter</h2>
+      <hr class="separator">
+
+
+<div class="col-sm-12 contact-form">
+<form id="contact" method="post" class="form" role="form">
+<div class="row">
+<div class="col-xs-6 col-md-6 form-group">
+<input class="form-control" id="name" name="name" placeholder="Name" type="text" required  />
 </div>
-<button type="submit" >S'inscrire</button>
+<div class="col-xs-6 col-md-6 form-group">
+<input class="form-control" id="email" name="email" placeholder="Email" type="email" required />
+</div>
+</div>
+<textarea class="form-control" id="message" name="message" placeholder="Message" rows="5"></textarea>
+<br />
+<div class="row">
+<div class="col-xs-12 col-md-12 form-group">
+<button class="btn btn-primary pull-right" type="submit">Submit</button>
 </form>
+        </div>
+  </div>
+</div>
+</section>
+
+
 </body>
 </html>
