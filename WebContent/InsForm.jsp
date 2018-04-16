@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <!-- links-->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -32,17 +32,123 @@
     <div class="ban">
       <img src="img/1013.jpg" alt="Banniere du site">
     </div>
-    <div class="inner-banner">
-      <h1>Bienvenue</h1>
-      <button class="btn btn-custom">Contactez nous</button>
+    <section class="inner-banner">
+      <h1 style="color: #ffffff;">Inscrivez vous</h1>
+      <h4 style="color: #ffffff;">C'est gratuit</h4>
+      <!--formulaire inscripetion-->
+
+      <div class="container-fluid form">
+
+
+        <form action="" method="" class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+
+
+<!-- Text input-->
+<div class="form-group">
+<label class="col-md-2 control-label" for="Prenom">Prénom</label>
+<div class="col-md-9">
+<input id="Prenom" name="Prenom" type="text" placeholder="Votre prénom" class="form-control input-md" required>
+
+</div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+<label class="col-md-2 control-label" for="nom">Nom</label>
+<div class="col-md-9">
+<input id="nom" name="nom" type="text" placeholder="Votre nom" class="form-control input-md" required>
+
+</div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+<label class="col-md-2 control-label" for="mail">E-mail</label>
+<div class="col-md-9">
+<input id="mail" name="mail" type="text" placeholder="moi@exemple.com" class="form-control input-md" required>
+
+</div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+<label class="col-md-2 control-label" for="numtel">Mobile</label>
+<div class="col-md-9">
+<input id="numtel" name="numtel" type="text" placeholder="Votre mobile" class="form-control input-md" required>
+
+</div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+<label class="col-md-2 control-label" for="adresse">Adresse</label>
+<div class="col-md-9">
+<input id="adresse" name="adresse" type="text" placeholder="Votre Adresse" class="form-control input-md" required>
+
+</div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+<label class="col-md-2 control-label" for="datenais">Date naissance</label>
+<div class="col-md-9">
+<input id="datenais" name="datenais" type="text" placeholder="jj-mm-aaaa" class="form-control input-md" required>
+
+</div>
+</div>
+
+<!-- Password input-->
+<div class="form-group">
+<label class="col-md-2 control-label" for="mdpss">Mot de pass</label>
+<div class="col-md-9">
+<input id="mdpss" name="mdpss" type="password" placeholder="8 caractères minimum" class="form-control input-md" required>
+
+</div>
+</div>
+
+<!-- Multiple Radios -->
+<div class="form-group">
+<label class="col-md-3 control-label" for="radios">Sexe</label>
+<div class="col-md-6">
+<div class="radio">
+<label for="radios-0">
+  <input type="radio" name="sexe" id="radios-0" value="homme" checked="checked">
+  Homme
+</label>
+</div>
+<div class="radio">
+<label for="radios-1">
+  <input type="radio" name="sexe" id="radios-1" value="femme">
+  Femme
+</label>
+</div>
+<div class="radio">
+<label for="radios-2">
+  <input type="radio" name="sexe" id="radios-2" value="autre">
+  Autre
+</label>
+</div>
+</div>
+</div>
+<button type="submit" class="btn btn-custom">Inscription</button>
+</fieldset>
+</form>
+
+
+</section>
+
+
+
+
+
+
+
     </div>
 </section>
-<!--formulaire inscripetion-->
 
-<section class="container-fluid form">
-
-
-</section>
 <!--Apropos-->
 
 <section class="container-fluid about">
@@ -92,6 +198,8 @@
 <div class="row">
 <div class="col-xs-12 col-md-12 form-group">
 <button class="btn btn-primary pull-right" type="submit">Submit</button>
+</div>
+</div>
 </form>
         </div>
   </div>

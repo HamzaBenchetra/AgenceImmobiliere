@@ -73,12 +73,12 @@ a ,a:hover{
 }
 .inner-banner{
   position: absolute;
-  top:30%;
+  top:15%;
   width: 100%;
   text-align: center;
 }
-.inner-banner h1{
-  color:#ffffff;
+.inner-banner h1 h4{
+  color:#000000;
   text-shadow: 1px 1px 20px #000000;
 }
 .inner-banner .btn-custom{
@@ -90,6 +90,20 @@ a ,a:hover{
 }
 
 /*formulaire*/
+.form label{
+
+color: #ffffff
+}
+
+.form{
+  padding-top: 5%;
+  margin-left: 20%;
+  margin-right: 20%;
+  background-color: #000000;
+  opacity: 0.8;
+  border-radius: 5px;
+  padding-bottom: 5%;
+}
 /*about*/
 #about{
   padding-top: 10%;
