@@ -37,7 +37,7 @@
       <h4 style="color: #ffffff;">C'est gratuit</h4>
       <!--formulaire inscripetion-->
 
-      <div class="container-fluid form">
+      <div class="container-fluid formm">
 
 
         <form action="" method="" class="form-horizontal">
