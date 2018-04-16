@@ -3,7 +3,7 @@ package Model;
 
 public class Client {
 	private String nom,prenom,numtel,adresse,user,mdpss,sexe,datenais;
-	private float salaire;
+	
 	public String getNom() {
 		return nom;
 	}
