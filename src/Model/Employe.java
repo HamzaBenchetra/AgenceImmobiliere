@@ -3,7 +3,7 @@ package Model;
 
 public class Employe {
 	private String nom,prenom,numtel,adresse,mail,mdpss,sexe,datenais,type;
-	
+	String n;
 	public String getNom() {
 		return nom;
 	}
