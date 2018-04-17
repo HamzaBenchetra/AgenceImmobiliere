@@ -49,6 +49,8 @@ public class SignUp {
 	public static boolean InscriptionEmp(Employe E) {
 		ConnecterBD();
 		try {
+			if(E.getType().equalsIgnoreCase("operateur")) {
+			
 			PreparedStatement pst=connexion.prepareStatement("insert into "+E.getType()+"(nom,prenom,numtel,adresse,datenais,mail,mdpss,sexe) values(?,?,?,?,?,?,?,?);");
 			pst.setString(1, E.getNom());
 			pst.setString(2, E.getPrenom());
@@ -58,7 +60,19 @@ public class SignUp {
 			pst.setString(6, E.getMail());
 			pst.setString(7, E.getMdpss());
 			pst.setString(8, E.getSexe());
-			pst.executeUpdate();
+			pst.executeUpdate();}
+			else{
+				
+				PreparedStatement pst=connexion.prepareStatement("insert into "+E.getType()+"(idL,nom,prenom,numtel,adresse,datenais,mail,mdpss,sexe) values(1,?,?,?,?,?,?,?,?);");
+				pst.setString(1, E.getNom());
+				pst.setString(2, E.getPrenom());
+				pst.setString(3, E.getNumtel());
+				pst.setString(4, E.getAdresse());
+				pst.setString(5, E.getDatenais());
+				pst.setString(6, E.getMail());
+				pst.setString(7, E.getMdpss());
+				pst.setString(8, E.getSexe());
+				pst.executeUpdate();}
 			/*if(i==1) return true;
 			else return false;*/
 		} catch (SQLException e) {

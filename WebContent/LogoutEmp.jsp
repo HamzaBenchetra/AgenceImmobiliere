@@ -7,9 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1 align="center"> mot de pass ou email erroné</h1>
-<form method="get" action="http://localhost:8080/AgenceImmobiliere/LoginServlet">
-	<button>Revenir a l'acceuil</button>
-</form>
+<h1 align="center">Au revoir <%out.print(session.getAttribute("nom")); %></h1>
 </body>
+
+<form action="http://localhost:8080/AgenceImmobiliere/LoginEmploye">
+<div align="center" class="col-xs-12 col-sm-12 col-md-12">
+                        <input type="submit" value="Retour a l'Authentification" class="btn btn-skin btn-block btn-lg">
+</div>
+</form>
 </html>

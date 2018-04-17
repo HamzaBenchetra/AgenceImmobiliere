@@ -106,8 +106,8 @@
                         <div class="row">
                           <div class="col-xs-12 col-sm-12 col-md-12"">
                             <div class="form-group">
-                              <label>Psedonyme  </label>
-                              <input type="text" name="user" id="user" class="form-control input-md" required>
+                              <label>Email  </label>
+                              <input type="text" name="mail" id="mail" class="form-control input-md" required>
                               <div class="validation"></div>
                             </div>
                           </div>

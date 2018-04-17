@@ -32,9 +32,9 @@ public class SignupEmp extends HttpServlet {
 		e.setMail(request.getParameter("mail"));
 		e.setMdpss(request.getParameter("Mdpss"));
 		e.setSexe(request.getParameter("sexe"));
-		e.setType(request.getParameter("typpe"));
+		e.setType(request.getParameter("type"));
 		
-		//SignUp.InscriptionEmp(e);
+		SignUp.InscriptionEmp(e);
 		
 		
 		System.out.println(e.getNom());

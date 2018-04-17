@@ -33,14 +33,14 @@
       <img src="img/1013.jpg" alt="Banniere du site">
     </div>
     <section class="inner-banner">
-      <h1 style="color: #ffffff;">Inscrivez vous</h1>
-      <h4 style="color: #ffffff;">C'est gratuit</h4>
+      <h1 style="color: #ffffff;">Vous voulez travailler avec nous ?</h1>
+      <h4 style="color: #ffffff;">Postulez maintenant !</h4>
       <!--formulaire inscripetion-->
 
       <div class="container-fluid formm">
 
 
-        <form action="http://localhost:8080/AgenceImmobiliere/SignupServlet" method="post" class="form-horizontal">
+        <form action="http://localhost:8080/AgenceImmobiliere/SignupEmp" method="post" class="form-horizontal">
 <fieldset>
 
 <!-- Form Name -->
@@ -68,7 +68,7 @@
 <div class="form-group">
 <label class="col-md-2 control-label" for="mail">E-mail</label>
 <div class="col-md-9">
-<input id="mail" name="mail" type="text" placeholder="moi@exemple.com" class="form-control input-md" required>
+<input type="email" name="mail" id="email" class="form-control input-md" data-rule="email" data-msg="Entrez votre Email SVP ">
 
 </div>
 </div>
@@ -136,22 +136,13 @@
 
 
 <div class="form-group">
-<label class="col-md-3 control-label" for="radios">Postuler en tant que :</label>
-<div class="col-md-6">
-<div class="radio">
-<label for="radios-0">
-  <input type="radio" name="type" id="radios-0" value="Operateur" checked="checked">
-  Operateur
-</label>
-</div>
-<div class="radio">
-<label for="radios-1">
-  <input type="radio" name="type" id="radios-1" value="Agent">
-  Agent
-</label>
-</div>
-
-</div>
+  <label class="col-md-4 control-label" for="type">Inscription en tant que</label>
+  <div class="col-md-5">
+    <select id="type" name="type" class="form-control">
+      <option value="Operateur">Operateur</option>
+      <option value="Agent">Agent</option>
+    </select>
+  </div>
 </div>
 
 
@@ -213,7 +204,7 @@
 <input class="form-control" id="name" name="name" placeholder="Name" type="text" required  />
 </div>
 <div class="col-xs-6 col-md-6 form-group">
-<input class="form-control" id="email" name="email" placeholder="Email" type="email" required />
+<input class="form-control input-md" data-rule="email" id="email" name="email" placeholder="Email" type="email" required />
 </div>
 </div>
 <textarea class="form-control" id="message" name="message" placeholder="Message" rows="5"></textarea>

@@ -25,14 +25,14 @@ public class Login {
 	        
 	  }
 	 
-	 public static boolean AuthentificationClient(String tel,String mail,String mdpss) {
+	 public static boolean AuthentificationClient(String mail,String mdpss) {
 		
 		 ConnecterBD();
 		 try {
 			 Statement s=connexion.createStatement();
 			 ResultSet rs=s.executeQuery("Select * from client;");
 			 while(rs.next()){
-				if((mail.equals(rs.getString("mail"))&&mdpss.equals(rs.getString("mdpss")))||(tel.equals(rs.getString("numtel"))&&mdpss.equals(rs.getString("mdpss"))))
+				if((mail.equals(rs.getString("mail"))&&mdpss.equals(rs.getString("mdpss"))))
 						return true;
 				}
 		 }catch(Exception e){

@@ -68,7 +68,7 @@
 <div class="form-group">
 <label class="col-md-2 control-label" for="mail">E-mail</label>
 <div class="col-md-9">
-<input id="mail" name="mail" type="text" placeholder="moi@exemple.com" class="form-control input-md" required>
+<input type="email" name="mail" id="email" class="form-control input-md" data-rule="email" data-msg="Entrez votre Email SVP ">
 
 </div>
 </div>
@@ -77,7 +77,7 @@
 <div class="form-group">
 <label class="col-md-2 control-label" for="numtel">Mobile</label>
 <div class="col-md-9">
-<input id="numtel" name="NumTel" type="text" placeholder="Votre mobile" class="form-control input-md" required>
+<input id="numtel" name="NumTel" type="phone" placeholder="Votre mobile" class="form-control input-md" required>
 
 </div>
 </div>

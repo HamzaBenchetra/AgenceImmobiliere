@@ -138,7 +138,7 @@
                           <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
                               <label>Numéro téléphone</label>
-                              <input type="tel" name="NumTel" id="phone" class="form-control input-md" data-rule="minlen:3" data-msg="Entrez votre Numero telephone SVP">
+                              <input type="tel" name="NumTel" id="phone" class="form-control input-md" data-rule="phone" data-msg="Entrez votre Numero telephone SVP">
                               <div class="validation"></div>
                             </div>
                           </div>

@@ -26,14 +26,14 @@ public class LoginServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String mail=request.getParameter("mail");
-		String mdpss=request.getParameter("Mdpss");
-		String tel=request.getParameter("NumTel");
+		String mdpss=request.getParameter("pass");
+		
 		boolean b=false;
-		b=Login.AuthentificationClient(tel,mail, mdpss);
+		b=Login.AuthentificationClient(mail, mdpss);
 		if(b) {
 			HttpSession s=request.getSession(true);
 			
-			this.getServletContext().getRequestDispatcher("/EspaceClient.jsp").forward(request, response);
+			this.getServletContext().getRequestDispatcher("/Client.jsp").forward(request, response);
 		}
 		else {
 			this.getServletContext().getRequestDispatcher("/Echeque.jsp").forward(request, response);

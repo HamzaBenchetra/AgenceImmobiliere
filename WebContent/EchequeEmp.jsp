@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1 align="center"> mot de pass ou email erroné</h1>
-<form method="get" action="http://localhost:8080/AgenceImmobiliere/LoginServlet">
+<form method="get" action="http://localhost:8080/AgenceImmobiliere/LoginEmploye">
 	<button>Revenir a l'acceuil</button>
 </form>
 </body>

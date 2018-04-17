@@ -24,33 +24,28 @@ public class LoginEmploye extends HttpServlet {
 		
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String pseudo=request.getParameter("user");
+		String mail=request.getParameter("mail");
 		String mdpss=request.getParameter("pass");
 		String type=request.getParameter("type");
 		boolean b=false;
 		switch(type) {
-		case "Operateur" :b=Login.AuthentificationEmploye(type, pseudo, mdpss);
+		case "Operateur" :b=Login.AuthentificationEmploye(type,mail, mdpss);
 		if(b) {
 			HttpSession s=request.getSession(true);
-			s.setAttribute("nom", pseudo);
-			request.setAttribute("nom", pseudo);
-			request.setAttribute("type", type);
 			this.getServletContext().getRequestDispatcher("/Operateur.jsp").forward(request, response);
 		}
 		else {
 			this.getServletContext().getRequestDispatcher("/Echeque.jsp").forward(request, response);
 		}
 				break;
-		case "Agent" : b=Login.AuthentificationEmploye(type, pseudo, mdpss);
+		case "Agent" : b=Login.AuthentificationEmploye(type,mail, mdpss);
 		if(b) {
 			HttpSession s=request.getSession(true);
-			s.setAttribute("nom", pseudo);
-			request.setAttribute("nom", pseudo);
-			request.setAttribute("type", type);
+			
 			this.getServletContext().getRequestDispatcher("/Agent.jsp").forward(request, response);
 		}
 		else {
-			this.getServletContext().getRequestDispatcher("/Echeque.jsp").forward(request, response);
+			this.getServletContext().getRequestDispatcher("/EchequeEmp.jsp").forward(request, response);
 		}
 				break;
 	}
