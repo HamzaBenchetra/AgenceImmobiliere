@@ -26,10 +26,10 @@ public class SignUp {
 			}                   
 	        
 	  }
-	public static boolean Inscription(Client c) {
+	public static boolean InscriptionClient(Client c) {
 		ConnecterBD();
 		try {
-			PreparedStatement pst=connexion.prepareStatement("insert into operateur(nom,prenom,numtel,adresse,datenais,mail,mdpss,sexe) values(?,?,?,?,?,?,?,?);");
+			PreparedStatement pst=connexion.prepareStatement("insert into Client(nom,prenom,numtel,adresse,datenais,mail,mdpss,sexe) values(?,?,?,?,?,?,?,?);");
 			pst.setString(1, c.getNom());
 			pst.setString(2, c.getPrenom());
 			pst.setString(3, c.getNumtel());
@@ -38,6 +38,26 @@ public class SignUp {
 			pst.setString(6, c.getMail());
 			pst.setString(7, c.getMdpss());
 			pst.setString(8, c.getSexe());
+			pst.executeUpdate();
+			/*if(i==1) return true;
+			else return false;*/
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	public static boolean InscriptionEmp(Employe E) {
+		ConnecterBD();
+		try {
+			PreparedStatement pst=connexion.prepareStatement("insert into "+E.getType()+"(nom,prenom,numtel,adresse,datenais,mail,mdpss,sexe) values(?,?,?,?,?,?,?,?);");
+			pst.setString(1, E.getNom());
+			pst.setString(2, E.getPrenom());
+			pst.setString(3, E.getNumtel());
+			pst.setString(4, E.getAdresse());
+			pst.setString(5, E.getDatenais());
+			pst.setString(6, E.getMail());
+			pst.setString(7, E.getMdpss());
+			pst.setString(8, E.getSexe());
 			pst.executeUpdate();
 			/*if(i==1) return true;
 			else return false;*/

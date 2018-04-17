@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,9 +18,9 @@
     <a href="#" class="logo">Mon site</a>
     <nav class="menu">
       <a href="#">Accueil</a>
-      <a href="#">S'inscrire</a>
+      <a href="http://localhost:8080/AgenceImmobiliere/SignupServlet">S'inscrire</a>
       <a href="http://localhost:8080/AgenceImmobiliere/LoginServlet">Se connecter</a>
-      <a href="http://localhost:8080/AgenceImmobiliere/SignupEmp">Travailler avec nous</a>
+      <a href="http://localhost:8080/AgenceImmobiliere/InscriptionEmploye.jsp">Travailler avec nous</a>
       <a href="#contacter">Nou contacter</a>
       <a href="#about">A propos</a>
     </nav>
@@ -48,9 +48,9 @@
 
 <!-- Text input-->
 <div class="form-group">
-<label class="col-md-2 control-label" for="Prenom">Prénom</label>
+<label class="col-md-2 control-label" for="Prenom">PrÃ©nom</label>
 <div class="col-md-9">
-<input id="Prenom" name="Prenom" type="text" placeholder="Votre prénom" class="form-control input-md" required>
+<input id="Prenom" name="Prenom" type="text" placeholder="Votre prÃ©nom" class="form-control input-md" required>
 
 </div>
 </div>
@@ -104,7 +104,7 @@
 <div class="form-group">
 <label class="col-md-2 control-label" for="mdpss">Mot de pass</label>
 <div class="col-md-9">
-<input id="mdpss" name="Mdpss" type="password" placeholder="8 caractères minimum" class="form-control input-md" required>
+<input id="mdpss" name="Mdpss" type="password" placeholder="8 caractÃ¨res minimum" class="form-control input-md" required>
 
 </div>
 </div>
@@ -133,7 +133,29 @@
 </div>
 </div>
 </div>
-<button type="submit" class="btn btn-custom"  name="type" value="client">Inscription</button>
+
+
+<div class="form-group">
+<label class="col-md-3 control-label" for="radios">Postuler en tant que :</label>
+<div class="col-md-6">
+<div class="radio">
+<label for="radios-0">
+  <input type="radio" name="type" id="radios-0" value="Operateur" checked="checked">
+  Operateur
+</label>
+</div>
+<div class="radio">
+<label for="radios-1">
+  <input type="radio" name="type" id="radios-1" value="Agent">
+  Agent
+</label>
+</div>
+
+</div>
+</div>
+
+
+<button type="submit" class="btn btn-custom">Inscription</button>
 </fieldset>
 </form>
 

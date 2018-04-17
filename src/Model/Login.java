@@ -25,14 +25,14 @@ public class Login {
 	        
 	  }
 	 
-	 public static boolean AuthentificationClient(String user,String mdpss) {
+	 public static boolean AuthentificationClient(String tel,String mail,String mdpss) {
 		
 		 ConnecterBD();
 		 try {
 			 Statement s=connexion.createStatement();
 			 ResultSet rs=s.executeQuery("Select * from client;");
 			 while(rs.next()){
-				if((user.equals(rs.getString("user"))&&mdpss.equals(rs.getString("mdpss"))))
+				if((mail.equals(rs.getString("mail"))&&mdpss.equals(rs.getString("mdpss")))||(tel.equals(rs.getString("numtel"))&&mdpss.equals(rs.getString("mdpss"))))
 						return true;
 				}
 		 }catch(Exception e){
@@ -43,32 +43,16 @@ public class Login {
 		 return false;
 	 }
 	 
-	 public static boolean AuthentificationAdmin(String user,String mdpss) {
-			
-		 ConnecterBD();
-		 try {
-			 Statement s=connexion.createStatement();
-			 ResultSet rs=s.executeQuery("Select * from Admin;");
-			 while(rs.next()){
-				if((user.equals(rs.getString("user"))&&mdpss.equals(rs.getString("mdpss"))))
-						return true;
-				}
-		 }catch(Exception e){
-			 e.printStackTrace();
-		 }
-		 
-		 
-		 return false;
-	 }
 	 
-	 public static boolean AuthentificationEmploye(String type,String user,String mdpss) {
+	 
+	 public static boolean AuthentificationEmploye(String type,String mail,String mdpss) {
 			
 		 ConnecterBD();
 		 try {
 			 Statement s=connexion.createStatement();
 			 ResultSet rs=s.executeQuery("Select * from "+type+";");
 			 while(rs.next()){
-				if((user.equals(rs.getString("user"))&&mdpss.equals(rs.getString("mdpss"))))
+				if((mail.equals(rs.getString("mail"))&&mdpss.equals(rs.getString("mdpss"))))
 						return true;
 				}
 		 }catch(Exception e){

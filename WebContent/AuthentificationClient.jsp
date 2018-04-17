@@ -66,9 +66,9 @@
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
           <ul class="nav navbar-nav">
             <li><a href="#intro">Accueil</a></li>
-            <li class="active"><a href="http://localhost:8080/AgenceImmobiliere/AuthentificationClient.jsp">Se connecter</a></li>
-            <li><a href="http://localhost:8080/AgenceImmobiliere/Inscription.jsp">S'inscrire</a></li>
-            <li><a href="#doctor">Offres d'empoiles</a></li>
+            <li class="active"><a href="http://localhost:8080/AgenceImmobiliere/LoginServlet">Se connecter</a></li>
+            <li><a href="http://localhost:8080/AgenceImmobiliere/SignupServlet">S'inscrire</a></li>
+            <li><a href="http://localhost:8080/AgenceImmobiliere/SignupEmp">Travailler avec nous</a></li>
             
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Aide<b class="caret"></b></a>

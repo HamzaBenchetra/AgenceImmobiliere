@@ -25,16 +25,14 @@ public class LoginServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String pseudo=request.getParameter("user");
-		String mdpss=request.getParameter("pass");
-		String type=request.getParameter("type");
+		String mail=request.getParameter("mail");
+		String mdpss=request.getParameter("Mdpss");
+		String tel=request.getParameter("NumTel");
 		boolean b=false;
-		b=Login.AuthentificationClient(pseudo, mdpss);
+		b=Login.AuthentificationClient(tel,mail, mdpss);
 		if(b) {
 			HttpSession s=request.getSession(true);
-			s.setAttribute("nom", pseudo);
-			request.setAttribute("nom", pseudo);
-			request.setAttribute("type", type);
+			
 			this.getServletContext().getRequestDispatcher("/EspaceClient.jsp").forward(request, response);
 		}
 		else {

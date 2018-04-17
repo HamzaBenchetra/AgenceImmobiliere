@@ -33,7 +33,7 @@ public class SignupServle extends HttpServlet {
 		c.setSexe(request.getParameter("sexe"));
 		//String type=request.getParameter("type");
 		
-		SignUp.Inscription(c);
+		SignUp.InscriptionClient(c);
 		
 		
 		System.out.println(c.getNom());
