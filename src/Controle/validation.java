@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Model.Fonctions;
 import Model.Login;
 
 /**
@@ -40,6 +41,7 @@ public class validation extends HttpServlet {
 		case "oui" :{
 			HttpSession session1 = request.getSession();
 			int d=(int)session1.getAttribute("ID");
+			Fonctions.Valider(d);
 			response.setContentType("text/html");
 			PrintWriter out=response.getWriter(); 
 			out.print("validation terminée avc succés");
