@@ -48,7 +48,7 @@ public class validation extends HttpServlet {
 		
 		}break;
 		case "non" :{ 
-	
+	int i;
 			
 			ds =request.getRequestDispatcher("/AfficherListClient.jsp");	
 			ds.forward(request, response);
