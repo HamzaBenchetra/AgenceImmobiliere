@@ -7,12 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1 align="center">Au revoir</h1>
+<h1>Veuillez d'abors vous identifier</h1>
+<button><a href="http://localhost:8080/AgenceImmobiliere/LoginServlet">S'authentifier</a></button>
 </body>
-
-<form action="http://localhost:8080/AgenceImmobiliere/LoginServlet">
-<div align="center" class="col-xs-12 col-sm-12 col-md-12">
-                        <input type="submit" value="Retour a l'Authentification" class="btn btn-skin btn-block btn-lg">
-</div>
-</form>
 </html>

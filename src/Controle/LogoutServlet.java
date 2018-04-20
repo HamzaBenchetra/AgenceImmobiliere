@@ -17,8 +17,13 @@ public class LogoutServlet extends HttpServlet {
     }
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	HttpSession s=request.getSession(true);
+	if (s.isNew()) {
+		s.invalidate();
+	this.getServletContext().getRequestDispatcher("/Mustlogin.jsp").forward(request, response);
+	}else {
 	this.getServletContext().getRequestDispatcher("/Logout.jsp").forward(request, response);
 	s.invalidate();
+	}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -20,7 +20,7 @@ public class Fonctions {
 				e.printStackTrace();
 			}  
 			try {
-				connexion = DriverManager.getConnection("jdbc:mysql://Localhost:3306/agenceimmobiliere", "root", "lg1213012130");
+				connexion = DriverManager.getConnection("jdbc:mysql://Localhost:3306/agenceimmobiliere", "root", "0000");
 		        System.out.println("Connection ok!");
 
 			} catch (SQLException e) {
@@ -115,7 +115,8 @@ public static ArrayList<Client> AfficherDetailsClient(int id){
 			}
 			}
 		public static void main(String[] args) {
-			
+			ArrayList<Client> L=RecupererListClient();
+			System.out.println(L.get(1).getIdc());
 			//Fonctions.Valider(2);
 		}
 }

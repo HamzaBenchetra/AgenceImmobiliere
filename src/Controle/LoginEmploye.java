@@ -24,6 +24,9 @@ public class LoginEmploye extends HttpServlet {
 		
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		
 		String mail=request.getParameter("mail");
 		String mdpss=request.getParameter("pass");
 		String type=request.getParameter("type");
