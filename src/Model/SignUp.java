@@ -18,7 +18,7 @@ public class SignUp {
 				e.printStackTrace();
 			}  
 			try {
-				connexion = DriverManager.getConnection("jdbc:mysql://Localhost:3306/agenceimmobiliere", "root", "lg1213012130");
+				connexion = DriverManager.getConnection("jdbc:mysql://Localhost:3306/agenceimmobiliere", "root", "0000");
 		        System.out.println("Connection ok!");
 
 			} catch (SQLException e) {
@@ -28,9 +28,8 @@ public class SignUp {
 	  }
 	public static boolean InscriptionClient(Client c) {
 		ConnecterBD();
-		int i=-5;
 		try {
-			PreparedStatement pst=connexion.prepareStatement("insert into client(nom,prenom,numtel,adresse,datenais,mail,mdpss,sexe) values(?,?,?,?,?,?,?,?);");
+			PreparedStatement pst=connexion.prepareStatement("insert into Client(nom,prenom,numtel,adresse,datenais,mail,mdpss,sexe) values(?,?,?,?,?,?,?,?);");
 			pst.setString(1, c.getNom());
 			pst.setString(2, c.getPrenom());
 			pst.setString(3, c.getNumtel());
@@ -39,17 +38,16 @@ public class SignUp {
 			pst.setString(6, c.getMail());
 			pst.setString(7, c.getMdpss());
 			pst.setString(8, c.getSexe());
-			i=pst.executeUpdate();
-		if(i!=-5) return true;
-		else return false;
-	} catch (SQLException e) {
-		e.printStackTrace();
-	}
-	return false;
+			pst.executeUpdate();
+			/*if(i==1) return true;
+			else return false;*/
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 	public static boolean InscriptionEmp(Employe E) {
 		ConnecterBD();
-		int i=-5;
 		try {
 			if(E.getType().equalsIgnoreCase("operateur")) {
 			
@@ -62,7 +60,7 @@ public class SignUp {
 			pst.setString(6, E.getMail());
 			pst.setString(7, E.getMdpss());
 			pst.setString(8, E.getSexe());
-			i=pst.executeUpdate();}
+			pst.executeUpdate();}
 			else{
 				
 				PreparedStatement pst=connexion.prepareStatement("insert into "+E.getType()+"(idL,nom,prenom,numtel,adresse,datenais,mail,mdpss,sexe) values(1,?,?,?,?,?,?,?,?);");
@@ -74,9 +72,9 @@ public class SignUp {
 				pst.setString(6, E.getMail());
 				pst.setString(7, E.getMdpss());
 				pst.setString(8, E.getSexe());
-				i=pst.executeUpdate();}
-			if(i!=-5) return true;
-			else return false;
+				pst.executeUpdate();}
+			/*if(i==1) return true;
+			else return false;*/
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
