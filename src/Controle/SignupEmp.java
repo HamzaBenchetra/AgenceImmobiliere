@@ -1,6 +1,8 @@
 package Controle;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,6 +25,8 @@ public class SignupEmp extends HttpServlet {
 		this.getServletContext().getRequestDispatcher("/InscriptionEmploye.jsp").forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+		PrintWriter out=response.getWriter(); 
 		Employe e=new Employe();
 		e.setNom(request.getParameter("Nom"));
 		e.setPrenom(request.getParameter("Prenom"));
@@ -34,8 +38,10 @@ public class SignupEmp extends HttpServlet {
 		e.setSexe(request.getParameter("sexe"));
 		e.setType(request.getParameter("type"));
 		
-		SignUp.InscriptionEmp(e);
-		
+		if(SignUp.InscriptionEmp(e))
+			out.print("inscription terminéé avc succés");
+		else
+			out.print("no inscription");
 		
 		System.out.println(e.getNom());
 		System.out.println(e.getPrenom());

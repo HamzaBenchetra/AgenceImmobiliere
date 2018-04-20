@@ -3,7 +3,7 @@ package Model;
 
 public class Client {
 	private String nom,prenom,numtel,adresse,mail,mdpss,sexe,datenais;
-	
+	private int Idc;
 	public String getNom() {
 		return nom;
 	}
@@ -51,6 +51,13 @@ public class Client {
 	}
 	public void setSexe(String sexe) {
 		this.sexe = sexe;
+	}
+	
+	public int getIdc() {
+		return Idc;
+	}
+	public void setIdc(int idc) {
+		Idc = idc;
 	};
 
 }
