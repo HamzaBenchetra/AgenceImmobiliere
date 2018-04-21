@@ -3,12 +3,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
-<%
-    response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");//HTTP 1.1
-    response.setHeader("Pragma","no-cache"); //HTTP 1.0
-    response.setDateHeader ("Expires", 0);
-%>
-
 <head>
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 
@@ -53,7 +47,7 @@
   
         
         
-     
+    <article> 
    <div class="row">
     <div class="col s12 m6">
       <div class="card">
@@ -68,6 +62,7 @@
       </div>
     </div>
   </div>
+  </article>
          
            <div class="row">
     <div class="col s12 m6">

@@ -1,273 +1,129 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="fr">
-
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Société immobiliére</title>
-
-  <!-- css -->
-  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" type="text/css" href="plugins/cubeportfolio/css/cubeportfolio.min.css">
-  <link href="css/nivo-lightbox.css" rel="stylesheet" />
-  <link href="css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
-  <link href="css/owl.theme.css" rel="stylesheet" media="screen" />
-  <link href="css/animate.css" rel="stylesheet" />
-  <link href="css/style.css" rel="stylesheet">
-
-  <!-- boxed bg -->
-  <link id="bodybg" href="bodybg/bg1.css" rel="stylesheet" type="text/css" />
-  <!-- template skin -->
-  <link id="t-colors" href="color/default.css" rel="stylesheet">
-
-  <!-- =======================================================
-    Theme Name: Medicio
-    Theme URL: https://bootstrapmade.com/medicio-free-bootstrap-theme/
-    Author: BootstrapMade
-    Author URL: https://bootstrapmade.com
-  ======================================================= -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<!-- links-->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/Style1.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
-<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+<body>
+  <!-- head-->
 
-
-  <div id="wrapper">
-
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation" style="opacity: 0.8">
-      <div class="top-area">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-6 col-md-6">
-              <p class="bold text-left">Samedi - Jeudi , 8h à 16h </p>
-            </div>
-            <div class="col-sm-6 col-md-6">
-              <p class="bold text-right">Call us now +213 669 60 14 01</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container navigation">
-
-        <div class="navbar-header page-scroll">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    <i class="fa fa-bars"></i>
-                </button>
-          <a class="navbar-brand" href="index.html">
-                    <img src="img/" alt="" width="90" height="40" />
-                </a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="#intro">Accueil</a></li>
-            <li class="active"><a href="http://localhost:8080/AgenceImmobiliere/LoginServlet">Se connecter</a></li>
-            <li><a href="http://localhost:8080/AgenceImmobiliere/SignupServlet">S'inscrire</a></li>
-            <li><a href="http://localhost:8080/AgenceImmobiliere/SignupEmp">Travailler avec nous</a></li>
-            
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Aide<b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="index.html">A propos</a></li>
-                <li><a href="index-form.html">Mentions légales</a></li>
-                <li><a href="index-video.html">Nous contacter</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-      </div>
-      <!-- /.container -->
+<header class="container-fluid header" >
+  <div class="container">
+    <a href="#" class="logo">Mon site</a>
+    <nav class="menu">
+      <a href="#">Accueil</a>
+      <a href="http://localhost:8080/AgenceImmobiliere/SignupServlet">S'inscrire</a>
+      <a href="http://localhost:8080/AgenceImmobiliere/LoginServlet">Se connecter</a>
+      <a href="http://localhost:8080/AgenceImmobiliere/SignupEmp">Travailler avec nous</a>
+      <a href="#contacter">Nou contacter</a>
+      <a href="#about">A propos</a>
     </nav>
-    
-
-
-      <div class="intro-content">
-        <div class="container">
-          <div class="row" style="margin-left: 20%; margin-right: 20%;">
-            
-            <div class="col-lg-12">
-              <div class="form-wrapper">
-                <div class="wow fadeInRight" data-wow-duration="2s" data-wow-delay="0.2s">
-
-                  <div class="panel panel-skin">
-                    <div class="panel-heading">
-                      <h3 class="panel-title"><span class="fa fa-pencil-square-o"></span> Connecter vous</h3>
-                    </div>
-                    <div class="panel-body">
-
-                      <form action="http://localhost:8080/AgenceImmobiliere/LoginServlet" method="post" role="form" class="contactForm lead">
-
-                        <div class="row">
-                          <div class="col-xs-12 col-sm-12 col-md-12"">
-                            <div class="form-group">
-                              <label>Email  </label>
-                              <input type="text" name="mail" id="mail" class="form-control input-md" required>
-                              <div class="validation"></div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                              <label>Mot de pass   </label>
-                              <input type="password" name="pass" id="pass" class="form-control input-md" required>
-                              <div class="validation"></div>
-                            </div>
-                          </div>
-                        </div>
-                        <input type="submit" value="Connexion" class="btn btn-skin btn-block btn-lg">
-
-                      </form>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-   
-
-
-
-
-
-
-
-
-
-
-        <footer>
-
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6 col-md-4">
-            <div class="wow fadeInDown" data-wow-delay="0.1s">
-              <div class="widget">
-                <h5>About Medicio</h5>
-                <p>
-                  Lorem ipsum dolor sit amet, ne nam purto nihil impetus, an facilisi accommodare sea
-                </p>
-              </div>
-            </div>
-            <div class="wow fadeInDown" data-wow-delay="0.1s">
-              <div class="widget">
-                <h5>Information</h5>
-                <ul>
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">Laboratory</a></li>
-                  <li><a href="#">Medical treatment</a></li>
-                  <li><a href="#">Terms & conditions</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4">
-            <div class="wow fadeInDown" data-wow-delay="0.1s">
-              <div class="widget">
-                <h5>Medicio center</h5>
-                <p>
-                  Nam leo lorem, tincidunt id risus ut, ornare tincidunt naqunc sit amet.
-                </p>
-                <ul>
-                  <li>
-                    <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-calendar-o fa-stack-1x fa-inverse"></i>
-                </span> Monday - Saturday, 8am to 10pm
-                  </li>
-                  <li>
-                    <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
-                </span> +62 0888 904 711
-                  </li>
-                  <li>
-                    <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
-                </span> hello@medicio.com
-                  </li>
-
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4">
-            <div class="wow fadeInDown" data-wow-delay="0.1s">
-              <div class="widget">
-                <h5>Our location</h5>
-                <p>The Suithouse V303, Kuningan City, Jakarta Indonesia 12940</p>
-
-              </div>
-            </div>
-            <div class="wow fadeInDown" data-wow-delay="0.1s">
-              <div class="widget">
-                <h5>Follow us</h5>
-                <ul class="company-social">
-                  <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                  <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                  <li class="social-google"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                  <li class="social-vimeo"><a href="#"><i class="fa fa-vimeo-square"></i></a></li>
-                  <li class="social-dribble"><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="sub-footer">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-6 col-md-6 col-lg-6">
-              <div class="wow fadeInLeft" data-wow-delay="0.1s">
-                <div class="text-left">
-                  <p>&copy;Copyright - Medicio Theme. All rights reserved.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-6 col-lg-6">
-              <div class="wow fadeInRight" data-wow-delay="0.1s">
-                <div class="text-right">
-                  <div class="credits">
-                    <!--
-                      All the links in the footer should remain intact. 
-                      You can delete the links only if you purchased the pro version.
-                      Licensing information: https://bootstrapmade.com/license/
-                      Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Medicio
-                    -->
-                    <a href="https://bootstrapmade.com/bootstrap-education-templates/">hamza</a> 
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-
   </div>
-  <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+</header>
 
-  <!-- Core JavaScript Files -->
-  <script src="js/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.min.js"></script>
-  <script src="js/wow.min.js"></script>
-  <script src="js/jquery.scrollTo.js"></script>
-  <script src="js/jquery.appear.js"></script>
-  <script src="js/stellar.js"></script>
-  <script src="plugins/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/nivo-lightbox.min.js"></script>
-  <script src="js/custom.js"></script>
+<!--baniere du site-->
+<section class="container-fluid banner">
+    <div class="ban">
+      <img src="img/1013.jpg" alt="Banniere du site">
+    </div>
+    <section class="inner-banner">
+      <h1 style="color: #ffffff;">Connectez Vous</h1>
+      <!--formulaire inscripetion-->
+
+      <div class="container-fluid formm">
+
+
+        <form action="http://localhost:8080/AgenceImmobiliere/LoginServlet" method="post" class="form-horizontal">
+			<fieldset>
+
+
+<!-- Text input-->
+			<div class="form-group">
+			<label class="col-md-2 control-label" for="mail">E-mail</label>
+				<div class="col-md-9">
+					<input type="email" name="mail" id="email" placeholder="moi@exemple.com" class="form-control input-md" data-rule="email" data-msg="Entrez votre Email SVP ">
+				</div>
+			</div>
+<!-- Password input-->
+			<div class="form-group">
+			<label class="col-md-2 control-label" for="mdpss">Mot de pass</label>
+				<div class="col-md-9">
+					<input id="mdpss" name="pass" type="password" placeholder="8 caractÃ¨res minimum" class="form-control input-md" required>
+				</div>
+			</div>
+				<button type="submit" class="btn btn-custom">Connexion</button>
+			</fieldset>
+		</form>
+		<h4 style="color: #ffffff;">Vou n'avez pas de compte ? <a href="http://localhost:8080/AgenceImmobiliere/SignupServlet">Inscrivez vous</a></h4>
+		</div>
+		
+	</section>
+
+</section>
+
+<!--Apropos-->
+
+<section class="container-fluid about">
+  <div class="container">
+    <div class="row">
+      <h2 id="about">A propos de nous</h2>
+      <hr class="separator">
+      <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
+        <h2>Etudes</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </article>
+      <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
+        <h2>Experiances</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </article>
+      <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
+        <h2>Hobbies</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </article>
+
+    </div>
+  </div>
+
+</section>
+
+
+<!--footer-->
+<section class="container-fluid footer">
+  <div class="container">
+    <div class="row">
+      <h2 id="contacter">Nous contacter</h2>
+      <hr class="separator">
+
+
+<div class="col-sm-12 contact-form">
+<form id="contact" method="post" class="form" role="form">
+<div class="row">
+<div class="col-xs-6 col-md-6 form-group">
+<input class="form-control" id="name" name="name" placeholder="Name" type="text" required  />
+</div>
+<div class="col-xs-6 col-md-6 form-group">
+<input class="form-control input-md" data-rule="email" id="email" name="email" placeholder="Email" type="email" required />
+</div>
+</div>
+<textarea class="form-control" id="message" name="message" placeholder="Message" rows="5"></textarea>
+<br />
+<div class="row">
+<div class="col-xs-12 col-md-12 form-group">
+<button class="btn btn-primary pull-right" type="submit">Submit</button>
+</div>
+</div>
+</form>
+        </div>
+  </div>
+</div>
+</section>
+
 
 </body>
 </html>

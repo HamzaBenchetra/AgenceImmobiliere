@@ -18,7 +18,7 @@ public class SignUp {
 				e.printStackTrace();
 			}  
 			try {
-				connexion = DriverManager.getConnection("jdbc:mysql://Localhost:3306/agenceimmobiliere", "root", "lg1213012130");
+				connexion = DriverManager.getConnection("jdbc:mysql://Localhost:3306/agenceimmobiliere", "root", "0000");
 		        System.out.println("Connection ok!");
 
 			} catch (SQLException e) {

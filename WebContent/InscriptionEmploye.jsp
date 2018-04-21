@@ -95,7 +95,7 @@
 <div class="form-group">
 <label class="col-md-2 control-label" for="datenais">Date naissance</label>
 <div class="col-md-9">
-<input id="datenais" name="datenais" type="date" placeholder="jj-mm-aaaa" class="form-control input-md" required>
+<input id="datenais" name="datenais" type="date" placeholder="jj-mm-aaaa" class="form-control input-md" max="2000-01-01" min="1928-01-01" required>
 
 </div>
 </div>
