@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
 		if(b) {
 			HttpSession s=request.getSession(true);
 			s.setAttribute("type", "Client");
-			this.getServletContext().getRequestDispatcher("/Client.jsp").forward(request, response);
+			this.getServletContext().getRequestDispatcher("/EspaceClient.jsp").forward(request, response);
 		}
 		else {
 			this.getServletContext().getRequestDispatcher("/Echeque.jsp").forward(request, response);
