@@ -3,11 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
-<%
-    response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");//HTTP 1.1
-    response.setHeader("Pragma","no-cache"); //HTTP 1.0
-    response.setDateHeader ("Expires", 0);
-%>
+
 
 <head>
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
@@ -41,7 +37,7 @@
     </nav>
       <nav>
        <div class="collection">
-    <a href="#!" class="collection-item">Préavis<span class="badge"></span></a>
+    <a href="http://localhost:8080/AgenceImmobiliere/NewFile.jsp" class="collection-item">Préavis<span class="badge"></span></a>
     <a href="#!" class="collection-item">Rendez vous<span class="badge"></span></a>
     
   

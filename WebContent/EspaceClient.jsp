@@ -12,8 +12,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1 align="center">Connexion OK 
-Bienvenue <%out.print(session.getAttribute("nom")); %></h1>
+<h1 align="center">Connexion OK Bienvenue </h1>
 <form action="http://localhost:8080/AgenceImmobiliere/LogoutServlet">
 <div align="center" class="col-xs-12 col-sm-12 col-md-12">
                         <input type="submit" value="Deconnexion" class="btn btn-skin btn-block btn-lg">

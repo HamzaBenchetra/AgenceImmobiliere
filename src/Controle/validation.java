@@ -14,26 +14,27 @@ import javax.servlet.http.HttpSession;
 import Model.Fonctions;
 import Model.Login;
 
-/**
- * Servlet implementation class validation
- */
 @WebServlet("/validation")
 public class validation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public validation() {
         super();
-        // TODO Auto-generated constructor stub
     }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+			HttpSession s=request.getSession(true);
+			if(s.isNew()) {
+				s.invalidate();
+				this.getServletContext().getRequestDispatcher("/Mustlogin.jsp").forward(request, response);
+			}else {
+				if(((String) s.getAttribute("type")).equalsIgnoreCase("Admin")) {
+					this.getServletContext().getRequestDispatcher("/AfficherListClient.jsp").forward(request, response);
+				}else {
+					this.getServletContext().getRequestDispatcher("/AccessDenied.jsp").forward(request, response);
+
+				}
+			}
+	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher ds ;
 
 		String type=request.getParameter("valid");
@@ -42,10 +43,7 @@ public class validation extends HttpServlet {
 			HttpSession session1 = request.getSession();
 			int d=(int)session1.getAttribute("ID");
 			Fonctions.Valider(d);
-			response.setContentType("text/html");
-			PrintWriter out=response.getWriter(); 
-			out.print("validation terminée avc succés");
-		
+			this.getServletContext().getRequestDispatcher("/ValidationOk.jsp").forward(request, response);
 		}break;
 		case "non" :{ 
 	int i;
@@ -53,17 +51,6 @@ public class validation extends HttpServlet {
 			ds =request.getRequestDispatcher("/AfficherListClient.jsp");	
 			ds.forward(request, response);
 		}break;
-		}	
-	}
-
-	
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-		
+		}
 }
 }

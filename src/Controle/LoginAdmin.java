@@ -10,35 +10,30 @@ import javax.servlet.http.HttpSession;
 
 import Model.Login;
 
-@WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/LoginAdmin")
+public class LoginAdmin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
- 
-    public LoginServlet() {
+
+    public LoginAdmin() {
         super();
     }
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		this.getServletContext().getRequestDispatcher("/AuthentificationClient.jsp").forward(request, response);
-		
+		this.getServletContext().getRequestDispatcher("/AuthentificationAdmin.jsp").forward(request, response);
 	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String mail=request.getParameter("mail");
 		String mdpss=request.getParameter("pass");
-		
+		String type=request.getParameter("type");
 		boolean b=false;
-		b=Login.AuthentificationClient(mail, mdpss);
+		b=Login.AuthentificationEmploye(type, mail, mdpss);
 		if(b) {
 			HttpSession s=request.getSession(true);
-			s.setAttribute("type", "Client");
-			this.getServletContext().getRequestDispatcher("/Client.jsp").forward(request, response);
+			s.setAttribute("type", type);
+			this.getServletContext().getRequestDispatcher("/EspaceAdmin.jsp").forward(request, response);
+		}else {
+			this.getServletContext().getRequestDispatcher("/EchequeAdmin.jsp").forward(request, response);
 		}
-		else {
-			this.getServletContext().getRequestDispatcher("/Echeque.jsp").forward(request, response);
-		}
-		
-		}
+			
+	}
 
 }

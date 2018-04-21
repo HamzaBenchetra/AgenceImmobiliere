@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Bonjour</h1>
+<h1>Demande validée</h1>
+<button><a href="http://localhost:8080/AgenceImmobiliere/validation">Valider d'autres demandes</a></button>
 </body>
 </html>

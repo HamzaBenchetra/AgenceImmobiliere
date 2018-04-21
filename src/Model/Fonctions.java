@@ -114,6 +114,26 @@ public static ArrayList<Client> AfficherDetailsClient(int id){
 				return false;
 			}
 			}
+		
+		public static boolean SupprimerClient(int id){
+			int statut = -5;
+			ConnecterBD();
+			try {
+			
+		//	String SQL ="update client set etat =1 where idClient="+id;
+			PreparedStatement pst=connexion.prepareStatement("DELETE FROM client WHERE idClient="+id+";");
+
+			statut= pst.executeUpdate();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if(statut != -5){
+				return true;
+			}else{
+				return false;
+			}
+			}
 		public static void main(String[] args) {
 			ArrayList<Client> L=RecupererListClient();
 			System.out.println(L.get(1).getIdc());

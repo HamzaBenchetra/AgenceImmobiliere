@@ -21,6 +21,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		s.invalidate();
 	this.getServletContext().getRequestDispatcher("/Mustlogin.jsp").forward(request, response);
 	}else {
+		System.out.println((String) s.getAttribute("type"));
 	this.getServletContext().getRequestDispatcher("/Logout.jsp").forward(request, response);
 	s.invalidate();
 	}

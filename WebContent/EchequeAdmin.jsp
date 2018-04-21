@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Echeque</title>
 </head>
 <body>
-<h1>Bonjour</h1>
+<h1>veuillez <a href="http://localhost:8080/AgenceImmobiliere/LoginAdmin" >réessayer</a></h1>
 </body>
 </html>

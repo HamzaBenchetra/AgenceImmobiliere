@@ -7,12 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1 align="center">Au revoir <%out.print(session.getAttribute("nom")); %></h1>
+<h1>Vous devez etre admin pour continuer</h1>
 </body>
-
-<form action="http://localhost:8080/AgenceImmobiliere/LoginEmploye">
-<div align="center" class="col-xs-12 col-sm-12 col-md-12">
-                        <input type="submit" value="Retour a l'Authentification" class="btn btn-skin btn-block btn-lg">
-</div>
-</form>
 </html>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="utf-8">
@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Medicio landing page template for Health niche</title>
+  <title>Société immobiliére</title>
 
   <!-- css -->
   <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -17,13 +17,12 @@
   <link rel="stylesheet" type="text/css" href="plugins/cubeportfolio/css/cubeportfolio.min.css">
   <link href="css/nivo-lightbox.css" rel="stylesheet" />
   <link href="css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
-  <link href="css/owl.carousel.css" rel="stylesheet" media="screen" />
   <link href="css/owl.theme.css" rel="stylesheet" media="screen" />
   <link href="css/animate.css" rel="stylesheet" />
   <link href="css/style.css" rel="stylesheet">
 
   <!-- boxed bg -->
-  <link id="bodybg" href="bodybg/bg11.css" rel="stylesheet" type="text/css" />
+  <link id="bodybg" href="bodybg/bg1.css" rel="stylesheet" type="text/css" />
   <!-- template skin -->
   <link id="t-colors" href="color/default.css" rel="stylesheet">
 
@@ -34,13 +33,12 @@
     Author URL: https://bootstrapmade.com
   ======================================================= -->
 </head>
-
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
 
 
-  <div id="wrapper" >
+  <div id="wrapper">
 
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation" style="opacity: 0.8">
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
       <div class="top-area">
         <div class="container">
           <div class="row">
@@ -67,9 +65,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
           <ul class="nav navbar-nav">
-            <li ><a href="#intro">Accueil</a></li>
-            <li><a href="http://localhost:8080/AgenceImmobiliere/AuthentificationClient.jsp">Se connecter</a></li>
-            <li class="active"><a href="http://localhost:8080/AgenceImmobiliere/Inscription.jsp">S'inscrire</a></li>
+            <li><a href="#intro">Accueil</a></li>
+            <li class="active"><a href="#service">Se connecter</a></li>
+            <li><a href="#doctor">S'inscrire</a></li>
             <li><a href="#doctor">Offres d'empoiles</a></li>
             
             <li class="dropdown">
@@ -88,136 +86,65 @@
     </nav>
     
 
-    <!-- Section: intro -->
-    
+	    <section id="intro" class="intro">
       <div class="intro-content">
         <div class="container">
-          <div class="row" style="margin-left: 20% ;margin-right: 20%">
+          <div class="row" style="margin-left: 20%; margin-right: 20%;">
             
-            <div class="col-lg-12" >
+            <div class="col-lg-12">
               <div class="form-wrapper">
-                <div class="wow fadeInRight" data-wow-duration="2s" data-wow-delay="0.2s" >
+                <div class="wow fadeInRight" data-wow-duration="2s" data-wow-delay="0.2s">
 
                   <div class="panel panel-skin">
                     <div class="panel-heading">
-                      <h3 class="panel-title"><span class="fa fa-pencil-square-o"></span>Inscription<small></small></h3>
+                      <h3 class="panel-title"><span class="fa fa-pencil-square-o"></span> Connecter vous</h3>
                     </div>
                     <div class="panel-body">
-                      <div id="sendmessage">Your message has been sent. Thank you!</div>
-                      <div id="errormessage"></div>
 
-                      <form action="http://localhost:8080/AgenceImmobiliere/SignupServlet" method="post" role="form" class="contactForm lead">
+                      <form action="http://localhost:8080/AgenceImmobiliere/LoginAdmin" method="post" role="form" class="contactForm lead">
+
                         <div class="row">
-                          <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="col-s-12 col-s-12 col-md-6">
                             <div class="form-group">
-                              <label>Nom </label>
-                              <input type="text" name="Nom" id="Nom" class="form-control input-md" data-rule="minlen:3" data-msg="Entrez votre Nom SVP">
+                              <label>E-mail  </label>
+                              <input type="email" name="mail" id="mail" required>
                               <div class="validation"></div>
                             </div>
                           </div>
                           <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
-                              <label>Prénom</label>
-                              <input type="text" name="Prenom" id="last_name" class="form-control input-md" data-rule="minlen:3" data-msg="Entrez votre Prénom SVP">
-                              <div class="validation"></div>
-                            </div>
-                            </div>
-                             </div>
-                      
-
-                       
-                      
-                        <div class="row">
-                          <div class="col-xs-6 col-sm-6 col-md-6">
-                            <div class="form-group">
-                              <label>Email</label>
-                              <input type="email" name="mail" id="email" class="form-control input-md" data-rule="email" data-msg="Entrez votre Email SVP ">
-                              <div class="validation"></div>
-                            </div>
-                          </div>
-                          <div class="col-xs-6 col-sm-6 col-md-6">
-                            <div class="form-group">
-                              <label>Numéro téléphone</label>
-                              <input type="tel" name="NumTel" id="phone" class="form-control input-md" data-rule="phone" data-msg="Entrez votre Numero telephone SVP">
+                              <label>Mot de pass   </label>
+                              <input type="password" name="pass" id="pass" required>
                               <div class="validation"></div>
                             </div>
                           </div>
                         </div>
-                        <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-6">
-                            <div class="form-group">
-                              <label>Pseudonyme </label>
-                              <input type="text" name="pseudo" id="Mdpss" class="form-control input-md" data-rule="minlen:3" data-msg="Entrez votre mot de passe SVP">
-                              <div class="validation"></div>
-                            </div>
-                          </div>
-                          <div class="col-xs-6 col-sm-6 col-md-6">
-                            <div class="form-group">
-                              <label>Mot de passe</label>
-                              <input type="password" name="Mdpss" id="Mdpss2" class="form-control input-md" data-rule="minlen:3" data-msg="Entrez votre mot de passe SVP">
-                              <div class="validation"></div>
-                            </div>
-                          </div>
+						<input type="hidden" name="type" id="type" value="Admin"> 
+						
+                        <input type="submit" value="Connexion" class="btn btn-skin btn-block btn-lg">
 
-                        </div>
-                          <div class="row">
-                          <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                              <label>Adresse</label>
-                              <input type="text" name="Adresse" id="Adresse" class="form-control input-md" data-rule="minlen:3" data-msg="Entrez votre Adresse SVP">
-                              <div class="validation"></div>
-                            </div>
-                          </div>
-                          
-                          
-                        </div>
-                       <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group row">
-                               <label for="example-date-input" class="col-2 col-form-label">Date de naissance</label>
-                                   <div class="col-10">
-                                      <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="datenais">
-                                   </div>
-                            </div>
-                       </div>
-     <label>Sexe</label>                 
-	<div class="radio">
-  		<label>
-    		<input type="radio" name="sexe" id="sexe1" value="Homme" >
-    		Homme
-  		</label>
-	</div>
-	<div class="radio">
-  		<label>
-    		<input type="radio" name="sexe" id="sexe2" value="Femme">
-    		Femme
-  		</label>
-	</div>
-<div class="radio">
-  <label>
-    <input type="radio" name="sexe" id="sexe3" value="autre">
-    Autre
-  </label>
-</div>
-                        
-<br>
-                      <input type="submit" value="Inscription" class="btn btn-skin btn-block btn-lg">
-                      
-                 </form>
-                     </div>
+                      </form>
                     </div>
+                  </div>
+
                 </div>
               </div>
             </div>
           </div>
-         </div>
         </div>
-
-    <!-- /Section: intro -->
-
-    <!-- Section: boxes -->
+      </div>
+    </section>
 
 
-    <footer>
+
+
+
+
+
+
+
+
+        <footer>
 
       <div class="container">
         <div class="row">
@@ -325,6 +252,7 @@
         </div>
       </div>
     </footer>
+
   </div>
   <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
 
@@ -340,8 +268,6 @@
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/nivo-lightbox.min.js"></script>
   <script src="js/custom.js"></script>
-  <script src="contactform/contactform.js"></script>
 
 </body>
-
 </html>

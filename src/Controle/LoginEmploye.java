@@ -35,16 +35,17 @@ public class LoginEmploye extends HttpServlet {
 		case "Operateur" :b=Login.AuthentificationEmploye(type,mail, mdpss);
 		if(b) {
 			HttpSession s=request.getSession(true);
+			s.setAttribute("type", type);
 			this.getServletContext().getRequestDispatcher("/Operateur.jsp").forward(request, response);
 		}
 		else {
-			this.getServletContext().getRequestDispatcher("/Echeque.jsp").forward(request, response);
+			this.getServletContext().getRequestDispatcher("/EchequeEmp.jsp").forward(request, response);
 		}
 				break;
 		case "Agent" : b=Login.AuthentificationEmploye(type,mail, mdpss);
 		if(b) {
 			HttpSession s=request.getSession(true);
-			
+			s.setAttribute("type", type);
 			this.getServletContext().getRequestDispatcher("/Agent.jsp").forward(request, response);
 		}
 		else {

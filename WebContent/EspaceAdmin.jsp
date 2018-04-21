@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Espace Administrateur</title>
 </head>
 <body>
-<h1>Bonjour</h1>
+<a href="http://localhost:8080/AgenceImmobiliere/validation">Valider les inscriptions</a>
+<a href="http://localhost:8080/AgenceImmobiliere/LogoutServlet">Se déconnecter  </a>
 </body>
 </html>
