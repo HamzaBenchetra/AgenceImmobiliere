@@ -5,7 +5,7 @@ import java.util.Date;
 public class RDV {
 	private int idRDV,idApp,idAgent,idClient;
 	private boolean etat;
-	private Date d;
+	private String d;
 	public int getIdRDV() {
 		return idRDV;
 	}
@@ -36,10 +36,10 @@ public class RDV {
 	public void setEtat(boolean etat) {
 		this.etat = etat;
 	}
-	public Date getD() {
+	public String getD() {
 		return d;
 	}
-	public void setD(Date d) {
+	public void setD(String d) {
 		this.d = d;
 	}
 }

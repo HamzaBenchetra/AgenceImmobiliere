@@ -2,17 +2,15 @@ package Model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.sql.PreparedStatement;
-
-import com.mysql.jdbc.Statement;
 
 public class Fonctions {
 	private static Connection connexion;
@@ -25,7 +23,7 @@ public class Fonctions {
 				e.printStackTrace();
 			}  
 			try {
-				connexion = DriverManager.getConnection("jdbc:mysql://Localhost:3306/agenceimmobiliere", "root", "lg1213012130");
+				connexion = DriverManager.getConnection("jdbc:mysql://Localhost:3306/agenceimmobiliere", "root", "0000");
 		        System.out.println("Connection ok!");
 
 			} catch (SQLException e) {
@@ -349,6 +347,37 @@ public static ArrayList<Employe> AfficherDetailsAG(int idag){
 				return false;
 			}
 			}
+		
+		public static ArrayList<RDV> RecupererListeRDVAgent(int ida){
+			
+			ConnecterBD();
+			   ArrayList<RDV> R = new ArrayList<RDV>();
+			   try {
+					
+			 Statement statement = connexion.createStatement();
+				String Query="SELECT * from rdv where idA="+ida+";";
+				ResultSet rs=statement.executeQuery(Query);
+				
+			//	ResultSet r = null;
+				while(rs.next()){
+					RDV r=new RDV ();
+					r.setIdRDV(rs.getInt("idRDV"));
+					r.setIdApp(rs.getInt("idApp"));
+					r.setIdAgent(rs.getInt("idA"));
+					r.setD(rs.getString("date"));
+					r.setEtat(rs.getBoolean("etat"));
+					
+					R.add(r);
+				}
+				return R ;
+		   } catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				
+			}
+			   return R ;		
+		}	
+		
 		public static void main(String[] args) {
 			//ArrayList<Client> L=RecupererListClient();
 			//System.out.println(L.get(1).getIdc());

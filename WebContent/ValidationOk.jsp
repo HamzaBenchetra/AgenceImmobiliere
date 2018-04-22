@@ -8,6 +8,6 @@
 </head>
 <body>
 <h1>Demande validée</h1>
-<button><a href="http://localhost:8080/AgenceImmobiliere/validation">Valider d'autres demandes</a></button>
+<button><a href="http://192.168.43.185:8080/AgenceImmobiliere/validation">Valider d'autres demandes</a></button>
 </body>
 </html>

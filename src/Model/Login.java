@@ -16,7 +16,7 @@ public class Login {
 				e.printStackTrace();
 			}  
 			try {
-				connexion = DriverManager.getConnection("jdbc:mysql://Localhost:3306/agenceimmobiliere", "root", "lg1213012130");
+				connexion = DriverManager.getConnection("jdbc:mysql://Localhost:3306/agenceimmobiliere", "root", "0000");
 		        System.out.println("Connection ok!");
 
 			} catch (SQLException e) {
@@ -49,22 +49,23 @@ public class Login {
 	 
 	 
 	 
-	 public static boolean AuthentificationEmploye(String type,String mail,String mdpss) {
+	 public static int AuthentificationEmploye(String type,String mail,String mdpss) {
 			
 		 ConnecterBD();
+		 int i=0;
 		 try {
 			 Statement s=connexion.createStatement();
 			 ResultSet rs=s.executeQuery("Select * from "+type+";");
 			 while(rs.next()){
 				if((mail.equals(rs.getString("mail"))&&mdpss.equals(rs.getString("mdpss"))))
-						return true;
+						i= rs.getInt("idAgent");
 				}
 		 }catch(Exception e){
 			 e.printStackTrace();
 		 }
 		 
 		 
-		 return false;
+		 return i;
 	 }
 	 
 	 

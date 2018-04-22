@@ -9,7 +9,7 @@
 <head>
  <link rel="stylesheet" type="text/css" href="Tableau.css">
 <%  HttpSession session1 = request.getSession();
-		int d=(int)session1.getAttribute("IDOP");
+		int d=(int)session1.getAttribute("IDAG");
 	ArrayList<Employe> allC = Fonctions.AfficherDetailsAG(d);
 %>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -58,7 +58,7 @@
 			</table>
 			<div align="center">
 			<h1>Voulez Vous Valider cette inscriptions ?</h1>
-			<form   action="http://localhost:8080/AgenceImmobiliere/validation"  method = "post">
+			<form   action="http://192.168.43.185:8080/AgenceImmobiliere/validerAgent"  method = "post">
 			<input type="radio" name="valid"  value="oui" checked> Oui<br> 
 			<input type="radio" name="valid"  value="non"> Non<br>
             <input type="submit" value="Envoyer" >

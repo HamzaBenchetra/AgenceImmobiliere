@@ -27,7 +27,7 @@
     <div class="nav-wrapper">
       <a href="#" class="brand-logo">Accueil</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-     <li><a href="http://localhost:8080/AgenceImmobiliere/LogoutServlet">Se deconnecter </a></li>
+     <li><a href="http://192.168.43.185:8080/AgenceImmobiliere/LogoutServlet">Se deconnecter </a></li>
      <li><a href="sass.html">Mon compte </a></li>
         <li><a href="sass.html">Aide</a></li>
        </ul>

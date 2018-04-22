@@ -3,13 +3,13 @@
     pageEncoding="ISO-8859-1"%>
     <%@page import="Model.RDV"%>
     <%@page import="java.util.ArrayList"%>
-	<%@page import="Model.OperationsClient" %>
+	<%@page import="Model.Fonctions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
  <link rel="stylesheet" type="text/css" href="Tableau.css">
 <%
-	ArrayList<RDV> allR = (ArrayList<RDV>)request.getAttribute("RDVs");
+	ArrayList<RDV> allR = (ArrayList<RDV>)request.getAttribute("RDV");
 %>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Liste de vos Rendez-vous</title>
@@ -31,15 +31,19 @@
 				<td><%= allR.get(i).getIdRDV()%></td>
 				<td><%= allR.get(i).getIdApp()%></td>
 				<td><%= allR.get(i).getIdAgent()%></td>
-				<td><%= allR.get(i).getD()%></td>
+				<td><%= (String)allR.get(i).getD()%></td>
+					
+				
 				</tr>
+				
+				
 			<%
 				}
 			%>
 			</tbody>
 			</table>
 	
-	<button><a href="http://localhost:8080/AgenceImmobiliere/EspaceClient.jsp">Retour a l'accueil</a></button>
+	<button><a href="http://localhost:8080/AgenceImmobiliere/Agent.jsp">Retour a l'accueil</a></button>
 	
 </body>
 </body>

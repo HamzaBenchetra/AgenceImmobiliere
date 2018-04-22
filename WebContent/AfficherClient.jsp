@@ -58,7 +58,7 @@
 			</table>
 			<div align="center">
 			<h1>Voulez Vous Valider cette inscriptions ?</h1>
-			<form   action="http://localhost:8080/AgenceImmobiliere/validation"  method = "post">
+			<form   action="http://192.168.43.185:8080/AgenceImmobiliere/validation"  method = "post">
 			<input type="radio" name="valid"  value="oui" checked> Oui<br> 
 			<input type="radio" name="valid"  value="non"> Non<br>
             <input type="submit" value="Envoyer" >

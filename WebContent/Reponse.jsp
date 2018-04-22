@@ -13,11 +13,11 @@
 
 <%String message=(String)request.getAttribute("msg");
 if(message.equalsIgnoreCase("Votre Rendez-vous est fixé")){%>
-	<form action="http://localhost:8080/AgenceImmobiliere/EspaceClient.jsp">
+	<form action="http://192.168.43.185:8080/AgenceImmobiliere/EspaceClient.jsp">
 		<button>Retour a l'accueil</button>
 	</form>
 <%}else{ %>
-	<form action="http://localhost:8080/AgenceImmobiliere/PrendreRDV.jsp">
+	<form action="http://192.168.43.185:8080/AgenceImmobiliere/PrendreRDV.jsp">
 		<button>Réessayer</button>
 	</form>
 <%}%>

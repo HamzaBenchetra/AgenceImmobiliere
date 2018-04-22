@@ -30,22 +30,24 @@ public class LoginEmploye extends HttpServlet {
 		String mail=request.getParameter("mail");
 		String mdpss=request.getParameter("pass");
 		String type=request.getParameter("type");
-		boolean b=false;
+		int i=0;
 		switch(type) {
-		case "Operateur" :b=Login.AuthentificationEmploye(type,mail, mdpss);
-		if(b) {
+		case "Operateur" :i=Login.AuthentificationEmploye(type,mail, mdpss);
+		if(i!=0) {
 			HttpSession s=request.getSession(true);
 			s.setAttribute("type", type);
+			s.setAttribute("idO", i);
 			this.getServletContext().getRequestDispatcher("/Operateur.jsp").forward(request, response);
 		}
 		else {
 			this.getServletContext().getRequestDispatcher("/EchequeEmp.jsp").forward(request, response);
 		}
 				break;
-		case "Agent" : b=Login.AuthentificationEmploye(type,mail, mdpss);
-		if(b) {
+		case "Agent" : i=Login.AuthentificationEmploye(type,mail, mdpss);
+		if(i!=0) {
 			HttpSession s=request.getSession(true);
 			s.setAttribute("type", type);
+			s.setAttribute("idA", i);
 			this.getServletContext().getRequestDispatcher("/Agent.jsp").forward(request, response);
 		}
 		else {

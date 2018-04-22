@@ -19,7 +19,7 @@ public class OperationsClient {
 				e.printStackTrace();
 			}  
 			try {
-				connexion = DriverManager.getConnection("jdbc:mysql://Localhost:3306/agenceimmobiliere", "root", "lg1213012130");
+				connexion = DriverManager.getConnection("jdbc:mysql://Localhost:3306/agenceimmobiliere", "root", "0000");
 		        System.out.println("Connection ok!");
 
 			} catch (SQLException e) {
@@ -127,7 +127,7 @@ public static ArrayList<RDV> RecupererListeRDV(int idc){
 				r.setIdRDV(rs.getInt("idRDV"));
 				r.setIdApp(rs.getInt("idApp"));
 				r.setIdAgent(rs.getInt("idA"));
-				r.setD(rs.getDate("date"));
+				r.setD(rs.getString("date"));
 				r.setEtat(rs.getBoolean("etat"));
 				
 				R.add(r);

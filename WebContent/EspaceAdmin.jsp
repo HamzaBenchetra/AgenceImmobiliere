@@ -7,7 +7,7 @@
 <title>Espace Administrateur</title>
 </head>
 <body>
-<a href="http://localhost:8080/AgenceImmobiliere/validation">Valider les inscriptions</a>
-<a href="http://localhost:8080/AgenceImmobiliere/LogoutServlet">Se déconnecter  </a>
+<a href="http://192.168.43.185:8080/AgenceImmobiliere/validation">Valider les inscriptions</a>
+<a href="http://192.168.43.185:8080/AgenceImmobiliere/LogoutServlet">Se déconnecter  </a>
 </body>
 </html>

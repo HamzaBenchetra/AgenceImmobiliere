@@ -24,9 +24,9 @@ public class LoginAdmin extends HttpServlet {
 		String mail=request.getParameter("mail");
 		String mdpss=request.getParameter("pass");
 		String type=request.getParameter("type");
-		boolean b=false;
+		int b=0;
 		b=Login.AuthentificationEmploye(type, mail, mdpss);
-		if(b) {
+		if(b!=0) {
 			HttpSession s=request.getSession(true);
 			s.setAttribute("type", type);
 			this.getServletContext().getRequestDispatcher("/EspaceAdmin.jsp").forward(request, response);

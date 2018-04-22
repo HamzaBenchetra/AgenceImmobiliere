@@ -29,30 +29,25 @@
     <div class="nav-wrapper">
       <a href="#" class="brand-logo">Accueil</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-     <li><a href="http://localhost:8080/AgenceImmobiliere/LogoutServlet">Se déconnecter  </a></li>
+     <li><a href="http://192.168.43.185:8080/AgenceImmobiliere/LogoutServlet">Se déconnecter  </a></li>
      <li><a href="sass.html">Mon compte </a></li>
         <li><a href="sass.html">Aide</a></li>
        </ul>
     </div>
     </nav>
-      <nav>
+   <nav>
        <div class="collection">
-    <a href="http://localhost:8080/AgenceImmobiliere/NewFile.jsp" class="collection-item">Préavis<span class="badge"></span></a>
-    <a href="#!" class="collection-item">Rendez vous<span class="badge"></span></a>
+    <a href="#" class="collection-item">Préavis<span class="badge"></span></a>
+    
     
   
   </div>
-            
-    <div class="nav-wrapper">
-      <form>
-        <div class="input-field">
-          <input id="search" type="search" required>
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
-        </div>
-      </form>
-    </div>
+ 
   </nav>
+  
+  <form action="http://192.168.43.185:8080/AgenceImmobiliere/ListeRDVAgent" method="get">
+  	<button type="submit" >Mes RDV</button>
+  </form>
   
         
         

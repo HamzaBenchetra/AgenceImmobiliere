@@ -15,19 +15,19 @@
 <%String link;
 String a=(String)session.getAttribute("type");
 switch(a){
-case "Admin": link="http://localhost:8080/AgenceImmobiliere/LoginAdmin";
+case "Admin": link="http://192.168.43.185:8080/AgenceImmobiliere/LoginAdmin";
 %><form action=<%=link %> method="get">
 <input type="submit" value="Retour a l'Authentification">
 </form><%;break;
-case "Operateur": link="http://localhost:8080/AgenceImmobiliere/LoginEmploye";
+case "Operateur": link="http://192.168.43.185:8080/AgenceImmobiliere/LoginEmploye";
 %><form action=<%=link %> method="get">
 <input type="submit" value="Retour a l'Authentification">
 </form><%;break;
-case "Agent": link="http://localhost:8080/AgenceImmobiliere/LoginEmploye";
+case "Agent": link="http://192.168.43.185:8080/AgenceImmobiliere/LoginEmploye";
 %><form action=<%=link %> method="get">
 <input type="submit" value="Retour a l'Authentification">
 </form><%;break;
-case "Client": link="http://localhost:8080/AgenceImmobiliere/LoginServlet";
+case "Client": link="http://192.168.43.185:8080/AgenceImmobiliere/LoginServlet";
 %><form action=<%=link %> method="get">
 <input type="submit" value="Retour a l'Authentification">
 </form><%;break;

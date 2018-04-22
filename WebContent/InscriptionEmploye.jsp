@@ -18,9 +18,9 @@
     <a href="#" class="logo">Mon site</a>
     <nav class="menu">
       <a href="#">Accueil</a>
-      <a href="http://localhost:8080/AgenceImmobiliere/SignupServlet">S'inscrire</a>
-      <a href="http://localhost:8080/AgenceImmobiliere/LoginServlet">Se connecter</a>
-      <a href="http://localhost:8080/AgenceImmobiliere/InscriptionEmploye.jsp">Travailler avec nous</a>
+      <a href="http://192.168.43.185:8080/AgenceImmobiliere/SignupServlet">S'inscrire</a>
+      <a href="http://192.168.43.185:8080/AgenceImmobiliere/LoginServlet">Se connecter</a>
+      <a href="http://192.168.43.185:8080/AgenceImmobiliere/InscriptionEmploye.jsp">Travailler avec nous</a>
       <a href="#contacter">Nou contacter</a>
       <a href="#about">A propos</a>
     </nav>
@@ -40,7 +40,7 @@
       <div class="container-fluid formm">
 
 
-        <form action="http://localhost:8080/AgenceImmobiliere/SignupEmp" method="post" class="form-horizontal">
+        <form action="http://192.168.43.185:8080/AgenceImmobiliere/SignupEmp" method="post" class="form-horizontal">
 <fieldset>
 
 <!-- Form Name -->
