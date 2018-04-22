@@ -19,7 +19,7 @@ public class OperationsClient {
 				e.printStackTrace();
 			}  
 			try {
-				connexion = DriverManager.getConnection("jdbc:mysql://Localhost:3306/agenceimmobiliere", "root", "0000");
+				connexion = DriverManager.getConnection("jdbc:mysql://Localhost:3306/agenceimmobiliere", "root", "lg1213012130");
 		        System.out.println("Connection ok!");
 
 			} catch (SQLException e) {
@@ -44,10 +44,6 @@ public class OperationsClient {
 				a.setType(rs.getString("type"));
 				a.setEtage(rs.getInt("etage"));
 				a.setPrix(rs.getDouble("prix"));
-				
-				
-
-				
 				A.add(a);
 			}
 			return A ;
@@ -111,6 +107,36 @@ public class OperationsClient {
 			e.printStackTrace();
 		}
 	}
+public static ArrayList<RDV> RecupererListeRDV(int idc){
+		
+		ConnecterBD();
+		   ArrayList<RDV> R = new ArrayList<RDV>();
+		   try {
+				
+		 Statement statement = connexion.createStatement();
+			String Query="SELECT * from rdv where idC="+idc+";";
+			ResultSet rs=statement.executeQuery(Query);
+			
+		//	ResultSet r = null;
+			while(rs.next()){
+				RDV r=new RDV ();
+				r.setIdRDV(rs.getInt("idRDV"));
+				r.setIdApp(rs.getInt("idApp"));
+				r.setIdAgent(rs.getInt("idA"));
+				r.setD(rs.getDate("date"));
+				r.setEtat(rs.getBoolean("etat"));
+				
+				R.add(r);
+			}
+			return R ;
+	   } catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}
+		   return R ;		
+	}	
+	
 	public static void main(String[] args) {
 		prendreRDV(1,1,"'2018-04-22 08:00:00'");
 	}
