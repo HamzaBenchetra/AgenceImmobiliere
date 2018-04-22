@@ -3,7 +3,7 @@ package Model;
 
 public class Employe {
 	private String nom,prenom,numtel,adresse,mail,mdpss,sexe,datenais,type;
-	String n;
+	private int idemp;
 	public String getNom() {
 		return nom;
 	}
@@ -57,6 +57,12 @@ public class Employe {
 	}
 	public void setType(String type) {
 		this.type = type;
+	}
+	public int getIdemp() {
+		return idemp;
+	}
+	public void setIdemp(int idemp) {
+		this.idemp = idemp;
 	};
 
 }

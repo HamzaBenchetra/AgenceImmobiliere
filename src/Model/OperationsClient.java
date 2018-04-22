@@ -82,7 +82,7 @@ public class OperationsClient {
 		}
 		return A;
 	}
-	public static void prendreRDV(int idc,int id,String d) {
+	public static boolean prendreRDV(int idc,int id,String d) {
 		ConnecterBD();
 		try {
 			Statement s=connexion.createStatement();
@@ -105,13 +105,17 @@ public class OperationsClient {
 				int rss=ss.executeUpdate();
 				System.out.println(i);
 				System.out.println("RDV ok");
+				return true;
+			}else {
+				return false;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return false;
 		}
 	}
 	public static void main(String[] args) {
-		prendreRDV(1,1,"'2018-04-22 08:00:00'");
+		//prendreRDV(1,1,"'2018-04-22 08:00:00'");
 	}
 }
