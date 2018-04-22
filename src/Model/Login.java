@@ -25,22 +25,26 @@ public class Login {
 	        
 	  }
 	 
-	 public static boolean AuthentificationClient(String mail,String mdpss) {
+	 public static int AuthentificationClient(String mail,String mdpss) {
 		
 		 ConnecterBD();
+		 int id=0;
 		 try {
 			 Statement s=connexion.createStatement();
 			 ResultSet rs=s.executeQuery("Select * from client;");
+			 
 			 while(rs.next()){
-				if((mail.equals(rs.getString("mail"))&&mdpss.equals(rs.getString("mdpss"))))
-						return true;
+				if((mail.equals(rs.getString("mail"))&&mdpss.equals(rs.getString("mdpss")))) {
+					id=rs.getInt("idClient");
+						return id;
 				}
+			 }
 		 }catch(Exception e){
 			 e.printStackTrace();
 		 }
 		 
 		 
-		 return false;
+		 return id;
 	 }
 	 
 	 

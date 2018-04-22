@@ -104,6 +104,7 @@ public class OperationsClient {
 				PreparedStatement ss=connexion.prepareStatement("insert into RDV (idApp,idA,idC,date)values("+id+","+tab[0]+","+idc+","+d+");");
 				int rss=ss.executeUpdate();
 				System.out.println(i);
+				System.out.println("RDV ok");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

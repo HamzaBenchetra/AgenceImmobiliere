@@ -27,6 +27,7 @@ public class ConsuListApparts extends HttpServlet {
 	int id=Integer.parseInt(request.getParameter("IDA"));
 	Appartement a=OperationsClient.AfficherAppart(id);
 	request.setAttribute("appartement", a);
+	request.setAttribute("IDApp", id);
 	this.getServletContext().getRequestDispatcher("/AfficherAppart.jsp").forward(request, response);
 	}
 

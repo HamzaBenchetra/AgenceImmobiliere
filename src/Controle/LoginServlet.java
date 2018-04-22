@@ -28,11 +28,12 @@ public class LoginServlet extends HttpServlet {
 		String mail=request.getParameter("mail");
 		String mdpss=request.getParameter("pass");
 		
-		boolean b=false;
+		int b=0;
 		b=Login.AuthentificationClient(mail, mdpss);
-		if(b) {
+		if(b!=0) {
 			HttpSession s=request.getSession(true);
 			s.setAttribute("type", "Client");
+			s.setAttribute("id", b);
 			this.getServletContext().getRequestDispatcher("/EspaceClient.jsp").forward(request, response);
 		}
 		else {

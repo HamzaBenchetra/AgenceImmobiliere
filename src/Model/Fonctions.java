@@ -4,7 +4,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.sql.PreparedStatement;
 
 import com.mysql.jdbc.Statement;
@@ -135,8 +140,13 @@ public static ArrayList<Client> AfficherDetailsClient(int id){
 			}
 			}
 		public static void main(String[] args) {
-			ArrayList<Client> L=RecupererListClient();
-			System.out.println(L.get(1).getIdc());
+			//ArrayList<Client> L=RecupererListClient();
+			//System.out.println(L.get(1).getIdc());
 			//Fonctions.Valider(2);
+			Date d = Calendar.getInstance().getTime();
+			System.out.println(d);
+			DateFormat dt= new SimpleDateFormat("yyyy-MM-dd");
+			Date date=new Date();
+			System.out.println(dt.format(date));
 		}
 }
