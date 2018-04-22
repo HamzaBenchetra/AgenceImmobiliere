@@ -2,11 +2,11 @@ package Model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-import com.mysql.jdbc.Statement;
+import java.sql.Statement;
 
 public class OperationsClient {
 	private static Connection connexion;
@@ -33,7 +33,7 @@ public class OperationsClient {
 		   ArrayList<Appartement> A = new ArrayList<Appartement>();
 		   try {
 				
-		 Statement statement = (Statement) connexion.createStatement();
+		 Statement statement = connexion.createStatement();
 			String Query="SELECT idAppart,type,etage,prix FROM Appartement; ";
 			ResultSet rs=statement.executeQuery(Query);
 			
@@ -62,7 +62,7 @@ public class OperationsClient {
 		ConnecterBD();
 		Appartement A=new Appartement();
 		try {
-		Statement statement = (Statement) connexion.createStatement();
+		Statement statement = connexion.createStatement();
 		String Query="select * from appartement as a, batiment as b,localite as l where a.idBat=b.idBatiment and b.idLocal=l.idLocalite and a.idAppart="+id+" ;";
 		ResultSet rs=statement.executeQuery(Query);
 		
@@ -81,5 +81,36 @@ public class OperationsClient {
 			
 		}
 		return A;
+	}
+	public static void prendreRDV(int idc,int id,String d) {
+		ConnecterBD();
+		try {
+			Statement s=connexion.createStatement();
+			ResultSet r=s.executeQuery("SELECT * FROM RDV where idApp="+id+" and date="+d+";");
+			int i=0;
+			while(r.next()) {
+				i++;
+			}
+			if(i==0) {
+				Statement st=connexion.createStatement();
+				ResultSet rs=st.executeQuery("Select idAgent from Agent where etat=1 and idAgent not in(select idA FROM RDV where date="+d+")");
+				int[] tab=new int[5];
+				int j=0;
+				while(rs.next()) {
+					tab[j]=rs.getInt("idAgent");
+					j++;
+				}
+				
+				PreparedStatement ss=connexion.prepareStatement("insert into RDV (idApp,idA,idC,date)values("+id+","+tab[0]+","+idc+","+d+");");
+				int rss=ss.executeUpdate();
+				System.out.println(i);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public static void main(String[] args) {
+		prendreRDV(1,1,"'2018-04-22 08:00:00'");
 	}
 }

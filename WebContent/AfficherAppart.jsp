@@ -36,7 +36,7 @@
 				<td><%= (int)Ap.getPrix()%></td>
 				<td>
 				<div align="center">
-					<form   action="http://localhost:8080/AgenceImmobiliere/PrendreRDV.jsp"  method = "post">
+					<form   action="http://localhost:8080/AgenceImmobiliere/PrendreRDV"  method = "post">
 						<input type="hidden" name ="IDA" value="<%=Ap.getIdAppart() %>" >		
 		  				<input type=submit value="Prendre Rendez-Vous!"/>
 					</form>

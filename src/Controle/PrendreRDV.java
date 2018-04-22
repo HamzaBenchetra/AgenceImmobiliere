@@ -14,10 +14,12 @@ public class PrendreRDV extends HttpServlet {
         super();
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		int id=Integer.parseInt(request.getParameter("IDA"));
+		request.setAttribute("id", id);
+		this.getServletContext().getRequestDispatcher("/PrendreRDV.jsp").forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+
 	}
 
 }
