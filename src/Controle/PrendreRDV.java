@@ -43,9 +43,14 @@ public class PrendreRDV extends HttpServlet {
 		
 		String date=request.getParameter("date");
 		String heure=request.getParameter("heure");
+		boolean b;		
+		b=OperationsClient.prendreRDV(idC, i,"'"+date+" "+heure+"'");
+		if(b)
+			request.setAttribute("msg", "Votre Rendez-vous est fixé");
+		else
+			request.setAttribute("msg", "Cette date n'est pas disponible");
 		
-		
-		OperationsClient.prendreRDV(idC, i,"'"+date+" "+heure+"'");
+		this.getServletContext().getRequestDispatcher("/Reponse.jsp").forward(request, response);
 	}
 
 }

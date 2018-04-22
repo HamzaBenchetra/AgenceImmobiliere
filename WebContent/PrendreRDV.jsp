@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div align="center">
 <%
 DateFormat dt= new SimpleDateFormat("yyyy-MM-dd");
 Date date=new Date();
@@ -35,5 +36,8 @@ Date date=new Date();
 	<button type="submit" >Réserver</button>
 		
 	</form>
+	
+		<button><a href="http://localhost:8080/AgenceImmobiliere/EspaceClient.jsp">Retour a l'accueil</a></button>
+	</div>
 </body>
 </html>
