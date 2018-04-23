@@ -36,7 +36,7 @@
       <div class="container-fluid formm">
 
 
-        <form action="http://192.168.43.185:8080/AgenceImmobiliere/LoginEmploye" method="post" class="form-horizontal">
+        <form action="http://localhost:8080/AgenceImmobiliere/LoginEmploye" method="post" class="form-horizontal">
 <fieldset>
 <!-- Text input-->
 			<div class="form-group">

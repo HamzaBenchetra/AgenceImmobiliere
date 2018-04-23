@@ -1,211 +1,118 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<!-- links-->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/Style1.css" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sufee Admin - HTML5 Admin Template</title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/flag-icon.min.css">
+    <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
+    <link rel="stylesheet" href="assets/scss/style.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+
 </head>
-<body>
-  <!-- head-->
-
-<header class="container-fluid header" >
-  <div class="container">
-    <a href="#" class="logo">Mon site</a>
-    <nav class="menu">
-      <a href="#">Accueil</a>
-      <a href="http://192.168.43.185:8080/AgenceImmobiliere/SignupServlet">S'inscrire</a>
-      <a href="http://192.168.43.185:8080/AgenceImmobiliere/LoginServlet">Se connecter</a>
-      <a href="http://192.168.43.185:8080/AgenceImmobiliere/SignupEmp">Travailler avec nous</a>
-      <a href="#contacter">Nou contacter</a>
-      <a href="#about">A propos</a>
-    </nav>
-  </div>
-</header>
-
-<!--baniere du site-->
-<section class="container-fluid banner">
-    <div class="ban">
-      <img src="img/1013.jpg" alt="Banniere du site">
-    </div>
-    <section class="inner-banner">
-      <h1 style="color: #ffffff;">Inscrivez vous</h1>
-      <h4 style="color: #ffffff;">C'est gratuit</h4>
-      <!--formulaire inscripetion-->
-
-      <div class="container-fluid formm">
+<body class="bg-dark">
 
 
-        <form action="http://192.168.43.185:8080/AgenceImmobiliere/SignupServlet" method="post" class="form-horizontal">
-<fieldset>
+    <div class="sufee-login d-flex align-content-center flex-wrap">
+        <div class="container">
+            <div class="login-content">
+                <div class="login-logo">
+                    <a href="index.html">
+                        <img class="align-content" src="images/logo.png" alt="">
+                    </a>
+                </div>
+                <div class="login-form">
+                    <form action="http://localhost:8080/AgenceImmobiliere/SignupServlet" method="post">
+                        <div class="form-group">
+                            <label>Nom</label>
+                            <input name="nom" type="text" class="form-control" placeholder="Nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Pr√©nom</label>
+                            <input name="Prenom" type="text" class="form-control" placeholder="Prenom" required>
+                        </div>
+                        <div class="form-group">
+                                    <label class=" form-control-label">Mobile</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                                        <input name="NumTel" class="form-control" required>
+                                    </div>
+                                    <small class="form-text text-muted">ex. 0555 55 55 55</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Email address</label>
+                            <input name="mail" type="email" class="form-control" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Adresse</label>
+                            <input name="Adresse" type="text" class="form-control" placeholder="Adresse" required>
+                        </div>
+                        <div class="form-group">
+                                    <label class=" form-control-label">Date de naissance</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                        <input name="datenais" type="date" class="form-control" required>
+                                    </div>
+                                    
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input name="Mdpss" type="password" class="form-control" placeholder="Password" required>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="select" class=" form-control-label">Sexe</label></div>
+                            <div class="col-12 col-md-9">
+                              <select name="sexe" id="select" class="form-control">
+                                <option value="homme">Homme</option>
+                                <option value="femme">Femme</option>
+                                <option value="autre">Autre</option>
+                                <option value="ne pas preciser">Ne pas pr√©ciser</option>
+                              </select>
+                            </div>
+                          </div>
+                          
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" required> Agree the terms and policy
+                            </label>
+                        </div>
 
-<!-- Form Name -->
-
-
-<!-- Text input-->
-<div class="form-group">
-<label class="col-md-2 control-label" for="Prenom">PrÈnom</label>
-<div class="col-md-9">
-<input id="Prenom" name="Prenom" type="text" placeholder="Votre prÈnom" class="form-control input-md" required>
-
-</div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-<label class="col-md-2 control-label" for="nom">Nom</label>
-<div class="col-md-9">
-<input id="nom" name="Nom" type="text" placeholder="Votre nom" class="form-control input-md" required>
-
-</div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-<label class="col-md-2 control-label" for="mail">E-mail</label>
-<div class="col-md-9">
-<input type="email" name="mail" id="email" class="form-control input-md" data-rule="email" data-msg="Entrez votre Email SVP ">
-
-</div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-<label class="col-md-2 control-label" for="numtel">Mobile</label>
-<div class="col-md-9">
-<input id="numtel" name="NumTel" type="phone" placeholder="Votre mobile" class="form-control input-md" required>
-
-</div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-<label class="col-md-2 control-label" for="Adresse">Adresse</label>
-<div class="col-md-9">
-<input id="adresse" name="Adresse" type="text" placeholder="Votre Adresse" class="form-control input-md" required>
-
-</div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-<label class="col-md-2 control-label" for="datenais">Date naissance</label>
-<div class="col-md-9">
-<input id="datenais" name="datenais" type="date" placeholder="jj-mm-aaaa" class="form-control input-md" max="2000-01-01" min="1928-01-01" required>
-
-</div>
-</div>
-
-<!-- Password input-->
-<div class="form-group">
-<label class="col-md-2 control-label" for="mdpss">Mot de pass</label>
-<div class="col-md-9">
-<input id="mdpss" name="Mdpss" type="password" placeholder="8 caractËres minimum" class="form-control input-md" required>
-
-</div>
-</div>
-
-<!-- Multiple Radios -->
-<div class="form-group">
-<label class="col-md-3 control-label" for="radios">Sexe</label>
-<div class="col-md-6">
-<div class="radio">
-<label for="radios-0">
-  <input type="radio" name="sexe" id="radios-0" value="homme" checked="checked">
-  Homme
-</label>
-</div>
-<div class="radio">
-<label for="radios-1">
-  <input type="radio" name="sexe" id="radios-1" value="femme">
-  Femme
-</label>
-</div>
-<div class="radio">
-<label for="radios-2">
-  <input type="radio" name="sexe" id="radios-2" value="autre">
-  Autre
-</label>
-</div>
-</div>
-</div>
-<button type="submit" class="btn btn-custom"  name="type" value="client">Inscription</button>
-</fieldset>
-</form>
-
-
-
-</section>
-
-
-
-
-
-
-
-    </div>
-</section>
-
-<!--Apropos-->
-
-<section class="container-fluid about">
-  <div class="container">
-    <div class="row">
-      <h2 id="about">A propos de nous</h2>
-      <hr class="separator">
-      <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
-        <h2>Etudes</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </article>
-      <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
-        <h2>Experiances</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </article>
-      <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
-        <h2>Hobbies</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </article>
-
-    </div>
-  </div>
-
-</section>
-
-
-<!--footer-->
-<section class="container-fluid footer">
-  <div class="container">
-    <div class="row">
-      <h2 id="contacter">Nous contacter</h2>
-      <hr class="separator">
-
-
-<div class="col-sm-12 contact-form">
-<form id="contact" method="post" class="form" role="form">
-<div class="row">
-<div class="col-xs-6 col-md-6 form-group">
-<input class="form-control" id="name" name="name" placeholder="Name" type="text" required  />
-</div>
-<div class="col-xs-6 col-md-6 form-group">
-<input class="form-control" id="email" name="email" placeholder="Email" type="email" required />
-</div>
-</div>
-<textarea class="form-control" id="message" name="message" placeholder="Message" rows="5"></textarea>
-<br />
-<div class="row">
-<div class="col-xs-12 col-md-12 form-group">
-<button class="btn btn-primary pull-right" type="submit">Submit</button>
-</div>
-</div>
-</form>
+                        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">postuler</button>
+                        
+                        <div class="register-link m-t-15 text-center">
+                            <p>Already have account ? <a href="#"> Sign in</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-  </div>
-</div>
-</section>
+    </div>
+
+
+    <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/main.js"></script>
 
 
 </body>

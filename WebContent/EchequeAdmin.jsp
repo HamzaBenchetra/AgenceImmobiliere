@@ -7,6 +7,6 @@
 <title>Echeque</title>
 </head>
 <body>
-<h1>veuillez <a href="http://192.168.43.185:8080/AgenceImmobiliere/LoginAdmin" >réessayer</a></h1>
+<h1>veuillez <a href="http://localhost:8080/AgenceImmobiliere/LoginAdmin" >réessayer</a></h1>
 </body>
 </html>
