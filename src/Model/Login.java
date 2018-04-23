@@ -58,7 +58,7 @@ public class Login {
 			 ResultSet rs=s.executeQuery("Select * from "+type+";");
 			 while(rs.next()){
 				if((mail.equals(rs.getString("mail"))&&mdpss.equals(rs.getString("mdpss"))))
-						i= rs.getInt("idAgent");
+						i= rs.getInt(1);
 				}
 		 }catch(Exception e){
 			 e.printStackTrace();

@@ -1,115 +1,87 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Authentification</title>
-<!-- links-->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/Style1.css" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sufee Admin - HTML5 Admin Template</title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/flag-icon.min.css">
+    <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
+    <link rel="stylesheet" href="assets/scss/style.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+
 </head>
-<body>
-  <!-- head-->
-
-<header class="container-fluid header" >
-  <div class="container">
-    <a href="#" class="logo">Espace Professionnel</a>
-    <nav class="menu">
-      
-      <a href="#contacter">Contacter l'admin</a>
-      <a href="#">Aide</a>
-    </nav>
-  </div>
-</header>
-
-<!--baniere du site-->
-<section class="container-fluid banner">
-    <div class="ban">
-      <img src="img/1013.jpg" alt="Banniere du site">
-    </div>
-    <section class="inner-banner">
-      <h1 style="color: #ffffff;">Authentification Professionnelle</h1>
-      <!--formulaire inscripetion-->
-
-      <div class="container-fluid formm">
+<body class="bg-dark">
 
 
-        <form action="http://localhost:8080/AgenceImmobiliere/LoginEmploye" method="post" class="form-horizontal">
-<fieldset>
-<!-- Text input-->
-			<div class="form-group">
-			<label class="col-md-2 control-label" for="mail">E-mail</label>
-				<div class="col-md-9">
-					<input type="email" name="mail" id="email" placeholder="moi@exemple.com" class="form-control input-md" data-rule="email" data-msg="Entrez votre Email SVP ">
-				</div>
-			</div>
-<!-- Password input-->
-			<div class="form-group">
-			<label class="col-md-2 control-label" for="mdpss">Mot de pass</label>
-				<div class="col-md-9">
-					<input id="mdpss" name="pass" type="password" placeholder="8 caractères minimum" class="form-control input-md" required>
-				</div>
-			</div>
+    <div class="sufee-login d-flex align-content-center flex-wrap">
+        <div class="container">
+            <div class="login-content">
+                <div class="login-logo">
+                    <a href="index.html">
+                        <img class="align-content" src="images/logo.png" alt="">
+                    </a>
+                </div>
+                <div class="login-form">
+                    <form action="http://localhost:8080/AgenceImmobiliere/LoginEmploye" method="post">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input name="mail" type="email" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label>Mot de pass</label>
+                            <input name="pass" type="password" class="form-control" placeholder="Password">
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="select" class=" form-control-label">En tant que</label></div>
+                            <div class="col-12 col-md-9">
+                              <select name="type" id="select" class="form-control">
+                                <option value="Agent">Agent</option>
+                                <option value="Operateur">Opérateur</option>
+                              </select>
+                            </div>
+                          </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> Remember Me
+                            </label>
+                            <label class="pull-right">
+                                <a href="#">Forgotten Password?</a>
+                            </label>
 
-<div class="form-group">
-  <label class="col-md-4 control-label" for="type">Connexion en tant que</label>
-  <div class="col-md-5">
-    <select id="type" name="type" class="form-control">
-      <option value="Operateur">Operateur</option>
-      <option value="Agent">Agent</option>
-    </select>
-  </div>
-</div>
-
-
-<button type="submit" class="btn btn-custom">Connexion</button>
-</fieldset>
-</form>
-
-
-
-</section>
-
-
-
-
-
-
-
-    </div>
-</section>
-<!--footer-->
-<section class="container-fluid footer">
-  <div class="container">
-    <div class="row">
-      <h2 id="contacter">Contacter l'admin</h2>
-      <hr class="separator">
-
-
-<div class="col-sm-12 contact-form">
-<form id="contact" method="post" class="form" role="form">
-<div class="row">
-<div class="col-xs-6 col-md-6 form-group">
-<input class="form-control" id="name" name="name" placeholder="Name" type="text" required  />
-</div>
-<div class="col-xs-6 col-md-6 form-group">
-<input class="form-control input-md" data-rule="email" id="email" name="email" placeholder="Email" type="email" required />
-</div>
-</div>
-<textarea class="form-control" id="message" name="message" placeholder="Message" rows="5"></textarea>
-<br />
-<div class="row">
-<div class="col-xs-12 col-md-12 form-group">
-<button class="btn btn-primary pull-right" type="submit">Submit</button>
-</div>
-</div>
-</form>
+                        </div>
+                        <input type="hidden" name="type" value="Admin">
+                        <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Sign in</button>
+                        
+                    </form>
+                </div>
+            </div>
         </div>
-  </div>
-</div>
-</section>
+    </div>
+
+
+    <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/main.js"></script>
 
 
 </body>

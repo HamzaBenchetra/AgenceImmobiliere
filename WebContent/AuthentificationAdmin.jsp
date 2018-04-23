@@ -59,6 +59,7 @@
                             </label>
 
                         </div>
+                        <input type="hidden" name="type" value="Admin">
                         <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Sign in</button>
                         
                     </form>

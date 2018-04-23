@@ -97,10 +97,10 @@
                             </label>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">postuler</button>
+                        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">ENVOYER</button>
                         
                         <div class="register-link m-t-15 text-center">
-                            <p>Already have account ? <a href="#"> Sign in</a></p>
+                            <p>Déja membre ? <a href="http://localhost:8080/AgenceImmobiliere/LoginServlet"> connectez vous!</a></p>
                         </div>
                     </form>
                 </div>

@@ -1,128 +1,79 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<!-- links-->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/Style1.css" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sufee Admin - HTML5 Admin Template</title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/flag-icon.min.css">
+    <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
+    <link rel="stylesheet" href="assets/scss/style.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+
 </head>
-<body>
-  <!-- head-->
-
-<header class="container-fluid header" >
-  <div class="container">
-    <a href="#" class="logo">Mon site</a>
-    <nav class="menu">
-      <a href="#">Accueil</a>
-      <a href="http://localhost:8080/AgenceImmobiliere/SignupServlet">S'inscrire</a>
-      <a href="http://localhost:8080/AgenceImmobiliere/LoginServlet">Se connecter</a>
-      <a href="http://localhost:8080/AgenceImmobiliere/SignupEmp">Travailler avec nous</a>
-      <a href="#contacter">Nou contacter</a>
-      <a href="#about">A propos</a>
-    </nav>
-  </div>
-</header>
-
-<!--baniere du site-->
-<section class="container-fluid banner">
-    <div class="ban">
-      <img src="img/1013.jpg" alt="Banniere du site">
-    </div>
-    <section class="inner-banner">
-      <h1 style="color: #ffffff;">Connectez Vous</h1>
-      <!--formulaire inscripetion-->
-
-      <div class="container-fluid formm">
+<body class="bg-dark">
 
 
-        <form action="http://localhost:8080/AgenceImmobiliere/LoginServlet" method="post" class="form-horizontal">
-			<fieldset>
+    <div class="sufee-login d-flex align-content-center flex-wrap">
+        <div class="container">
+            <div class="login-content">
+                <div class="login-logo">
+                    <a href="index.html">
+                        <img class="align-content" src="images/logo.png" alt="">
+                    </a>
+                </div>
+                <div class="login-form">
+                    <form action="http://localhost:8080/AgenceImmobiliere/LoginAdmin" method="post">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input name="mail" type="email" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label>Mot de pass</label>
+                            <input name="pass" type="password" class="form-control" placeholder="Password">
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> Remember Me
+                            </label>
+                            <label class="pull-right">
+                                <a href="#">Mot de pass oublié</a>
+                            </label>
 
-
-<!-- Text input-->
-			<div class="form-group">
-			<label class="col-md-2 control-label" for="mail">E-mail</label>
-				<div class="col-md-9">
-					<input type="email" name="mail" id="email" placeholder="moi@exemple.com" class="form-control input-md" data-rule="email" data-msg="Entrez votre Email SVP ">
-				</div>
-			</div>
-<!-- Password input-->
-			<div class="form-group">
-			<label class="col-md-2 control-label" for="mdpss">Mot de pass</label>
-				<div class="col-md-9">
-					<input id="mdpss" name="pass" type="password" placeholder="8 caractères minimum" class="form-control input-md" required>
-				</div>
-			</div>
-				<button type="submit" class="btn btn-custom">Connexion</button>
-			</fieldset>
-		</form>
-		<h4 style="color: #ffffff;">Vou n'avez pas de compte ? <a href="http://localhost:8080/AgenceImmobiliere/SignupServlet">Inscrivez vous</a></h4>
-		</div>
-		
-	</section>
-
-</section>
-
-<!--Apropos-->
-
-<section class="container-fluid about">
-  <div class="container">
-    <div class="row">
-      <h2 id="about">A propos de nous</h2>
-      <hr class="separator">
-      <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
-        <h2>Etudes</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </article>
-      <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
-        <h2>Experiances</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </article>
-      <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
-        <h2>Hobbies</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </article>
-
-    </div>
-  </div>
-
-</section>
-
-
-<!--footer-->
-<section class="container-fluid footer">
-  <div class="container">
-    <div class="row">
-      <h2 id="contacter">Nous contacter</h2>
-      <hr class="separator">
-
-
-<div class="col-sm-12 contact-form">
-<form id="contact" method="post" class="form" role="form">
-<div class="row">
-<div class="col-xs-6 col-md-6 form-group">
-<input class="form-control" id="name" name="name" placeholder="Name" type="text" required  />
-</div>
-<div class="col-xs-6 col-md-6 form-group">
-<input class="form-control input-md" data-rule="email" id="email" name="email" placeholder="Email" type="email" required />
-</div>
-</div>
-<textarea class="form-control" id="message" name="message" placeholder="Message" rows="5"></textarea>
-<br />
-<div class="row">
-<div class="col-xs-12 col-md-12 form-group">
-<button class="btn btn-primary pull-right" type="submit">Submit</button>
-</div>
-</div>
-</form>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Connexion</button>
+                        <div class="register-link m-t-15 text-center">
+                            <p>Pas encore membre ? <a href="http://localhost:8080/AgenceImmobiliere/SignupServlet"> Créez un compte</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-  </div>
-</div>
-</section>
+    </div>
+
+
+    <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/main.js"></script>
 
 
 </body>
