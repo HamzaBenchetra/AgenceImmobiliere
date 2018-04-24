@@ -30,7 +30,7 @@ public class FixerRDVOperateur extends HttpServlet {
 		if(b) {
 			System.out.println("felicitations");
 		}
-		this.getServletContext().getRequestDispatcher("").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/FixerRDVOperateurClient.jsp").forward(request, response);
 		
 	}
 
