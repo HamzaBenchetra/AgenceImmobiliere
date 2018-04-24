@@ -12,9 +12,51 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import Model.Preaviss;
+
 public class Fonctions {
 	private static Connection connexion;
-	 
+	public static boolean ValiderRDV(int id){
+		int statut = -5;
+		ConnecterBD();
+		try {
+		
+	//	String SQL ="update client set etat =1 where idClient="+id;
+		PreparedStatement pst=connexion.prepareStatement("update rdv set etat =1 where idRDV="+id);
+
+		statut= pst.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(statut != -5){
+			return true;
+		}else{
+			return false;
+		}
+		}
+	public static boolean DonnerPRV(Preaviss P ) {
+		ConnecterBD();
+		ValiderRDV(P.getIdRDV());
+		int i=-5;
+		try {
+			
+			PreparedStatement pst=connexion.prepareStatement("insert into preavis(idAgent,idRDV,avis,contenu) values(?,?,?,?);");
+			pst.setInt(1,P.getIdAgent());
+			pst.setInt(2,P.getIdRDV());
+			pst.setInt(3,P.getAvis());
+			pst.setString(4,P.getC());
+
+		
+			i=pst.executeUpdate();
+		if(i!=-5) return true;
+		else return false;
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+	return false;
+		
+	}
 	public static void ConnecterBD() {
 	        try {
 				Class.forName("com.mysql.jdbc.Driver");
@@ -347,15 +389,43 @@ public static ArrayList<Employe> AfficherDetailsAG(int idag){
 				return false;
 			}
 			}
-		
-		public static ArrayList<RDV> RecupererListeRDVAgent(int ida){
-			
+		public static ArrayList<RDV> RecupererListeRDVAgentNN(int ida){
+			int i=0;
 			ConnecterBD();
 			   ArrayList<RDV> R = new ArrayList<RDV>();
 			   try {
 					
 			 Statement statement = connexion.createStatement();
-				String Query="SELECT * from rdv where idA="+ida+";";
+				String Query="SELECT * from rdv where idA="+ida+" And etat=1;";
+				ResultSet rs=statement.executeQuery(Query);
+				
+			//	ResultSet r = null;
+				while(rs.next()){
+					RDV r=new RDV ();
+					r.setIdRDV(rs.getInt("idRDV"));
+					r.setIdApp(rs.getInt("idApp"));
+					r.setIdAgent(rs.getInt("idA"));
+					r.setD(rs.getString("date"));
+					r.setEtat(rs.getBoolean("etat"));
+					
+					R.add(r);
+				}
+				return R ;
+		   } catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				
+			}
+			   return R ;		
+		}	
+		public static ArrayList<RDV> RecupererListeRDVAgent(int ida){
+			int i=0;
+			ConnecterBD();
+			   ArrayList<RDV> R = new ArrayList<RDV>();
+			   try {
+					
+			 Statement statement = connexion.createStatement();
+				String Query="SELECT * from rdv where idA="+ida+" And etat=0;";
 				ResultSet rs=statement.executeQuery(Query);
 				
 			//	ResultSet r = null;
