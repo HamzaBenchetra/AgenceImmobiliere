@@ -1,6 +1,7 @@
 package Controle;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -50,7 +51,8 @@ public class Preavis extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		response.setContentType("text/html");
+		PrintWriter out =response.getWriter();
 		int avis=Integer.parseInt(request.getParameter("avis"));
 		String contenu=request.getParameter("contenu");
 		HttpSession s=request.getSession(true);
@@ -61,8 +63,10 @@ public class Preavis extends HttpServlet {
 		p.setIdRDV(idRDV);
 		p.setAvis(avis);
 		p.setC(contenu);
-		System.out.println(Fonctions.DonnerPRV(p));
-		
+		if(Fonctions.DonnerPRV(p)) {
+			out.print("preavis enregistrer");
+			
+		}
 		
 		
 	}

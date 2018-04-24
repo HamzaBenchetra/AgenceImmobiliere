@@ -34,11 +34,11 @@
 				<td><%= allC.get(i).getNom()%></td>
 				<td><%= allC.get(i).getMail()%></td>
 				<td><div align="center">
-						<form   action="http://localhost:8080/AgenceImmobiliere/AfficherClient"  method = "post">
+						<form   action="http://192.168.43.185:8080/AgenceImmobiliere/AfficherClient"  method = "post">
 							<input type="hidden" name ="IDC" value="<%=allC.get(i).getIdc() %>" >		
 			  				<input type=submit value="Voir Détails"/>
 						</form>
-						<form   action="http://localhost:8080/AgenceImmobiliere/SupprimerClient"  method = "post">
+						<form   action="http://192.168.43.185:8080/AgenceImmobiliere/SupprimerClient"  method = "post">
 							<input type="hidden" name ="IDC" value="<%=allC.get(i).getIdc() %>" >
 						<input type=submit value="Supprimer Demande"/>
 			  			</form>
@@ -67,11 +67,11 @@
 				<td><%= allO.get(i).getNom()%></td>
 				<td><%= allO.get(i).getMail()%></td>
 				<td><div align="center">
-	<form   action="http://localhost:8080/AgenceImmobiliere/AfficherOperateur" method = "post">
+	<form   action="http://192.168.43.185:8080/AgenceImmobiliere/AfficherOperateur" method = "post">
 				<input type="hidden" name ="IDOP" value="<%=allO.get(i).getIdemp() %>" >		
 		  		<input type=submit value="Voir Détails"/>
 	</form>
-	<form   action="http://localhost:8080/AgenceImmobiliere/SupprimerClient"  method = "post">
+	<form   action="http://192.168.43.185:8080/AgenceImmobiliere/SupprimerClient"  method = "post">
 				<input type="hidden" name ="IDOP" value="<%=allO.get(i).getIdemp() %>" >
 				
 		  		<input type=submit value="Supprimer Demande"/>
@@ -108,7 +108,7 @@
 				<td><%= allA.get(i).getNom()%></td>
 				<td><%= allA.get(i).getMail()%></td>
 				<td><div align="center">
-	<form   action="http://localhost:8080/AgenceImmobiliere/AfficherAgent"  method = "post">
+	<form   action="http://192.168.43.185:8080/AgenceImmobiliere/AfficherAgent"  method = "post">
 				<input type="hidden" name ="IDAG" value="<%=allA.get(i).getIdemp() %>" >		
 		  		<input type=submit value="Voir Détails"/>
 	</form>
@@ -133,7 +133,7 @@
 			</table>
 			
 			
-	<button><a href="http://localhost:8080/AgenceImmobiliere/EspaceAdmin.jsp">Retour a l'accueil</a></button>
+	<button><a href="http://192.168.43.185:8080/AgenceImmobiliere/EspaceAdmin.jsp">Retour a l'accueil</a></button>
 	
 </body>
 </body>

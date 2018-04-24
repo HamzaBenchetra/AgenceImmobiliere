@@ -8,7 +8,7 @@
 </head>
 <body>
 
- <form action="http://localhost:8080/AgenceImmobiliere/Preavis" method="post">
+ <form action="http://192.168.43.185:8080/AgenceImmobiliere/Preavis" method="post">
 
 
 <label >avis</label>
@@ -18,7 +18,7 @@
 
 <input id="contenu" name="contenu" type="text" required>
 <input type="submit" valuer="valider">
-
+</form>
 
 </body>
 </html>

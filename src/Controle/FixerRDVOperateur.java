@@ -29,9 +29,10 @@ public class FixerRDVOperateur extends HttpServlet {
 		boolean b = OperationsOperateur.FixerRdvOperateur(idAppartement,idClient,"'"+date+" "+heure+"'");
 		if(b) {
 			System.out.println("felicitations");
+		this.getServletContext().getRequestDispatcher("/NewFile.jsp").forward(request, response);
+		}else {
+		this.getServletContext().getRequestDispatcher("/Reponse.jsp").forward(request, response);
 		}
-		this.getServletContext().getRequestDispatcher("/FixerRDVOperateurClient.jsp").forward(request, response);
-		
 	}
 
 }

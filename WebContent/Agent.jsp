@@ -15,10 +15,10 @@
 	 <br> 	
 	
     <div class="nav-wrapper">
-        <a href="http://localhost:8080/AgenceImmobiliere/LogoutServlet">Se déconnecter  </a>
+        <a href="http://192.168.43.185:8080/AgenceImmobiliere/LogoutServlet">Se déconnecter  </a>
     </div>
   
-  <form action="http://localhost:8080/AgenceImmobiliere/ListeRDVAgent" method="get">
+  <form action="http://192.168.43.185:8080/AgenceImmobiliere/ListeRDVAgent" method="get">
   	<button type="submit" >Mes RDV</button>
   </form> 
   </div>   

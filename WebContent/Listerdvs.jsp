@@ -35,7 +35,7 @@ ArrayList<RDV> allN = (ArrayList<RDV>)request.getAttribute("RDVNN");
 				<td><%= allR.get(i).getIdAgent()%></td>
 				<td><%= (String)allR.get(i).getD()%></td>
 					
-				<td>	<form   action="http://localhost:8080/AgenceImmobiliere/Preavis"  method = "get">
+				<td>	<form   action="http://192.168.43.185:8080/AgenceImmobiliere/Preavis"  method = "get">
 				<input type="hidden" name ="IDAG" value="<%=allR.get(i).getIdAgent() %>" >	
 				<input type="hidden" name ="IDRDV" value="<%=allR.get(i).getIdRDV() %>" >		
 		  		<input type=submit value="Donner preavis"/>
@@ -79,7 +79,7 @@ ArrayList<RDV> allN = (ArrayList<RDV>)request.getAttribute("RDVNN");
 			</tbody>
 			</table>
 	
-	<button><a href="http://localhost:8080/AgenceImmobiliere/Agent.jsp">Retour a l'accueil</a></button>
+	<button><a href="http://192.168.43.185:8080/AgenceImmobiliere/Agent.jsp">Retour a l'accueil</a></button>
 	
 </body>
 </body>
