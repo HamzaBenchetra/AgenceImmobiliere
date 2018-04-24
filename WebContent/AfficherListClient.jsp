@@ -34,21 +34,16 @@
 				<td><%= allC.get(i).getNom()%></td>
 				<td><%= allC.get(i).getMail()%></td>
 				<td><div align="center">
-	<form   action="http://localhost:8080/AgenceImmobiliere/AfficherClient"  method = "post">
-				<input type="hidden" name ="IDC" value="<%=allC.get(i).getIdc() %>" >		
-		  		<input type=submit value="Voir Détails"/>
-	</form>
-	<form   action="http://localhost:8080/AgenceImmobiliere/SupprimerClient"  method = "post">
-				<input type="hidden" name ="IDC" value="<%=allC.get(i).getIdc() %>" >
-				
-		  		<input type=submit value="Supprimer Demande"/>
-		  
-		
-	</form>
-	</div>
+						<form   action="http://localhost:8080/AgenceImmobiliere/AfficherClient"  method = "post">
+							<input type="hidden" name ="IDC" value="<%=allC.get(i).getIdc() %>" >		
+			  				<input type=submit value="Voir Détails"/>
+						</form>
+						<form   action="http://localhost:8080/AgenceImmobiliere/SupprimerClient"  method = "post">
+							<input type="hidden" name ="IDC" value="<%=allC.get(i).getIdc() %>" >
+						<input type=submit value="Supprimer Demande"/>
+			  			</form>
+					</div>
 				</td>
-					
-				
 				</tr>
 				
 				
