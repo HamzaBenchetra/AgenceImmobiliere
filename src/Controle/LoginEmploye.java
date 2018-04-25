@@ -54,6 +54,17 @@ public class LoginEmploye extends HttpServlet {
 			this.getServletContext().getRequestDispatcher("/EchequeEmp.jsp").forward(request, response);
 		}
 				break;
+		case "respventes" : i=Login.AuthentificationEmploye(type,mail, mdpss);
+	if(i!=0) {
+		HttpSession s=request.getSession(true);
+		s.setAttribute("type", type);
+		s.setAttribute("idR", i);
+		this.getServletContext().getRequestDispatcher("/responsabledesventes.jsp").forward(request, response);
+	}
+	else {
+		this.getServletContext().getRequestDispatcher("/EchequeEmp.jsp").forward(request, response);
+	}
+			break;
 	}
 	}
 }

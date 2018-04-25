@@ -41,7 +41,7 @@
                     </a>
                 </div>
                 <div class="login-form">
-                    <form action="http://192.168.43.185:8080/AgenceImmobiliere/LoginAdmin" method="post">
+                    <form action="http://localhost:8080/AgenceImmobiliere/LoginAdmin" method="post">
                         <div class="form-group">
                             <label>Email</label>
                             <input name="mail" type="email" class="form-control" placeholder="Email">

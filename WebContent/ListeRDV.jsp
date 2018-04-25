@@ -39,7 +39,7 @@
 			</tbody>
 			</table>
 	
-	<button><a href="http://192.168.43.185:8080/AgenceImmobiliere/EspaceClient.jsp">Retour a l'accueil</a></button>
+	<button><a href="http://localhost:8080/AgenceImmobiliere/EspaceClient.jsp">Retour a l'accueil</a></button>
 	
 </body>
 </body>

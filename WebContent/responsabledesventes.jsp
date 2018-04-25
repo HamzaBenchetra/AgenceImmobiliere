@@ -39,7 +39,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="http://localhost:8080/AgenceImmobiliere/Agent.jsp"> Espace Agent<!-- <img src="images/logo.png" alt="Logo"> --></a>
+                <a class="navbar-brand" href="http://localhost:8080/AgenceImmobiliere/Agent.jsp"> Espace Responsable des ventes<!-- <img src="images/logo.png" alt="Logo"> --></a>
                 <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
             </div>
 
@@ -51,15 +51,15 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Mon Agenda</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="http://localhost:8080/AgenceImmobiliere/ListeRDVAgent">Mes rendez-vous</a></li>
-                            <li><i class="fa fa-table"></i><a href="tables-data.html">Signaler un empechement</a></li>
+                            <li><i class="fa fa-table"></i><a href="">Etablir contrats</a></li>
+                            <li><i class="fa fa-table"></i><a href=""></a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Preavis</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Donner un preavis</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Modifier un preavis</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="">Donner un preavis</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="">Modifier un preavis</a></li>
                         </ul>
                     </li>
 

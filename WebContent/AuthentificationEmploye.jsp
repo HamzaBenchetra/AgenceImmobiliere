@@ -41,7 +41,7 @@
                     </a>
                 </div>
                 <div class="login-form">
-                    <form action="http://192.168.43.185:8080/AgenceImmobiliere/LoginEmploye" method="post">
+                    <form action="http://localhost:8080/AgenceImmobiliere/LoginEmploye" method="post">
                         <div class="form-group">
                             <label>Email</label>
                             <input name="mail" type="email" class="form-control" placeholder="Email">
@@ -56,6 +56,7 @@
                               <select name="type" id="select" class="form-control">
                                 <option value="Agent">Agent</option>
                                 <option value="Operateur">Opérateur</option>
+                                 <option value="respventes">Responsable des ventes</option>
                               </select>
                             </div>
                           </div>
