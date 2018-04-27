@@ -19,7 +19,7 @@ public class LoginEmploye extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		request.setAttribute("e", 0);
 		this.getServletContext().getRequestDispatcher("/AuthentificationEmploye.jsp").forward(request, response);
 		
 	}
@@ -40,7 +40,8 @@ public class LoginEmploye extends HttpServlet {
 			this.getServletContext().getRequestDispatcher("/Operateur.jsp").forward(request, response);
 		}
 		else {
-			this.getServletContext().getRequestDispatcher("/EchequeEmp.jsp").forward(request, response);
+			request.setAttribute("e", -1);
+			this.getServletContext().getRequestDispatcher("/AuthentificationEmploye.jsp").forward(request, response);
 		}
 				break;
 		case "Agent" : i=Login.AuthentificationEmploye(type,mail, mdpss);
@@ -51,7 +52,8 @@ public class LoginEmploye extends HttpServlet {
 			this.getServletContext().getRequestDispatcher("/Agent.jsp").forward(request, response);
 		}
 		else {
-			this.getServletContext().getRequestDispatcher("/EchequeEmp.jsp").forward(request, response);
+			request.setAttribute("e", -1);
+			this.getServletContext().getRequestDispatcher("/AuthentificationEmploye.jsp").forward(request, response);
 		}
 				break;
 		case "respventes" : i=Login.AuthentificationEmploye(type,mail, mdpss);
@@ -62,7 +64,8 @@ public class LoginEmploye extends HttpServlet {
 		this.getServletContext().getRequestDispatcher("/responsabledesventes.jsp").forward(request, response);
 	}
 	else {
-		this.getServletContext().getRequestDispatcher("/EchequeEmp.jsp").forward(request, response);
+		request.setAttribute("e", -1);
+		this.getServletContext().getRequestDispatcher("/AuthentificationEmploye.jsp").forward(request, response);
 	}
 			break;
 	}

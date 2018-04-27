@@ -19,7 +19,7 @@ public class LoginServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		request.setAttribute("e", 0);
 		this.getServletContext().getRequestDispatcher("/AuthentificationClient.jsp").forward(request, response);
 		
 	}
@@ -37,7 +37,8 @@ public class LoginServlet extends HttpServlet {
 			this.getServletContext().getRequestDispatcher("/EspaceClient.jsp").forward(request, response);
 		}
 		else {
-			this.getServletContext().getRequestDispatcher("/Echeque.jsp").forward(request, response);
+			request.setAttribute("e", -1);
+			this.getServletContext().getRequestDispatcher("/AuthentificationClient.jsp").forward(request, response);
 		}
 		
 		}

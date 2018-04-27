@@ -36,15 +36,17 @@
         <div class="container">
             <div class="login-content">
                 <div class="login-logo">
-                    <a href="index.html">
-                        <img class="align-content" src="images/logo.png" alt="">
-                    </a>
+                	<%int e=(int)request.getAttribute("e"); %>
+                	<%if(e==-1){ %>
+                	<h4 style="color: red;">login fail</h4>
+                	<%} %>
+                    <h2 style="color: LightGrey;">Authentification Employé</h2>
                 </div>
                 <div class="login-form">
                     <form action="http://localhost:8080/AgenceImmobiliere/LoginEmploye" method="post">
                         <div class="form-group">
-                            <label>Email</label>
-                            <input name="mail" type="email" class="form-control" placeholder="Email">
+                            <label>Email ou mobile</label>
+                            <input name="mail" type="text" class="form-control" placeholder="Email ou Mobile">
                         </div>
                         <div class="form-group">
                             <label>Mot de pass</label>

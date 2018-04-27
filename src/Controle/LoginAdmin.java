@@ -18,6 +18,7 @@ public class LoginAdmin extends HttpServlet {
         super();
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setAttribute("e", 0);
 		this.getServletContext().getRequestDispatcher("/AuthentificationAdmin.jsp").forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -31,7 +32,8 @@ public class LoginAdmin extends HttpServlet {
 			s.setAttribute("type", type);
 			this.getServletContext().getRequestDispatcher("/EspaceAdmin.jsp").forward(request, response);
 		}else {
-			this.getServletContext().getRequestDispatcher("/EchequeAdmin.jsp").forward(request, response);
+			request.setAttribute("e", -1);
+			this.getServletContext().getRequestDispatcher("/AuthentificationAdmin.jsp").forward(request, response);
 		}
 			
 	}

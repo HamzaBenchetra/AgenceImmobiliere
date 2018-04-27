@@ -425,7 +425,7 @@ public static ArrayList<Employe> AfficherDetailsAG(int idag){
 			   try {
 					
 			 Statement statement = connexion.createStatement();
-				String Query="SELECT * from rdv where idA="+ida+" And etat=0;";
+				String Query="SELECT * from rdv where idA="+ida+" And etat=0 order by date;";
 				ResultSet rs=statement.executeQuery(Query);
 				
 			//	ResultSet r = null;

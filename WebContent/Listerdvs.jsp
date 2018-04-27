@@ -244,15 +244,7 @@
         </header><!-- /header -->
         <!-- Header-->
 
-        <div class="breadcrumbs">
-            <div class="col-sm-4">
-                <div class="page-header float-left">
-                    <div class="page-title">
-                        <h1>Acceuil</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
 <div class="content mt-3">
             <div class="animated fadeIn">
                 <div class="row">
@@ -265,9 +257,9 @@
                   <table id="bootstrap-data-table" class="table table-striped table-bordered">
                     <thead>
 					<tr>
-					<th><h1>Id du rendez-vous</h1></th>
-					<th><h1>Id de l'appartement</h1></th>
-					<th><h1>Date</h1></th>					
+					<th><h3>Id du rendez-vous</h3></th>
+					<th><h3>Id de l'appartement</h3></th>
+					<th><h3>Date</h3></th>					
 					</tr>
 				</thead>
                       <%for(int i=0 ; i<allR.size() ; i++){ %>				
@@ -311,9 +303,9 @@
                   <table id="bootstrap-data-table" class="table table-striped table-bordered">
                     <thead>
 					<tr>
-					<th><h1>Id du rendez-vous</h1></th>
-					<th><h1>Id de l'appartement</h1></th>
-					<th><h1>Date</h1></th>					
+					<th><h3>Id du rendez-vous</h3></th>
+					<th><h3>Id de l'appartement</h3></th>
+					<th><h3>Date</h3></th>					
 					</tr>
 				</thead>
                       <%for(int i=0 ; i<allN.size() ; i++){ %>				
