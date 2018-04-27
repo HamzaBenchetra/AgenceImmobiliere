@@ -27,7 +27,8 @@ public class validation extends HttpServlet {
 				this.getServletContext().getRequestDispatcher("/Mustlogin.jsp").forward(request, response);
 			}else {
 				if(((String) s.getAttribute("type")).equalsIgnoreCase("Admin")) {
-					this.getServletContext().getRequestDispatcher("/AfficherListClient.jsp").forward(request, response);
+					request.setAttribute("TypeVal", null);
+					this.getServletContext().getRequestDispatcher("/AfficherListDemandes.jsp").forward(request, response);
 				}else {
 					this.getServletContext().getRequestDispatcher("/AccessDenied.jsp").forward(request, response);
 
@@ -36,21 +37,39 @@ public class validation extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher ds ;
-
-		String type=request.getParameter("valid");
-		switch(type) {
+		String rep=request.getParameter("valid");
+		String typeVal=request.getParameter("TypeVal");
+		switch(rep) {
+		
 		case "oui" :{
-			HttpSession session1 = request.getSession();
-			int d=(int)session1.getAttribute("ID");
-			Fonctions.Valider(d);
-			this.getServletContext().getRequestDispatcher("/ValidationOk.jsp").forward(request, response);
+			switch(typeVal){
+					case "Operateur":{
+							int id=Integer.parseInt(request.getParameter("IDO"));
+							String type=request.getParameter("TypeVal");
+							Fonctions.Valider(id,type);
+							this.getServletContext().getRequestDispatcher("/AfficherListDemandes.jsp").forward(request, response);
+							}break;
+					
+					case "Agent":{
+							int id=Integer.parseInt(request.getParameter("IDA"));
+							String type=request.getParameter("TypeVal");
+							Fonctions.Valider(id,type);
+							this.getServletContext().getRequestDispatcher("/AfficherListDemandes.jsp").forward(request, response);
+							}break;
+							
+					case "Client":{
+							int id=Integer.parseInt(request.getParameter("IDC"));
+							String type=request.getParameter("TypeVal");
+							Fonctions.Valider(id,type);
+							this.getServletContext().getRequestDispatcher("/AfficherListDemandes.jsp").forward(request, response);
+							}break;
 		}break;
-		case "non" :{ 
-	int i;
-			
-			ds =request.getRequestDispatcher("/AfficherListClient.jsp");	
+		}case "non" :{ 
+			ds =request.getRequestDispatcher("/AfficherListDemandes.jsp");	
 			ds.forward(request, response);
 		}break;
+
 		}
-}
+		}
+
 }

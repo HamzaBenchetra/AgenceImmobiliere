@@ -80,7 +80,7 @@ public class Fonctions {
 		   try {
 				
 		 Statement statement = (Statement) connexion.createStatement();
-			String Query="SELECT idAgent,nom,mail FROM agent where etat=0; ";
+			String Query="SELECT * FROM agent where etat=0; ";
 			ResultSet rs=statement.executeQuery(Query);
 			
 		//	ResultSet r = null;
@@ -88,11 +88,12 @@ public class Fonctions {
 				Employe ca=new Employe ();
 				ca.setIdemp(rs.getInt("idAgent"));
 				ca.setNom(rs.getString("nom"));
+				ca.setPrenom(rs.getString("prenom"));
+				ca.setNumtel(rs.getString("numtel"));
+				ca.setAdresse(rs.getString("adresse"));
+				ca.setDatenais(rs.getString("datenais"));
 				ca.setMail(rs.getString("mail"));
-				
-				
-
-				
+				ca.setSexe(rs.getString("sexe"));
 				c.add(ca);
 			}
 			return c ;
@@ -111,7 +112,7 @@ public static ArrayList<Client> RecupererListClient(){
 		   try {
 				
 		 Statement statement = (Statement) connexion.createStatement();
-			String Query="SELECT idClient,nom,mail FROM client where etat=0; ";
+			String Query="SELECT * FROM client where etat=0; ";
 			ResultSet rs=statement.executeQuery(Query);
 			
 		//	ResultSet r = null;
@@ -119,11 +120,12 @@ public static ArrayList<Client> RecupererListClient(){
 				Client ca=new Client ();
 				ca.setIdc(rs.getInt("idClient"));
 				ca.setNom(rs.getString("nom"));
+				ca.setPrenom(rs.getString("prenom"));
+				ca.setNumtel(rs.getString("numtel"));
+				ca.setAdresse(rs.getString("adresse"));
+				ca.setDatenais(rs.getString("datenais"));
 				ca.setMail(rs.getString("mail"));
-				
-				
-
-				
+				ca.setSexe(rs.getString("sexe"));
 				c.add(ca);
 			}
 			return c ;
@@ -142,7 +144,7 @@ public static ArrayList<Client> RecupererListClient(){
 	   try {
 			
 	 Statement statement = (Statement) connexion.createStatement();
-		String Query="SELECT idOperateur,nom,mail FROM operateur where etat=0; ";
+		String Query="SELECT * FROM operateur where etat=0; ";
 		ResultSet rs=statement.executeQuery(Query);
 		
 	//	ResultSet r = null;
@@ -150,11 +152,12 @@ public static ArrayList<Client> RecupererListClient(){
 			Employe ca=new Employe ();
 			ca.setIdemp(rs.getInt("idOperateur"));
 			ca.setNom(rs.getString("nom"));
+			ca.setPrenom(rs.getString("prenom"));
+			ca.setNumtel(rs.getString("numtel"));
+			ca.setAdresse(rs.getString("adresse"));
+			ca.setDatenais(rs.getString("datenais"));
 			ca.setMail(rs.getString("mail"));
-			
-			
-
-			
+			ca.setSexe(rs.getString("sexe"));
 			k.add(ca);
 		}
 		return k ;
@@ -166,121 +169,13 @@ public static ArrayList<Client> RecupererListClient(){
 	   return k ;
 
 }
-public static ArrayList<Client> AfficherDetailsClient(int id){
-		
-		ConnecterBD();
-		   ArrayList<Client> c = new ArrayList<Client>();
-		   try {
-				
-		 Statement statement = (Statement) connexion.createStatement();
-			String Query="SELECT * FROM client where etat=0 and idClient="+id+";";
-			ResultSet rs=statement.executeQuery(Query);
-			
-		//	ResultSet r = null;
-			while(rs.next()){
-				Client ca=new Client ();
-				ca.setIdc(rs.getInt("idClient"));
-				ca.setNom(rs.getString("nom"));
-				ca.setPrenom(rs.getString("prenom"));
-				ca.setNumtel(rs.getString("numtel"));
-				ca.setAdresse(rs.getString("adresse"));
-				ca.setDatenais(rs.getString("datenais"));
-				ca.setMail(rs.getString("mail"));
-				ca.setSexe(rs.getString("sexe"));
-				
-				
-
-				
-				c.add(ca);
-			}
-			return c ;
-	   } catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			
-		}
-		   return c ;
-
-}
-public static ArrayList<Employe> AfficherDetailsOP(int idop){
-	
-	ConnecterBD();
-	   ArrayList<Employe> c = new ArrayList<Employe>();
-	   try {
-			
-	 Statement statement = (Statement) connexion.createStatement();
-		String Query="SELECT * FROM operateur where etat=0 and idOperateur="+idop+";";
-		ResultSet rs=statement.executeQuery(Query);
-		
-	//	ResultSet r = null;
-		while(rs.next()){
-			Employe ca=new Employe ();
-			ca.setIdemp(rs.getInt("idOperateur"));
-			ca.setNom(rs.getString("nom"));
-			ca.setPrenom(rs.getString("prenom"));
-			ca.setNumtel(rs.getString("numtel"));
-			ca.setAdresse(rs.getString("adresse"));
-			ca.setDatenais(rs.getString("datenais"));
-			ca.setMail(rs.getString("mail"));
-			ca.setSexe(rs.getString("sexe"));
-			
-			
-
-			
-			c.add(ca);
-		}
-		return c ;
-   } catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-		
-	}
-	   return c ;
-
-}
-public static ArrayList<Employe> AfficherDetailsAG(int idag){
-	
-	ConnecterBD();
-	   ArrayList<Employe> c = new ArrayList<Employe>();
-	   try {
-			
-	 Statement statement = (Statement) connexion.createStatement();
-		String Query="SELECT * FROM agent where etat=0 and idAgent="+idag+";";
-		ResultSet rs=statement.executeQuery(Query);
-		
-	//	ResultSet r = null;
-		while(rs.next()){
-			Employe ca=new Employe ();
-			ca.setIdemp(rs.getInt("idAgent"));
-			ca.setNom(rs.getString("nom"));
-			ca.setPrenom(rs.getString("prenom"));
-			ca.setNumtel(rs.getString("numtel"));
-			ca.setAdresse(rs.getString("adresse"));
-			ca.setDatenais(rs.getString("datenais"));
-			ca.setMail(rs.getString("mail"));
-			ca.setSexe(rs.getString("sexe"));
-			
-			
-
-			
-			c.add(ca);
-		}
-		return c ;
-   } catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-		
-	}
-	   return c ;
-
-}
-		public static boolean Valider(int id){
+public static boolean Valider(int id, String t){
 			int statut = -5;
 			ConnecterBD();
 			try {
 			
 		//	String SQL ="update client set etat =1 where idClient="+id;
-			PreparedStatement pst=connexion.prepareStatement("update client set etat =1 where idClient="+id);
+			PreparedStatement pst=connexion.prepareStatement("update "+ t +" set etat =1 where id"+t+"="+id);
 
 			statut= pst.executeUpdate();
 			} catch (SQLException e) {
@@ -390,7 +285,6 @@ public static ArrayList<Employe> AfficherDetailsAG(int idag){
 			}
 			}
 		public static ArrayList<RDV> RecupererListeRDVAgentNN(int ida){
-			int i=0;
 			ConnecterBD();
 			   ArrayList<RDV> R = new ArrayList<RDV>();
 			   try {
@@ -419,7 +313,6 @@ public static ArrayList<Employe> AfficherDetailsAG(int idag){
 			   return R ;		
 		}	
 		public static ArrayList<RDV> RecupererListeRDVAgent(int ida){
-			int i=0;
 			ConnecterBD();
 			   ArrayList<RDV> R = new ArrayList<RDV>();
 			   try {
