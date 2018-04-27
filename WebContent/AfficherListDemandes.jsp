@@ -5,7 +5,10 @@
     <%@page import="java.util.ArrayList"%>
 	<%@page import="Model.Fonctions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,6 +18,7 @@
 
     <link rel="apple-touch-icon" href="apple-icon.png">
     <link rel="shortcut icon" href="favicon.ico">
+
     <link rel="stylesheet" href="assets/css/normalize.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
@@ -50,9 +54,10 @@
                     </li>
                     <li class="menu-item-has-children active dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Inscriptions</a>
-                        <ul class="sub-menu children  dropdown-menu">
-                            <li><i class="fa fa-puzzle-piece"></i><a href="http://localhost:8080/AgenceImmobiliere/AfficherListDemandes.jsp">Valider</a></li>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-puzzle-piece"></i><a href="http://localhost:8080/AgenceImmobiliere/validation">Valider</a></li>
                             <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Supprimer</a></li>
+                            
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
@@ -247,7 +252,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Valider les Inscriptions</h1>
+                        <h1>Accueil</h1>
                     </div>
                 </div>
             </div>
@@ -265,8 +270,8 @@
         </div>
 
         <div class="content mt-3">
-            <div class="animated fadeIn">
-                <div class="row">
+            <div class="animated">
+				<div class="row">
 		<%
 			ArrayList<Client> allC = Fonctions.RecupererListClient();
 			ArrayList<Employe> allO = Fonctions.RecupererListOperateur();
@@ -411,7 +416,7 @@
 							</tr>
 							<div class="modal fade" id="C<%=i%>" >
 							      <div class="modal-dialog">
-							        <div class="modal-content" style="z-index:1;">
+							        <div class="modal-content" >
 							          <div class="modal-header">
 							
 							          </div>
@@ -447,6 +452,10 @@
 
 
 
+            </div>
+
+
+
             </div><!-- .animated -->
         </div><!-- .content -->
 
@@ -454,12 +463,13 @@
     </div><!-- /#right-panel -->
 
     <!-- Right Panel -->
-    
+
 
     <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
+
 
 </body>
 </html>
