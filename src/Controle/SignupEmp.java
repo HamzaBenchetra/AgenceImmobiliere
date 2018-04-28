@@ -9,9 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Model.Client;
 import Model.Employe;
-import Model.OperationsClient;
 import Model.SignUp;
 
 @WebServlet("/SignupEmp")

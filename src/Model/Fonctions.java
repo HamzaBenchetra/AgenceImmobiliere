@@ -189,44 +189,7 @@ public static boolean Valider(int id, String t){
 			}
 			}
 		
-		public static boolean ValiderOp(int idop){
-			int statut = -5;
-			ConnecterBD();
-			try {
-			
-		//	String SQL ="update client set etat =1 where idClient="+id;
-			PreparedStatement pst=connexion.prepareStatement("update operateur set etat =1 where idOperateur="+idop);
-
-			statut= pst.executeUpdate();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			if(statut != -5){
-				return true;
-			}else{
-				return false;
-			}
-			}
-		public static boolean ValiderAgent(int idAG){
-			int statut = -5;
-			ConnecterBD();
-			try {
-			
-		//	String SQL ="update client set etat =1 where idClient="+id;
-			PreparedStatement pst=connexion.prepareStatement("update agent set etat =1 where idAgent="+idAG);
-
-			statut= pst.executeUpdate();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			if(statut != -5){
-				return true;
-			}else{
-				return false;
-			}
-			}
+		
 		public static boolean SupprimerClient(int id){
 			int statut = -5;
 			ConnecterBD();

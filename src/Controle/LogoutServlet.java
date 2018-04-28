@@ -21,14 +21,26 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		s.invalidate();
 	this.getServletContext().getRequestDispatcher("/Mustlogin.jsp").forward(request, response);
 	}else {
-		System.out.println((String) s.getAttribute("type"));
-	this.getServletContext().getRequestDispatcher("/Logout.jsp").forward(request, response);
-	s.invalidate();
+		String t=(String) s.getAttribute("type");
+		switch(t) {
+		case("Admin") : s.invalidate();
+		this.getServletContext().getRequestDispatcher("/LoginAdmin").forward(request, response);break;
+		case("Operateur") : s.invalidate();
+		this.getServletContext().getRequestDispatcher("/LoginEmploye").forward(request, response);break;
+		case("Agent") : s.invalidate();
+		this.getServletContext().getRequestDispatcher("/LoginEmploye").forward(request, response);break;
+		case("Client") : s.invalidate();
+		this.getServletContext().getRequestDispatcher("/LoginServlet").forward(request, response);
+		}
+		
+		
+		
+	
 	}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		
 	}
 
 }

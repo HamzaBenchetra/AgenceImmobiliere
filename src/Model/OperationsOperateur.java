@@ -94,7 +94,7 @@ public class OperationsOperateur {
 				}
 				
 				PreparedStatement ss=connexion.prepareStatement("insert into RDV (idApp,idA,idC,date)values("+idApp+","+tab[0]+","+idC+","+d+");");
-				int rss=ss.executeUpdate();
+				ss.executeUpdate();
 				System.out.println(i);
 				System.out.println("RDV ok");
 				return true;

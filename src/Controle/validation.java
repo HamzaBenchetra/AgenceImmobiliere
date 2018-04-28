@@ -1,7 +1,6 @@
 package Controle;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Model.Fonctions;
-import Model.Login;
 
 @WebServlet("/validation")
 public class validation extends HttpServlet {

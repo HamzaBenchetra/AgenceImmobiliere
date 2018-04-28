@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Model.Client;
-import Model.OperationsClient;
 import Model.SignUp;
 
 @WebServlet("/SignupServlet")

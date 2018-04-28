@@ -1,7 +1,5 @@
 package Model;
 
-import java.util.Date;
-
 public class RDV {
 	private int idRDV,idApp,idAgent,idClient;
 	private boolean etat;
