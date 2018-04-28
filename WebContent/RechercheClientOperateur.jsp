@@ -278,10 +278,7 @@
 
                       </div>
                       <div class="card-body card-block">
-                        <form action="http://localhost:8080/AgenceImmobiliere/VerifierClientOperateur" method="post" class="post">
-                          <div class="form-group"><label for="nf-email" class=" form-control-label">Nom</label><input type="text" id="nf-email" name="nom" placeholder="Nom" class="form-control"></div>
-                          <div class="form-group"><label for="nf-password" class=" form-control-label">Prenom</label><input type="text" id="nf-password" name="prenom" placeholder="Prenom" class="form-control"></div>
-						  <div class="form-group"><label for="nf-email" class=" form-control-label">Mobile</label><input type="text" id="nf-email" name="numtel" placeholder="Numero de telephone" class="form-control"></div>
+                        <form action="http://localhost:8080/AgenceImmobiliere/VerifierClientOperateur" method="post" class="post"><div class="form-group"><label for="nf-email" class=" form-control-label">Mobile</label><input type="text" id="nf-email" name="numtel" placeholder="Numero de telephone" class="form-control"></div>
                           <button type="submit" class="btn btn-primary btn-sm">
                           <i class="fa fa-dot-circle-o"></i> Trouver
                           </button>

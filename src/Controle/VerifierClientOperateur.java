@@ -24,10 +24,9 @@ public class VerifierClientOperateur extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession s=request.getSession(true);
-		String nom=request.getParameter("nom");
-		String prenom=request.getParameter("prenom");
+		
 		String tel=request.getParameter("numtel");
-		int i=OperationsOperateur.verifierClient(nom,prenom,tel);
+		int i=OperationsOperateur.verifierClient(tel);
 		if(i!=0) {
 			s.setAttribute("idC", i);
 			this.getServletContext().getRequestDispatcher("/FixerRDVOperateurClient.jsp").forward(request, response);

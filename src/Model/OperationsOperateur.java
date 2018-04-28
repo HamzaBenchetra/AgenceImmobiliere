@@ -54,16 +54,15 @@ public class OperationsOperateur {
 		}
 		return a;
 	}
-	public static int verifierClient(String nom, String prenom, String tel) {
+	public static int verifierClient(String tel) {
 		Statement statement;
 		int i=0;
 		try {
 		statement = connexion.createStatement();
-		String Query="select * from Client;";
-		ResultSet rs=statement.executeQuery(Query);
+		ResultSet rs=statement.executeQuery("select * from Client;");
 		
 		while(rs.next()) {
-		if(((rs.getString("nom").equalsIgnoreCase(nom))&&rs.getString("prenom").equalsIgnoreCase(prenom))&&rs.getString("numtel").equalsIgnoreCase(tel))
+		if(rs.getString("numtel").equalsIgnoreCase(tel))
 			i=rs.getInt("idClient");
 		}
 		
