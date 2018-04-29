@@ -34,7 +34,7 @@ public class OperationsClient {
 		   try {
 				
 		 Statement statement = connexion.createStatement();
-			String Query="SELECT idAppart,type,etage,prix FROM Appartement; ";
+			String Query="SELECT idAppart,type,etage,prix FROM Appartement where etat=0; ";
 			ResultSet rs=statement.executeQuery(Query);
 			
 		//	ResultSet r = null;

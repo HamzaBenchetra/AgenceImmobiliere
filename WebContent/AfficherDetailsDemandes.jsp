@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="Model.Appartement"%>
+    <%@page import="Model.Client"%>
+    <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -39,35 +42,27 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="http://192.168.43.108:8080/AgenceImmobiliere/Operateur.jsp"> Espace Operateur<!-- <img src="images/logo.png" alt="Logo"> --></a>
+                <a class="navbar-brand" href="http://192.168.43.108:8080/AgenceImmobiliere/responsabledesventes.jsp"> Espace Responsable des ventes<!-- <img src="images/logo.png" alt="Logo"> --></a>
                 <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="http://192.168.43.108:8080/AgenceImmobiliere/Operateur.jsp"> <i class="menu-icon fa fa-dashboard"></i>Accueil </a>
+                        <a href="http://192.168.43.108:8080/AgenceImmobiliere/responsabledesventes.jsp"> <i class="menu-icon fa fa-dashboard"></i>Accueil </a>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Rendez-Vous</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Ventes</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-puzzle-piece"></i><a href="http://192.168.43.108:8080/AgenceImmobiliere/FixerRDVOp.jsp">Fixer</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Modifier</a></li>
-                            <li><i class="fa fa-bars"></i><a href="ui-tabs.html">Supprimer</a></li>
-                            
+                            <li><i class="fa fa-table"></i><a href="">Encaisser versement</a></li>
+                            <li><i class="fa fa-table"></i><a href="">Etablir contrat</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Acheter</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Achat</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="http://192.168.43.108:8080/AgenceImmobiliere/ChercherClientAchat.jsp">Demander Achat</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Forms</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Advanced Form</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="http://192.168.43.108:8080/AgenceImmobiliere/DemandesAchat">Demandes d'achat</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="">Achat directe</a></li>
                         </ul>
                     </li>
 
@@ -253,10 +248,104 @@
                 </div>
             </div>
         </div>
+	<%
+	HttpSession s=request.getSession(true);
+	Client Client=(Client)s.getAttribute("C");
+	Appartement Appartement=(Appartement)request.getAttribute("A");
+	%>
+	<div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+              <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Detail du Client </strong>
+                        </div>
+                        <div class="card-body">
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>ID Client</th>
+                        <th>Nom Client</th>
+                        <th>Prenom Client</th>
+                        <th>Numero telephone</th>
+                        <th>Adresse</th>
+                        <th>Date de nais</th>
+                        <th>Email</th>
+                        <th>sexe</th>
+                        
+                      </tr>
+                    </thead>
+				<tbody>
+				<tr>				
+				<td><%=Client.getIdc()%></td>
+				<td><%=Client.getNom() %></td>
+				<td><%=Client.getPrenom() %></td>
+				<td><%=Client.getNumtel() %></td>
+				<td><%=Client.getAdresse() %></td>
+				<td><%= Client.getDatenais()%></td>
+				<td><%= Client.getMail()%></td>
+				<td><%= Client.getSexe()%></td>
+				
+				
+			
+				</tr>
+				
+                </tbody>
+                  </table>
+                        </div>
+                    </div>
+                </div>
 
-        
+
+                </div>
+            </div><!-- .animated -->
+        </div><!-- .content -->
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Detail l'appartement </strong>
+                        </div>
+                        <div class="card-body">
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>ID de l'Appart</th>
+                        <th>ID du batiment</th>
+                        <th>Prix</th>
+                        <th>Etage</th>
+                          <th>Type</th>
+                      </tr>
+                    </thead>
+				<tbody>
+				<tr>				
+				<td><%=Appartement.getIdAppart() %></td>
+				<td><%=Appartement.getIdBatiment() %></td>
+				<td><%=(int)Appartement.getPrix() %></td>
+				<td><%= Appartement.getEtage()%></td>
+				<td><%= Appartement.getType()%></td>
+				
+				
+				</tr>
+				
+                </tbody>
+                  </table>
+                        </div>
+                    </div>
+                </div>
 
 
+                </div>
+                <form   action="http://192.168.43.108:8080/AgenceImmobiliere/EtablirContrat"  method = "post">
+				<input type="hidden" name="IDC" value=<%=Client.getIdc()%>>
+				<input type="hidden" name="IDA" value=<%=Appartement.getIdAppart()%>>
+		  		<input type=submit  value="EtablirContrat"/>
+				</form>
+            </div><!-- .animated -->
+        </div><!-- .content -->
     </div><!-- /#right-panel -->
 
     <!-- Right Panel -->

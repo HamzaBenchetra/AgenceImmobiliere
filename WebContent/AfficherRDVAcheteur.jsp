@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="Model.RDV"%>
+	<%@page import="Model.OperationsOperateur" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -58,15 +60,15 @@
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Acheter</a>
+                        <a href="http://192.168.43.108:8080/AgenceImmobiliere/ListeRDVClient.jsp" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Acheter</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="http://192.168.43.108:8080/AgenceImmobiliere/ChercherClientAchat.jsp">Demander Achat</a></li>
+                            
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Forms</a>
                         <ul class="sub-menu children dropdown-menu">
-                            
+                            <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Basic Form</a></li>
                             <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Advanced Form</a></li>
                         </ul>
                     </li>
@@ -253,6 +255,53 @@
                 </div>
             </div>
         </div>
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+<%
+	RDV allR =(RDV)request.getAttribute("r");
+%>
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Data Table</strong>
+                        </div>
+                        <div class="card-body">
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>ID Rendez-Vous</th>
+                        <th>ID de l'Appart</th>
+                        <th>ID du client</th>
+                        <th>Date du Rendez-Vous</th>
+                      </tr>
+                    </thead>
+				<tbody>
+				<tr>				
+				<td><%= allR.getIdRDV()%></td>
+				<td><%= allR.getIdApp()%></td>
+				<td><%= allR.getIdClient()%></td>
+				<td><%= allR.getD()%></td>
+				
+				<td><div align="center">
+				<form   action="http://192.168.43.108:8080/AgenceImmobiliere/DemanderAchat"  method = "get">
+				<input type="hidden" name ="IDR" value="<%=allR.getIdClient() %>" >		
+		  		<input type=submit value="Acheter"/>
+				</form>
+				</div>
+				</td>
+				</tr>
+				
+                </tbody>
+                  </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                </div>
+            </div><!-- .animated -->
+        </div><!-- .content -->
 
         
 

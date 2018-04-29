@@ -39,27 +39,27 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="http://localhost:8080/AgenceImmobiliere/Agent.jsp"> Espace Responsable des ventes<!-- <img src="images/logo.png" alt="Logo"> --></a>
+                <a class="navbar-brand" href="http://192.168.43.108:8080/AgenceImmobiliere/responsabledesventes.jsp"> Espace Responsable des ventes<!-- <img src="images/logo.png" alt="Logo"> --></a>
                 <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="http://localhost:8080/AgenceImmobiliere/Agent.jsp"> <i class="menu-icon fa fa-dashboard"></i>Accueil </a>
+                        <a href="http://192.168.43.108:8080/AgenceImmobiliere/responsabledesventes.jsp"> <i class="menu-icon fa fa-dashboard"></i>Accueil </a>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Mon Agenda</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Ventes</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="">Etablir contrats</a></li>
-                            <li><i class="fa fa-table"></i><a href=""></a></li>
+                            <li><i class="fa fa-table"></i><a href="">Encaisser versement</a></li>
+                            <li><i class="fa fa-table"></i><a href="">Etablir contrat</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Preavis</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Achat</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="">Donner un preavis</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="">Modifier un preavis</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="http://192.168.43.108:8080/AgenceImmobiliere/DemandesAchat">Demandes d'achat</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="">Achat directe</a></li>
                         </ul>
                     </li>
 
@@ -206,7 +206,7 @@
 
                                 <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
 
-                                <a class="nav-link" href="http://localhost:8080/AgenceImmobiliere/LogoutServlet"><i class="fa fa-power -off"></i>Logout</a>
+                                <a class="nav-link" href="http://192.168.43.108:8080/AgenceImmobiliere/LogoutServlet"><i class="fa fa-power -off"></i>Logout</a>
                         </div>
                     </div>
 

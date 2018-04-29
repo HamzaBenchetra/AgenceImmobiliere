@@ -31,6 +31,8 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		this.getServletContext().getRequestDispatcher("/LoginEmploye").forward(request, response);break;
 		case("Client") : s.invalidate();
 		this.getServletContext().getRequestDispatcher("/LoginServlet").forward(request, response);
+		case("respventes") : s.invalidate();
+		this.getServletContext().getRequestDispatcher("/LoginEmploye").forward(request, response);break;
 		}
 		
 		

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="Model.RDV"%>
+    <%@page import="java.util.ArrayList"%>
+	<%@page import="Model.OperationsOperateur" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -39,14 +42,14 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="http://192.168.43.108:8080/AgenceImmobiliere/Operateur.jsp"> Espace Operateur<!-- <img src="images/logo.png" alt="Logo"> --></a>
+                <a class="navbar-brand" href="http://192.168.43.108:8080/AgenceImmobiliere/responsabledesventes.jsp"> Espace Responsable des ventes<!-- <img src="images/logo.png" alt="Logo"> --></a>
                 <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="http://192.168.43.108:8080/AgenceImmobiliere/Operateur.jsp"> <i class="menu-icon fa fa-dashboard"></i>Accueil </a>
+                        <a href="http://192.168.43.108:8080/AgenceImmobiliere/responsabledesventes.jsp"> <i class="menu-icon fa fa-dashboard"></i>Accueil </a>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Rendez-Vous</a>
@@ -58,15 +61,15 @@
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Acheter</a>
+                        <a href="http://192.168.43.108:8080/AgenceImmobiliere/ListeRDVClient.jsp" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Acheter</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="http://192.168.43.108:8080/AgenceImmobiliere/ChercherClientAchat.jsp">Demander Achat</a></li>
+                            
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Forms</a>
                         <ul class="sub-menu children dropdown-menu">
-                            
+                            <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Basic Form</a></li>
                             <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Advanced Form</a></li>
                         </ul>
                     </li>
@@ -253,6 +256,56 @@
                 </div>
             </div>
         </div>
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+<%
+	ArrayList<RDV> allR = (ArrayList<RDV>)request.getAttribute("L");
+%>
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Data Table</strong>
+                        </div>
+                        <div class="card-body">
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>ID Rendez-Vous</th>
+                        <th>ID de l'Appart</th>
+                        <th>ID du client</th>
+                        <th>Date du Rendez-Vous</th>
+                      </tr>
+                    </thead>
+                      <%for(int i=0 ; i<allR.size() ; i++){ %>				
+				<tbody>
+				<tr>				
+				<td><%= allR.get(i).getIdRDV()%></td>
+				<td><%= allR.get(i).getIdApp()%></td>
+				<td><%= allR.get(i).getIdClient()%></td>
+				<td><%= allR.get(i).getD()%></td>
+				
+				<td><div align="center">
+				<form   action="http://192.168.43.108:8080/AgenceImmobiliere/RdvAcheteur"  method = "post">
+				<input type="hidden" name ="IDR" value="<%=allR.get(i).getIdRDV() %>" >		
+		  		<input type=submit value="Demander achat"/>
+				</form>
+				</div>
+				</td>
+				</tr>
+				<%
+					}
+				%>
+                </tbody>
+                  </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                </div>
+            </div><!-- .animated -->
+        </div><!-- .content -->
 
         
 

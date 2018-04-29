@@ -253,7 +253,19 @@
                 </div>
             </div>
         </div>
-
+		<div class="card">
+                                    <div class="card-header">
+                                        <strong class="card-title">Succès</strong>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="alert alert-success" role="alert">
+                                            <h4 class="alert-heading">Demande soumise avec succès</h4>
+                                            <p>La demande d'achat a étée envoyée au responsable des ventes avec succès</p>
+                                            <hr>
+                                            <p class="mb-0">Veuillez demander au client de se presenter au bureau du responsable des ventres pour terminer l'operation d'achat</p>
+                                        </div>
+                                    </div>
+                                </div>
         
 
 

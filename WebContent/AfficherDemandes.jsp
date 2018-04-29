@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="Model.DemandeAchat"%>
+    <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -39,35 +41,27 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="http://192.168.43.108:8080/AgenceImmobiliere/Operateur.jsp"> Espace Operateur<!-- <img src="images/logo.png" alt="Logo"> --></a>
+                <a class="navbar-brand" href="http://192.168.43.108:8080/AgenceImmobiliere/responsabledesventes.jsp"> Espace Responsable des ventes<!-- <img src="images/logo.png" alt="Logo"> --></a>
                 <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="http://192.168.43.108:8080/AgenceImmobiliere/Operateur.jsp"> <i class="menu-icon fa fa-dashboard"></i>Accueil </a>
+                        <a href="http://192.168.43.108:8080/AgenceImmobiliere/responsabledesventes.jsp"> <i class="menu-icon fa fa-dashboard"></i>Accueil </a>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Rendez-Vous</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Ventes</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-puzzle-piece"></i><a href="http://192.168.43.108:8080/AgenceImmobiliere/FixerRDVOp.jsp">Fixer</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Modifier</a></li>
-                            <li><i class="fa fa-bars"></i><a href="ui-tabs.html">Supprimer</a></li>
-                            
+                            <li><i class="fa fa-table"></i><a href="">Encaisser versement</a></li>
+                            <li><i class="fa fa-table"></i><a href="">Etablir contrat</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Acheter</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Achat</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="http://192.168.43.108:8080/AgenceImmobiliere/ChercherClientAchat.jsp">Demander Achat</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Forms</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Advanced Form</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="http://192.168.43.108:8080/AgenceImmobiliere/DemandesAchat">Demandes d'achat</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="">Achat directe</a></li>
                         </ul>
                     </li>
 
@@ -253,7 +247,56 @@
                 </div>
             </div>
         </div>
+		<%
+		HttpSession S=request.getSession(true);
+		ArrayList<DemandeAchat> AllD=(ArrayList<DemandeAchat>)S.getAttribute("L");
+		%>
+		<div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Liste des demandes d'achat</strong>
+                        </div>
+                        <div class="card-body">
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>ID Demande</th>
+                        <th>ID Client</th>
+                        <th>ID Appartement</th>
+                      </tr>
+                    </thead>
+                      <%for(int i=0 ; i<AllD.size() ; i++){ %>				
+				<tbody>
+				<tr>				
+				<td><%= AllD.get(i).getIdDemande()%></td>
+				<td><%= AllD.get(i).getIdClient()%></td>
+				<td><%= AllD.get(i).getIdApp()%></td>
+				
+				<td><div align="center">
+				<form   action="http://192.168.43.108:8080/AgenceImmobiliere/DemandesAchat"  method = "post">
+				<input type="hidden" name ="IDClient" value="<%=AllD.get(i).getIdClient()%>" >	
+				<input type="hidden" name ="IDAppart" value="<%=AllD.get(i).getIdApp()%>" >
+		  		<input type=submit value="Afficher les details"/>
+				</form>
+				</div>
+				</td>
+				</tr>
+				<%
+					}
+				%>
+                </tbody>
+                  </table>
+                        </div>
+                    </div>
+                </div>
 
+
+                </div>
+            </div><!-- .animated -->
+        </div><!-- .content -->
         
 
 

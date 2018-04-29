@@ -58,15 +58,15 @@
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Acheter</a>
+                        <a href="http://192.168.43.108:8080/AgenceImmobiliere/ListeRDVClient.jsp" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Acheter</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="http://192.168.43.108:8080/AgenceImmobiliere/ChercherClientAchat.jsp">Demander Achat</a></li>
+                            
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Forms</a>
                         <ul class="sub-menu children dropdown-menu">
-                            
+                            <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Basic Form</a></li>
                             <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Advanced Form</a></li>
                         </ul>
                     </li>
@@ -252,6 +252,37 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+
+
+                <div class="row">
+                
+                <div class="col-lg-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <strong>Identifier le client</strong> 
+
+                      </div>
+                      <div class="card-body card-block">
+                        <form action="http://192.168.43.108:8080/AgenceImmobiliere/RdvAcheteur" method="get" class="post">
+                        <div class="form-group"><label for="nf-email" class=" form-control-label">Mobile</label>
+                        <input type="text" id="nf-email" name="numtel" placeholder="Numero de telephone" class="form-control">
+                        </div>
+                          <button type="submit" class="btn btn-primary btn-sm">
+                          <i class="fa fa-dot-circle-o"></i> Trouver ses Rendez-vous</button>
+                        </form>
+                      </div>
+                      
+                    </div>
+                    
+                  </div>
+                
+                </div>
+
+
+            </div><!-- .animated -->
         </div>
 
         

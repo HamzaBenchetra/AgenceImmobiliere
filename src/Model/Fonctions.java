@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import Controle.DemandesAchat;
 import Model.Preaviss;
 
 public class Fonctions {
@@ -175,7 +176,7 @@ public static boolean Valider(int id, String t){
 			try {
 			
 		//	String SQL ="update client set etat =1 where idClient="+id;
-			PreparedStatement pst=connexion.prepareStatement("update "+ t +" set etat =1 where id"+t+"="+id);
+			PreparedStatement pst=connexion.prepareStatement("update "+ t +" set etat =1 where id"+t+"="+id+";");
 
 			statut= pst.executeUpdate();
 			} catch (SQLException e) {
@@ -314,4 +315,71 @@ public static boolean Valider(int id, String t){
 			Date date=new Date();
 			System.out.println(dt.format(date));
 		}
+		public static ArrayList<DemandeAchat> RecupererListeDemandesA() {
+				ConnecterBD();
+				   ArrayList<DemandeAchat> D = new ArrayList<DemandeAchat>();
+				   try {
+						
+				 Statement statement = connexion.createStatement();
+					String Query="SELECT * from demandesAchat;";
+					ResultSet rs=statement.executeQuery(Query);
+					
+				//	ResultSet r = null;
+					while(rs.next()){
+						DemandeAchat d=new DemandeAchat ();
+						d.setIdClient(rs.getInt("idc"));
+						d.setIdApp(rs.getInt("idApp"));
+						d.setIdDemande(rs.getInt("idDemande"));
+						D.add(d);
+					}
+					return D ;
+			   } catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					
+				}
+				   return D ;		
+			}
+		public static Client AfficherClient(int id) {
+				Client ca=new Client();
+				ConnecterBD();
+				Statement s;
+				try {
+					s = connexion.createStatement();
+					ResultSet rs=s.executeQuery("SELECT * from client where idClient="+id+";");
+					while(rs.next()) {
+						ca.setIdc(rs.getInt("idClient"));
+						ca.setNom(rs.getString("nom"));
+						ca.setPrenom(rs.getString("prenom"));
+						ca.setNumtel(rs.getString("numtel"));
+						ca.setAdresse(rs.getString("adresse"));
+						ca.setDatenais(rs.getString("datenais"));
+						ca.setMail(rs.getString("mail"));
+						ca.setSexe(rs.getString("sexe"));
+					}
+					return ca;
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			return ca;
+		}
+		public static boolean EtablirC(int idc, int idA) {
+			ConnecterBD();
+			try {
+				PreparedStatement ps=connexion.prepareStatement("insert into Contrat(idCL,IdApp) values ("+idc+","+idA+");");
+				ps.executeUpdate();
+				PreparedStatement pst=connexion.prepareStatement("DELETE FROM demandesachat WHERE idC="+idc+";");
+				pst.executeUpdate();
+				PreparedStatement pstt=connexion.prepareStatement("update appartement set etat =1 where idAppart="+idA+";");
+				pstt.executeUpdate();
+				
+				return true;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return false;
+			}
+			
+		}	
 }

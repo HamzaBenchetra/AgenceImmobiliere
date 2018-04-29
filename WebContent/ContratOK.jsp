@@ -39,28 +39,27 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="http://192.168.43.108:8080/AgenceImmobiliere/Operateur.jsp"> Espace Operateur<!-- <img src="images/logo.png" alt="Logo"> --></a>
+                <a class="navbar-brand" href="http://192.168.43.108:8080/AgenceImmobiliere/responsabledesventes.jsp"> Espace Responsable des ventes<!-- <img src="images/logo.png" alt="Logo"> --></a>
                 <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="http://192.168.43.108:8080/AgenceImmobiliere/Operateur.jsp"> <i class="menu-icon fa fa-dashboard"></i>Accueil </a>
+                        <a href="http://192.168.43.108:8080/AgenceImmobiliere/responsabledesventes.jsp"> <i class="menu-icon fa fa-dashboard"></i>Accueil </a>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Rendez-Vous</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Ventes</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-puzzle-piece"></i><a href="http://192.168.43.108:8080/AgenceImmobiliere/FixerRDVOp.jsp">Fixer</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Modifier</a></li>
-                            <li><i class="fa fa-bars"></i><a href="ui-tabs.html">Supprimer</a></li>
-                            
+                            <li><i class="fa fa-table"></i><a href="">Encaisser versement</a></li>
+                            <li><i class="fa fa-table"></i><a href="">Etablir contrat</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Acheter</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Achat</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="http://192.168.43.108:8080/AgenceImmobiliere/ChercherClientAchat.jsp">Demander Achat</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="http://192.168.43.108:8080/AgenceImmobiliere/DemandesAchat">Demandes d'achat</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="">Achat directe</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
@@ -253,7 +252,18 @@
                 </div>
             </div>
         </div>
-
+		<div class="card">
+                                    <div class="card-header">
+                                        <strong class="card-title">Succès</strong>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="alert alert-success" role="alert">
+                                            <h4 class="alert-heading">Informations du contrat enregistrer avec succès</h4>
+                                            <hr>
+                                            <p class="mb-0"><button class="btn btn-secondary">Afficher les détails du contrat</button></p>
+                                        </div>
+                                    </div>
+                                </div>
         
 
 

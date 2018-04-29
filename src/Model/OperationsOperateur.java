@@ -33,7 +33,7 @@ public class OperationsOperateur {
 		ArrayList<Appartement> a = new ArrayList<Appartement>();
 		try {
 		Statement statement = connexion.createStatement();
-		String Query="select * from appartement as a, batiment as b,localite as l where a.idBat=b.idBatiment and b.idLocal=l.idLocalite and l.nomLocalite='"+localite+"' and type='"+type+"' and etage="+etage+" ;";
+		String Query="select * from appartement as a, batiment as b,localite as l where a.idBat=b.idBatiment and b.idLocal=l.idLocalite and l.nomLocalite='"+localite+"' and a.type='"+type+"' and a.etage="+etage+" and a.etat=0;";
 		ResultSet rs=statement.executeQuery(Query);
 		Appartement A=new Appartement();
 		while(rs.next()){
@@ -122,6 +122,78 @@ public class OperationsOperateur {
 			e.printStackTrace();
 		}
 		return id;
+	}
+public static ArrayList<RDV> RecupererListeRDV(String tel){
+		
+		ConnecterBD();
+		   ArrayList<RDV> R = new ArrayList<RDV>();
+		   try {
+				
+		 Statement statement = connexion.createStatement();
+			String Query="select * from rdv where idC=(SELECT idClient from client where numtel='"+tel+"');";
+			ResultSet rs=statement.executeQuery(Query);
+			
+		//	ResultSet r = null;
+			while(rs.next()){
+				RDV r=new RDV ();
+				r.setIdClient(rs.getInt("idC"));
+				r.setIdRDV(rs.getInt("idRDV"));
+				r.setIdApp(rs.getInt("idApp"));
+				r.setIdAgent(rs.getInt("idA"));
+				r.setD(rs.getString("date"));
+				r.setEtat(rs.getBoolean("etat"));
+				
+				R.add(r);
+			}
+			return R ;
+	   } catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}
+		   return R ;		
+	}
+
+public static RDV RecupererRDVAcheteur(int i){
+	
+	ConnecterBD();
+	RDV r=new RDV ();
+	   try {
+			
+	 Statement statement = connexion.createStatement();
+		String Query="select * from rdv where idRDV="+i+";";
+		ResultSet rs=statement.executeQuery(Query);
+		
+	//	ResultSet r = null;
+		while(rs.next()){
+			r.setIdClient(rs.getInt("idC"));
+			r.setIdRDV(rs.getInt("idRDV"));
+			r.setIdApp(rs.getInt("idApp"));
+			r.setIdAgent(rs.getInt("idA"));
+			r.setD(rs.getString("date"));
+			r.setEtat(rs.getBoolean("etat"));
+		}
+		return r ;
+   } catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		
+	}
+	   return r ;		
+}
+public static boolean insererDemande(RDV r) {
+	
+	ConnecterBD();
+	try {
+		PreparedStatement ps=connexion.prepareStatement("insert into demandesAchat(idC,IdApp) values ("+r.getIdClient()+","+r.getIdApp()+");");
+		ps.executeUpdate();
+		return true;
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		return false;
+	}
+	
 	}
 }
 
