@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import Controle.VerifierClientOperateur;
+
 public class OperationsOperateur {
 	private static Connection connexion;
 	 
@@ -55,11 +57,12 @@ public class OperationsOperateur {
 		return a;
 	}
 	public static int verifierClient(String tel) {
-		Statement statement;
+		ConnecterBD();
+		Statement statement1;
 		int i=0;
 		try {
-		statement = connexion.createStatement();
-		ResultSet rs=statement.executeQuery("select * from Client;");
+		statement1 = connexion.createStatement();
+		ResultSet rs=statement1.executeQuery("select * from Client;");
 		
 		while(rs.next()) {
 		if(rs.getString("numtel").equalsIgnoreCase(tel))
@@ -116,6 +119,23 @@ public class OperationsOperateur {
 			ResultSet rs=s.executeQuery("select idclient from client where numtel='"+tel+"';");
 			while(rs.next()) {
 				id=rs.getInt("idclient");
+			}
+			return id;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return id;
+	}
+	public static int creerCompteAcheteur(String nom, String prenom, String tel) {
+		ConnecterBD();
+		int id=0;
+		try {
+			PreparedStatement ps=connexion.prepareStatement("insert into Acheteur (nom,prenom,numtel) values('"+nom+"','"+prenom+"','"+tel+"');");
+			ps.executeUpdate();
+			Statement s = connexion.createStatement();
+			ResultSet rs=s.executeQuery("select idAcheteur from client where numtel='"+tel+"';");
+			while(rs.next()) {
+				id=rs.getInt("idAcheteur");
 			}
 			return id;
 		} catch (SQLException e) {
@@ -189,11 +209,13 @@ public static boolean insererDemande(RDV r) {
 		ps.executeUpdate();
 		return true;
 	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+		// TODO Auto-generated catch blockfgf fb bghdghgfjtdjhsh
 		return false;
 	}
-	
-	}
+}
+public static void main(String[] args) {
+	//prendreRDV(1,1,"'2018-04-22 08:00:00'")
+ System.out.println(verifierClient("0669601401"));
+}
 }
 

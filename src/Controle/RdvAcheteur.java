@@ -24,9 +24,17 @@ public class RdvAcheteur extends HttpServlet {
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String tel=request.getParameter("numtel");
-		ArrayList<RDV> R=OperationsOperateur.RecupererListeRDV(tel);
-		request.setAttribute("L", R);
-		this.getServletContext().getRequestDispatcher("/AfficherListeRDVAcheteur.jsp").forward(request, response);
+		System.out.println(tel);
+		int i=OperationsOperateur.verifierClient(tel);
+		System.out.println(i);
+		if(i!=0) {
+			ArrayList<RDV> R=OperationsOperateur.RecupererListeRDV(tel);
+			request.setAttribute("L", R);
+			this.getServletContext().getRequestDispatcher("/AfficherListeRDVAcheteur.jsp").forward(request, response);
+		}else {
+			this.getServletContext().getRequestDispatcher("/CreerCompteAcheteur.jsp").forward(request, response);
+		}
+		
 		
 	
 		
