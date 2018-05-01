@@ -1,5 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="Model.Appartement"%>
+    <%@page import="java.util.ArrayList"%>
+	<%@page import="Model.OperationsClient" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -39,28 +42,28 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="http://localhost:8080/AgenceImmobiliere/Operateur.jsp"> Espace Operateur<!-- <img src="images/logo.png" alt="Logo"> --></a>
+                <a class="navbar-brand" href="http://localhost:8080/AgenceImmobiliere/Operateur.jsp">Espace Operateur</a>
                 <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active">
+                    <li>
                         <a href="http://localhost:8080/AgenceImmobiliere/Operateur.jsp"> <i class="menu-icon fa fa-dashboard"></i>Accueil </a>
                     </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Rendez-Vous</a>
-                        <ul class="sub-menu children dropdown-menu">
+                    <li class="menu-item-has-children active dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Rendez-vous</a>
+                        <ul class="sub-menu children  dropdown-menu">
                             <li><i class="fa fa-puzzle-piece"></i><a href="http://localhost:8080/AgenceImmobiliere/FixerRDVOp.jsp">Fixer</a></li>
                             <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Modifier</a></li>
                             <li><i class="fa fa-bars"></i><a href="ui-tabs.html">Supprimer</a></li>
-                            
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="http://localhost:8080/AgenceImmobiliere/ListeRDVClient.jsp" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Acheter</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Tables</a>
                         <ul class="sub-menu children dropdown-menu">
-                            
+                            <li><i class="fa fa-table"></i><a href="tables-basic.html">Basic Table</a></li>
+                            <li><i class="fa fa-table"></i><a href="tables-data.html">Data Table</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
@@ -248,58 +251,87 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Acceuil</h1>
+                        <h1>Fixer un Rendez-vous</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="http://localhost:8080/AgenceImmobiliere/Operateur.jsp">Accueil</a></li>
+                            <li><a href="#">Rendez-vous</a></li>
+                            <li class="active">Fixer</li>
+                        </ol>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="content mt-3">
             <div class="animated fadeIn">
-
-
                 <div class="row">
-                
-                <div class="col-lg-12">
+<%
+	ArrayList<Appartement> allA = (ArrayList<Appartement>)request.getAttribute("Apparts");
+%>
+                <div class="col-md-12">
                     <div class="card">
-                      <div class="card-header">
-                        <strong>Identifier le client</strong> 
-
-                      </div>
-                      <div class="card-body card-block">
-                        <form action="http://localhost:8080/AgenceImmobiliere/RdvAcheteur" method="get" class="post">
-                        <div class="form-group"><label for="nf-email" class=" form-control-label">Mobile</label>
-                        <input type="text" id="nf-email" name="numtel" placeholder="Numero de telephone" class="form-control">
+                        <div class="card-header">
+                            <strong class="card-title">Data Table</strong>
                         </div>
-                          <button type="submit" class="btn btn-primary btn-sm">
-                          <i class="fa fa-dot-circle-o"></i> Cherecher Client</button>
-                        </form>
-                      </div>
-                      
+                        <div class="card-body">
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Localite</th>
+                        <th>Etage</th>
+                        <th>Type</th>
+                        <th>Prix</th>
+                        <th>RDV</th>
+                      </tr>
+                    </thead>
+                      <%for(int i=0 ; i<allA.size() ; i++){ %>				
+				<tbody>
+				<tr>				
+				<td><%= allA.get(i).getIdAppart()%></td>
+				<td><%= allA.get(i).getNomLocal()%></td>
+				<td><%= allA.get(i).getEtage()%></td>
+				<td><%= allA.get(i).getType()%></td>
+				<td><%= (int)allA.get(i).getPrix()%></td>
+				<td><div align="center">
+				<form   action="http://localhost:8080/AgenceImmobiliere/DemanderAchat"  method = "get">
+				<input type="hidden" name ="IDA" value="<%=allA.get(i).getIdAppart() %>" >		
+		  		<input type=submit value="Acheter"/>
+				</form>
+				</div>
+				</td>
+				</tr>
+				<%
+					}
+				%>
+                </tbody>
+                  </table>
+                        </div>
                     </div>
-                    
-                  </div>
-                
                 </div>
 
 
+                </div>
             </div><!-- .animated -->
-        </div>
-
-        
+        </div><!-- .content -->
 
 
     </div><!-- /#right-panel -->
 
     <!-- Right Panel -->
-	
+
 
     <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
-        <!--  Chart js -->
-    <script src="assets/js/lib/chart-js/Chart.bundle.js"></script>
-    <script src="assets/js/lib/chart-js/chartjs-init.js"></script>
+
 
 </body>
 </html>

@@ -1,26 +1,28 @@
 package Controle;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+import Model.Appartement;
 import Model.OperationsOperateur;
 
 /**
- * Servlet implementation class CreerCompteAcheteur
+ * Servlet implementation class RechercherAppartOperateurAchat
  */
-@WebServlet("/CreerCompteAcheteur")
-public class CreerCompteAcheteur extends HttpServlet {
+@WebServlet("/RechercherAppartOperateurAchat")
+public class RechercherAppartOperateurAchat extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CreerCompteAcheteur() {
+    public RechercherAppartOperateurAchat() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,15 +40,14 @@ public class CreerCompteAcheteur extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String nom=request.getParameter("nom");
-		String prenom=request.getParameter("prenom");
-		String tel=request.getParameter("numtel");
-		OperationsOperateur.creerCompteClient(nom,prenom,tel);
-		int idAch=OperationsOperateur.creerCompteAcheteur(nom,prenom,tel);
-		HttpSession s=request.getSession(true);
-		//s.setAttribute("idC", id);
-		s.setAttribute("idACH", idAch);
-		this.getServletContext().getRequestDispatcher("/RechercherAppartAchat.jsp").forward(request, response);
+		String localite=request.getParameter("localite");
+		String type=request.getParameter("type");
+		int etage = Integer.parseInt(request.getParameter("etage"));
+		ArrayList<Appartement> a = new ArrayList<Appartement>();
+		a=OperationsOperateur.AfficherAppart(localite, type, etage);
+		request.setAttribute("Apparts", a);
+		this.getServletContext().getRequestDispatcher("/ListAppartAchat.jsp").forward(request, response);
+		
 	}
 
 }

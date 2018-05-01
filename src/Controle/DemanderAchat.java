@@ -19,8 +19,10 @@ public class DemanderAchat extends HttpServlet {
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession s=request.getSession(true);
-		RDV r=(RDV) s.getAttribute("RDV");
-		OperationsOperateur.insererDemande(r);
+	//	RDV r=(RDV) s.getAttribute("RDV");
+		int idAch=(int) s.getAttribute("idACH");
+		int idAp= Integer.parseInt(request.getParameter("IDA"));
+		OperationsOperateur.insererDemande(idAp,idAch);
 		this.getServletContext().getRequestDispatcher("/DemandeOK.jsp").forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

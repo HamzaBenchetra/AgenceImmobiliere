@@ -133,7 +133,7 @@ public class OperationsOperateur {
 			PreparedStatement ps=connexion.prepareStatement("insert into Acheteur (nom,prenom,numtel) values('"+nom+"','"+prenom+"','"+tel+"');");
 			ps.executeUpdate();
 			Statement s = connexion.createStatement();
-			ResultSet rs=s.executeQuery("select idAcheteur from client where numtel='"+tel+"';");
+			ResultSet rs=s.executeQuery("select idAcheteur from acheteur where numtel='"+tel+"';");
 			while(rs.next()) {
 				id=rs.getInt("idAcheteur");
 			}
@@ -201,11 +201,11 @@ public static RDV RecupererRDVAcheteur(int i){
 	}
 	   return r ;		
 }
-public static boolean insererDemande(RDV r) {
+public static boolean insererDemande(int idAp,int idAch) {
 	
 	ConnecterBD();
 	try {
-		PreparedStatement ps=connexion.prepareStatement("insert into demandesAchat(idC,IdApp) values ("+r.getIdClient()+","+r.getIdApp()+");");
+		PreparedStatement ps=connexion.prepareStatement("insert into demandesAchat(idAcheteur,IdApp) values ("+idAch+","+idAp+");");
 		ps.executeUpdate();
 		return true;
 	} catch (SQLException e) {

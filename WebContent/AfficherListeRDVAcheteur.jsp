@@ -286,9 +286,9 @@
 				<td><%= allR.get(i).getD()%></td>
 				
 				<td><div align="center">
-				<form   action="http://localhost:8080/AgenceImmobiliere/RdvAcheteur"  method = "post">
+				<form   action="http://localhost:8080/AgenceImmobiliere/DemanderAchat"  method = "post">
 				<input type="hidden" name ="IDR" value="<%=allR.get(i).getIdRDV() %>" >		
-		  		<input type=submit value="Demander achat"/>
+		  		<input type=submit value="Acheter"/>
 				</form>
 				</div>
 				</td>
