@@ -26,7 +26,9 @@ public class RdvAcheteur extends HttpServlet {
 		String tel=request.getParameter("numtel");
 		System.out.println(tel);
 		int i=OperationsOperateur.verifierClient(tel);
-		System.out.println(i);
+		HttpSession s=request.getSession(true);
+		s.setAttribute("idAch", i);
+
 		if(i!=0) {
 			ArrayList<RDV> R=OperationsOperateur.RecupererListeRDV(tel);
 			request.setAttribute("L", R);

@@ -42,7 +42,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="http://localhost:8080/AgenceImmobiliere/responsabledesventes.jsp"> Espace Responsable des ventes<!-- <img src="images/logo.png" alt="Logo"> --></a>
+                <a class="navbar-brand" href="http://localhost:8080/AgenceImmobiliere/Operateur.jsp"> Espace Operateur<!-- <img src="images/logo.png" alt="Logo"> --></a>
                 <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
             </div>
 
@@ -287,7 +287,7 @@
 				
 				<td><div align="center">
 				<form   action="http://localhost:8080/AgenceImmobiliere/DemanderAchat"  method = "post">
-				<input type="hidden" name ="IDR" value="<%=allR.get(i).getIdRDV() %>" >		
+				<input type="hidden" name ="IDA" value="<%=allR.get(i).getIdApp() %>" >		
 		  		<input type=submit value="Acheter"/>
 				</form>
 				</div>
@@ -301,7 +301,10 @@
                         </div>
                     </div>
                 </div>
-
+				
+				<form   action="RechercherAppartAchat.jsp"  method = "post">
+					
+		  		<input type=submit value="Rechercher d'autres appartements "/>
 
                 </div>
             </div><!-- .animated -->

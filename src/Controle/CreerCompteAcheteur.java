@@ -41,11 +41,11 @@ public class CreerCompteAcheteur extends HttpServlet {
 		String nom=request.getParameter("nom");
 		String prenom=request.getParameter("prenom");
 		String tel=request.getParameter("numtel");
-		OperationsOperateur.creerCompteClient(nom,prenom,tel);
-		int idAch=OperationsOperateur.creerCompteAcheteur(nom,prenom,tel);
+		int ach=OperationsOperateur.creerCompteClient(nom,prenom,tel);
+		
 		HttpSession s=request.getSession(true);
-		//s.setAttribute("idC", id);
-		s.setAttribute("idACH", idAch);
+		//s.setAttribute("idC", ach);
+		s.setAttribute("idAch",ach);
 		this.getServletContext().getRequestDispatcher("/RechercherAppartAchat.jsp").forward(request, response);
 	}
 
