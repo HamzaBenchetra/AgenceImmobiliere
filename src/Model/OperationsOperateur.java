@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import Controle.VerifierClientOperateur;
@@ -185,6 +186,7 @@ public static RDV RecupererRDVAcheteur(int i){
 	}
 	   return r ;		
 }
+
 public static boolean insererDemande(int idAp,int idC) {
 	
 	ConnecterBD();
@@ -199,7 +201,7 @@ public static boolean insererDemande(int idAp,int idC) {
 }
 public static void main(String[] args) {
 	//prendreRDV(1,1,"'2018-04-22 08:00:00'")
- System.out.println(verifierClient("0669601401"));
+
 }
 }
 
