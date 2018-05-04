@@ -27,11 +27,39 @@ public class OperationsRESP {
 	        
 	  }
 
+	public static String StatAppart(String type){
+		DecimalFormat df = new DecimalFormat("#.##");
+
+		ConnecterBD();
+		int MAX=StatMAX();
+		double M=0;
+				try {
+				
+		 Statement statement = connexion.createStatement();
+			String Query="select COUNT(*) from appartement as a,rdv as r where  r.idApp=a.idAppart and type="+type+";";
+			ResultSet rs=statement.executeQuery(Query);
+			
+				
+			while(rs.next()){
+				 M=rs.getInt("COUNT(*)");
+			}
+				double x=(M/MAX)*100;
+				return (df.format(x));
+
+	   } catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}
+		return null;
+
+		 		
+	}
 	public static String StatLocalite(int IdLocal){
 		DecimalFormat df = new DecimalFormat("#.##");
 
 		ConnecterBD();
-		int MAX=StatLocaliteMAX();
+		int MAX=StatMAX();
 		double M=0;
 				try {
 				
@@ -55,7 +83,7 @@ public class OperationsRESP {
 
 		 		
 	}
-	public static int StatLocaliteMAX(){
+	public static int StatMAX(){
 		
 		ConnecterBD();
 		int MAX = 0;
@@ -83,7 +111,8 @@ public class OperationsRESP {
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		 System.out.println(StatLocalite(2));
+		// System.out.println(StatLocalite(2));
+		 System.out.println(StatAppart("F4"));
 	}
 
 }
