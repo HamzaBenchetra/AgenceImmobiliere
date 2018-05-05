@@ -65,7 +65,7 @@
 				<li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Statistiques</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="StattypeAppart.jsp">Par type Appartements</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="">Par type Appartements</a></li>
                             <li><i class="menu-icon fa fa-th"></i><a href="">Par  Agent</a></li>
                             <li><i class="menu-icon fa fa-th"></i><a href="">Par Appartements vendus </a></li>
                             <li><i class="menu-icon fa fa-th"></i><a href="">Par Localité</a></li>
@@ -253,11 +253,35 @@
                 </div>
             </div>
         </div>
-
+              
+                 <div class="card-body card-block">
+                        <form action="http://localhost:8080/AgenceImmobiliere/StattypeAppart" method="post" class="form-horizontal">
+                      
+                          
+                          
+                          <div class="row form-group">
+                            <div class="col col-md-3"><label for="select" class=" form-control-label">Type</label></div>
+                            <div class="col-12 col-md-9">
+                              <select name="type" id="select" class="form-control">
+                                <option value="0">Type d'appartement</option>
+                                <option value="F3">F3</option>
+                                <option value="F4">F4</option>
+                                <option value="F5">F5</option>
+                              </select>
+                            </div>
+                          </div>
+                          
+                         
+                        <button type="submit" class="btn btn-primary btn-sm">
+                          <i class="fa fa-dot-circle-o"></i> Voir Statistiques
+                        </button>
+                        
+                        </form>
+                      </div>
         
 
 
-    </div><!-- /#right-panel -->
+ 
 
     <!-- Right Panel -->
 	
