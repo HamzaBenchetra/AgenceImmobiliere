@@ -41,7 +41,7 @@ public class StatLocalite extends HttpServlet {
 				String statLo=OperationsRESP.StatLocalite(type);
 				request.setAttribute("statLo",statLo);
 				
-				this.getServletContext().getRequestDispatcher("/Statlocalite2.jsp").forward(request, response);
+				this.getServletContext().getRequestDispatcher("/StatLocalite2.jsp").forward(request, response);
 	}
 
 }
