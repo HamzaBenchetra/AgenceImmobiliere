@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 import Model.OperationsRESP;
 
 /**
- * Servlet implementation class StattypeAppart
+ * Servlet implementation class StatAgent
  */
-@WebServlet("/StattypeAppart")
-public class StattypeAppart extends HttpServlet {
+@WebServlet("/StatAgent")
+public class StatAgent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StattypeAppart() {
+    public StatAgent() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,12 +36,11 @@ public class StattypeAppart extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String type=request.getParameter("type");
-		String statap=OperationsRESP.StatAppart(type);
-		request.setAttribute("statap",statap);
+		int type=Integer.parseInt(request.getParameter("IDA"));
+		String statAg=OperationsRESP.StatAgent(type);
+		request.setAttribute("statAg",statAg);
 		
-		this.getServletContext().getRequestDispatcher("/StattypeAppart2.jsp").forward(request, response);
-		
+		this.getServletContext().getRequestDispatcher("/StatAgent2.jsp").forward(request, response);
 	}
 
 }

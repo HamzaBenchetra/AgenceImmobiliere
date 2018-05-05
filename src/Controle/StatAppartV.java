@@ -7,17 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Model.OperationsRESP;
+
 /**
- * Servlet implementation class stat
+ * Servlet implementation class StatAppartV
  */
-@WebServlet("/stat")
-public class stat extends HttpServlet {
+@WebServlet("/StatAppartV")
+public class StatAppartV extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public stat() {
+    public StatAppartV() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,7 +29,6 @@ public class stat extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -35,7 +36,11 @@ public class stat extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String type=request.getParameter("type");
+		String statapV=OperationsRESP.StatAppartvendus(type);
+		request.setAttribute("statapV",statapV);
+		
+		this.getServletContext().getRequestDispatcher("/StatAppartV2.jsp").forward(request, response);
 	}
 
 }

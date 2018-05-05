@@ -254,19 +254,19 @@
             </div>
         </div>
               
-                 <div class="card-body card-block">
-                        <form action="" method="post" class="form-horizontal">
+                                 <div class="card-body card-block">
+                        <form action="http://localhost:8080/AgenceImmobiliere/StatLocalite" method="post" class="form-horizontal">
                       
                           
                           
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="select" class=" form-control-label">Type</label></div>
+                            <div class="col col-md-3"><label for="select" class=" form-control-label">Selectionner Localité</label></div>
                             <div class="col-12 col-md-9">
-                              <select name="type" id="select" class="form-control">
-                                <option value="0">Type d'appartement</option>
-                                <option value="F3">F3</option>
-                                <option value="F4">F4</option>
-                                <option value="F5">F5</option>
+                              <select name="IDL" id="select" class="form-control">
+                                <option value="0">Localité</option>
+                                <option value="1">Ali Mendjli</option>
+                                <option value="2">Ain smara</option>
+                                <option value="3">Bousoouf</option>
                               </select>
                             </div>
                           </div>
@@ -280,7 +280,7 @@
                       </div>
         	 
         	 <div>
-        	 <% String d =(String)request.getAttribute("statap"); %>
+        	 <% String d =(String)request.getAttribute("statLo"); %>
         	 <h1>le resultat est :<%=d %>%</h1>       	 
         	 </div>
         	 

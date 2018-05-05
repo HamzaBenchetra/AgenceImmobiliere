@@ -255,7 +255,7 @@
         </div>
               
                  <div class="card-body card-block">
-                        <form action="" method="post" class="form-horizontal">
+                        <form action="http://localhost:8080/AgenceImmobiliere/StatAppartV" method="post" class="form-horizontal">
                       
                           
                           
@@ -280,7 +280,7 @@
                       </div>
         	 
         	 <div>
-        	 <% String d =(String)request.getAttribute("statap"); %>
+        	 <% String d =(String)request.getAttribute("statapV"); %>
         	 <h1>le resultat est :<%=d %>%</h1>       	 
         	 </div>
         	 
