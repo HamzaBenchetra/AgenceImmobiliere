@@ -191,7 +191,7 @@ public static boolean insererDemande(int idAp,int idC) {
 	
 	ConnecterBD();
 	try {
-		PreparedStatement ps=connexion.prepareStatement("insert into demandesAchat(idClient,IdApp) values ("+idC+","+idAp+");");
+		PreparedStatement ps=connexion.prepareStatement("insert into demandesAchat(idC,IdApp) values ("+idC+","+idAp+");");
 		ps.executeUpdate();
 		return true;
 	} catch (SQLException e) {

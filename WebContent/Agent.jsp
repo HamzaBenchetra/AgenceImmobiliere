@@ -52,14 +52,14 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Mon Agenda</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-table"></i><a href="http://localhost:8080/AgenceImmobiliere/ListeRDVAgent">Mes rendez-vous</a></li>
-                            <li><i class="fa fa-table"></i><a href="tables-data.html">Signaler un empechement</a></li>
+                            <li><i class="fa fa-table"></i><a href="#">Signaler un empechement</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Preavis</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Donner un preavis</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Modifier un preavis</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="http://localhost:8080/AgenceImmobiliere/DonnerPreavis">Donner un preavis</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="#">Modifier un preavis</a></li>
                         </ul>
                     </li>
 

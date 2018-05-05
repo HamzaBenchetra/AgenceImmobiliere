@@ -9,12 +9,7 @@ import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-
-import Controle.DemandesAchat;
-import Model.Preaviss;
-
 public class Fonctions {
 	private static Connection connexion;
 	public static boolean ValiderRDV(int id){
@@ -276,13 +271,18 @@ public static boolean Valider(int id, String t){
 			}
 			   return R ;		
 		}	
+		
+		
 		public static ArrayList<RDV> RecupererListeRDVAgent(int ida){
 			ConnecterBD();
+			DateFormat dt= new SimpleDateFormat("yyyy-MM-dd");
+			Date date=new Date();
+			
 			   ArrayList<RDV> R = new ArrayList<RDV>();
 			   try {
 					
 			 Statement statement = connexion.createStatement();
-				String Query="SELECT * from rdv where idA="+ida+" And etat=0 order by date;";
+				String Query="SELECT * from rdv where idA="+ida+" And date>(SELECT DATE_ADD(CURDATE(),INTERVAL 1 DAY)) order by date;";
 				ResultSet rs=statement.executeQuery(Query);
 				
 			//	ResultSet r = null;
@@ -305,16 +305,7 @@ public static boolean Valider(int id, String t){
 			   return R ;		
 		}	
 		
-		public static void main(String[] args) {
-			//ArrayList<Client> L=RecupererListClient();
-			//System.out.println(L.get(1).getIdc());
-			//Fonctions.Valider(2);
-			Date d = Calendar.getInstance().getTime();
-			System.out.println(d);
-			DateFormat dt= new SimpleDateFormat("yyyy-MM-dd");
-			Date date=new Date();
-			System.out.println(dt.format(date));
-		}
+		
 		public static ArrayList<DemandeAchat> RecupererListeDemandesA() {
 				ConnecterBD();
 				   ArrayList<DemandeAchat> D = new ArrayList<DemandeAchat>();
@@ -373,6 +364,16 @@ public static boolean Valider(int id, String t){
 				pst.executeUpdate();
 				PreparedStatement pstt=connexion.prepareStatement("update appartement set etat =1 where idAppart="+idA+";");
 				pstt.executeUpdate();
+				Statement s=connexion.createStatement();
+				ResultSet r=s.executeQuery("select mail from client as c , rdv as r where c.idClient=r.idC and r.idApp="+idA+" and c.idclient<>"+idc+" and r.date>CURDATE() Group by mail ;");
+				String a=" ";
+				while (r.next()) {
+					a=r.getString(1);
+					System.out.println(a);
+					
+					Contact.EnvoyerMailAppartVendu(a);
+					
+				}
 				
 				return true;
 			} catch (SQLException e) {
@@ -381,5 +382,36 @@ public static boolean Valider(int id, String t){
 				return false;
 			}
 			
+		}
+		public static ArrayList<RDV> RecupererListeRDVAgentE(int ida){
+			ConnecterBD();
+			DateFormat dt= new SimpleDateFormat("yyyy-MM-dd");
+			Date date=new Date();
+			
+			   ArrayList<RDV> R = new ArrayList<RDV>();
+			   try {
+					
+			 Statement statement = connexion.createStatement();
+				String Query="SELECT * from rdv where idA="+ida+" And date<CURDATE() order by date;";
+				ResultSet rs=statement.executeQuery(Query);
+				
+			//	ResultSet r = null;
+				while(rs.next()){
+					RDV r=new RDV ();
+					r.setIdRDV(rs.getInt("idRDV"));
+					r.setIdApp(rs.getInt("idApp"));
+					r.setIdAgent(rs.getInt("idA"));
+					r.setD(rs.getString("date"));
+					r.setEtat(rs.getBoolean("etat"));
+					
+					R.add(r);
+				}
+				return R ;
+		   } catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				
+			}
+			   return R ;		
 		}	
 }

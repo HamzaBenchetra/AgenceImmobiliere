@@ -1,6 +1,12 @@
-
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="Model.RDV"%>
+    <%@page import="java.util.ArrayList"%>
+	<%@page import="Model.Fonctions" %>
+	<%
+	ArrayList<RDV> allN = (ArrayList<RDV>)request.getAttribute("RDVE");
+
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -40,34 +46,27 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="http://localhost:8080/AgenceImmobiliere/Operateur.jsp">Espace Operateur</a>
+                <a class="navbar-brand" href="http://localhost:8080/AgenceImmobiliere/Agent.jsp"> Espace Agent<!-- <img src="images/logo.png" alt="Logo"> --></a>
                 <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="http://localhost:8080/AgenceImmobiliere/Operateur.jsp"> <i class="menu-icon fa fa-dashboard"></i>Accueil </a>
+                        <a href="http://localhost:8080/AgenceImmobiliere/Agent.jsp"> <i class="menu-icon fa fa-dashboard"></i>Accueil </a>
                     </li>
-                    <li class="menu-item-has-children active dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Rendez-vous</a>
-                        <ul class="sub-menu children  dropdown-menu">
-                            <li><i class="fa fa-puzzle-piece"></i><a href="http://localhost:8080/AgenceImmobiliere/FixerRDVOp.jsp">Fixer</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Modifier</a></li>
-                            <li><i class="fa fa-bars"></i><a href="ui-tabs.html">Supprimer</a></li>
+                    <li class="menu-item-has-children dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Mon Agenda</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-table"></i><a href="http://localhost:8080/AgenceImmobiliere/ListeRDVAgent">Mes rendez-vous</a></li>
+                            <li><i class="fa fa-table"></i><a href="#">Signaler un empechement</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Acheter</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Preavis</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="http://localhost:8080/AgenceImmobiliere/ChercherClientAchat.jsp">Demander Achat</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Forms</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Basic Form</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Advanced Form</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="http://localhost:8080/AgenceImmobiliere/DonnerPreavis">Donner un preavis</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="#">Modifier un preavis</a></li>
                         </ul>
                     </li>
 
@@ -244,123 +243,70 @@
         </header><!-- /header -->
         <!-- Header-->
 
-        <div class="breadcrumbs">
-            <div class="col-sm-4">
-                <div class="page-header float-left">
-                    <div class="page-title">
-                        <h1>Fixer un Rendez-vous</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-8">
-                <div class="page-header float-right">
-                    <div class="page-title">
-                        <ol class="breadcrumb text-right">
-                            <li><a href="http://localhost:8080/AgenceImmobiliere/Operateur.jsp">Accueil</a></li>
-                            <li><a href="#">Rendez-vous</a></li>
-                            <li class="active">Fixer</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="content mt-3">
+        
+<div class="content mt-3">
             <div class="animated fadeIn">
-
-
                 <div class="row">
-                  
-
-                  
-
-                  <div class="col-lg-12">
+                <div class="col-md-12">
                     <div class="card">
-                      <div class="card-header">
-                        <strong>Rechercher un appartement</strong> par criteres
-                      </div>
-                      <div class="card-body card-block">
-                        <form action="http://localhost:8080/AgenceImmobiliere/RechercherAppartOperateurAchat" method="post" class="form-horizontal">
-                      
-                          <div class="row form-group">
-                            <div class="col col-md-3"><label for="select" class=" form-control-label">Localite</label></div>
-                            <div class="col-12 col-md-9">
-                              <select name="localite" id="select" class="form-control">
-                                <option value="0">Choisir une localite</option>
-                                <option value="Ali Mendjli">Ali Mendjli</option>
-                                <option value="Ain Smara">Ain Smara</option>
-                                <option value="El Khroub">El Khroub</option>
-                              </select>
-                            </div>
-                          </div>
-                          <div class="row form-group">
-                            <div class="col col-md-3"><label for="select" class=" form-control-label">Etage</label></div>
-                            <div class="col-12 col-md-9">
-                              <select name="etage" id="select" class="form-control">
-                                <option value="0">Etage</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                
-                              </select>
-                            </div>
-                          </div>
-                          <div class="row form-group">
-                            <div class="col col-md-3"><label for="select" class=" form-control-label">Type</label></div>
-                            <div class="col-12 col-md-9">
-                              <select name="type" id="select" class="form-control">
-                                <option value="0">Type d'appartement que vous cherchez</option>
-                                <option value="F3">F3</option>
-                                <option value="F4">F4</option>
-                                <option value="F5">F5</option>
-                              </select>
-                            </div>
-                          </div>
-                          
-                         
-                        <button type="submit" class="btn btn-primary btn-sm">
-                          <i class="fa fa-dot-circle-o"></i> Submit
-                        </button>
-                        
-                        </form>
-                      </div>
-                      
-                    </div>
-                    
-                  </div>
-
-                  
-
-                </div>
-
-
-            </div><!-- .animated -->
-        </div><!-- .content -->
+                        <div class="card-header">
+                            <strong class="card-title">Liste des rendez-vous effectués</strong>
+                        </div>
+                        <div class="card-body">
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                    <thead>
+					<tr>
+					<th><h3>Id du rendez-vous</h3></th>
+					<th><h3>Id de l'appartement</h3></th>
+					<th><h3>Date</h3></th>
+					<th> </th>					
+					</tr>
+				</thead>
+                      <%for(int i=0 ; i<allN.size() ; i++){ %>				
+				<tbody>
+				<tr>
+					<td><%= allN.get(i).getIdRDV()%></td>
+					<td><%= allN.get(i).getIdApp()%></td>
+					<td><%= (String)allN.get(i).getD()%></td>
+						
+					<td>	
+					<form   action="http://localhost:8080/AgenceImmobiliere/Preavis"  method = "get">
+						<input type="hidden" name ="IDAG" value="<%=allN.get(i).getIdAgent() %>" >	
+						<input type="hidden" name ="IDRDV" value="<%=allN.get(i).getIdRDV() %>" >		
+			  			<input type=submit value="Donner preavis"/>
+					</form>
+					</td>
+				</tr>
+				
+				
+				<%
+					}
+				%>
+                </tbody>
+              </table>
+	                        </div>
+	                    </div>
+	                </div>
+				</div>
+			</div><!-- .animated -->
+		</div>
+		
+		
+        
 
 
     </div><!-- /#right-panel -->
 
     <!-- Right Panel -->
-
+	
 
     <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
-
+        <!--  Chart js -->
+    <script src="assets/js/lib/chart-js/Chart.bundle.js"></script>
+    <script src="assets/js/lib/chart-js/chartjs-init.js"></script>
 
 </body>
 </html>

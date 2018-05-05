@@ -5,8 +5,6 @@
 	<%@page import="Model.Fonctions" %>
 	<%
 	ArrayList<RDV> allR = (ArrayList<RDV>)request.getAttribute("RDV");
-	ArrayList<RDV> allN = (ArrayList<RDV>)request.getAttribute("RDVNN");
-
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -59,15 +57,15 @@
                     <li class="menu-item-has-children dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Mon Agenda</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="tables-basic.html">Mes rendez-vous</a></li>
-                            <li><i class="fa fa-table"></i><a href="tables-data.html">Signaler un empechement</a></li>
+                            <li><i class="fa fa-table"></i><a href="http://localhost:8080/AgenceImmobiliere/ListeRDVAgent">Mes rendez-vous</a></li>
+                            <li><i class="fa fa-table"></i><a href="#">Signaler un empechement</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Preavis</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Donner un preavis</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Modifier un preavis</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="http://localhost:8080/AgenceImmobiliere/DonnerPreavis">Donner un preavis</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="#">Modifier un preavis</a></li>
                         </ul>
                     </li>
 
@@ -268,14 +266,6 @@
 					<td><%= allR.get(i).getIdRDV()%></td>
 					<td><%= allR.get(i).getIdApp()%></td>
 					<td><%= (String)allR.get(i).getD()%></td>
-						
-					<td>	
-					<form   action="http://localhost:8080/AgenceImmobiliere/Preavis"  method = "get">
-						<input type="hidden" name ="IDAG" value="<%=allR.get(i).getIdAgent() %>" >	
-						<input type="hidden" name ="IDRDV" value="<%=allR.get(i).getIdRDV() %>" >		
-			  			<input type=submit value="Donner preavis"/>
-					</form>
-					</td>
 				</tr>
 				
 				
@@ -291,41 +281,7 @@
 			</div><!-- .animated -->
 		</div>
 		
-		<div class="content mt-3">
-            <div class="animated fadeIn">
-                <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <strong class="card-title">Préavis deja donnés</strong>
-                        </div>
-                        <div class="card-body">
-                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
-                    <thead>
-					<tr>
-					<th><h3>Id du rendez-vous</h3></th>
-					<th><h3>Id de l'appartement</h3></th>
-					<th><h3>Date</h3></th>					
-					</tr>
-				</thead>
-                      <%for(int i=0 ; i<allN.size() ; i++){ %>				
-				<tbody>
-				<tr>
-					<td><%= allN.get(i).getIdRDV()%></td>
-					<td><%= allN.get(i).getIdApp()%></td>
-					<td><%= (String)allN.get(i).getD()%></td>
-				</tr>
-				<%
-					}
-				%>
-                </tbody>
-              </table>
-	                        </div>
-	                    </div>
-	                </div>
-				</div>
-			</div><!-- .animated -->
-		</div>
+		
         
 
 

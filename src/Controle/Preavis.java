@@ -14,26 +14,14 @@ import javax.servlet.http.HttpSession;
 import Model.Fonctions;
 import Model.Preaviss;
 
-/**
- * Servlet implementation class Preavis
- */
 @WebServlet("/Preavis")
 public class Preavis extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public Preavis() {
         super();
-        // TODO Auto-generated constructor stub
     }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		RequestDispatcher d;
 		
 		int idAG=Integer.parseInt(request.getParameter("IDAG"));
@@ -45,12 +33,7 @@ public class Preavis extends HttpServlet {
 		d.forward(request, response);
 
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.setContentType("text/html");
 		PrintWriter out =response.getWriter();
 		int avis=Integer.parseInt(request.getParameter("avis"));

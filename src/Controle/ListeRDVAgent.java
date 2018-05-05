@@ -20,9 +20,9 @@ public class ListeRDVAgent extends HttpServlet {
 		HttpSession s=request.getSession(true);
 		int i=(int)s.getAttribute("idA");
 		request.setAttribute("RDV",Fonctions.RecupererListeRDVAgent(i));
-		request.setAttribute("RDVNN",Fonctions.RecupererListeRDVAgentNN(i));
+		
 
-		this.getServletContext().getRequestDispatcher("/Listerdvs.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/ListeRDVAgent.jsp").forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
