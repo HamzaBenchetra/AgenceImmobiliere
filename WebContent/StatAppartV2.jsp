@@ -65,10 +65,10 @@
 				<li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Statistiques</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="">Par type Appartements</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="">Par  Agent</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="">Par Appartements vendus </a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="">Par Localité</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="StattypeAppart.jsp">Par type Appartements</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="StatAgent.jsp">Par  Agent</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="StatAppartV.jsp">Par Appartements vendus </a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="StatLocalite.jsp">Par Localité</a></li>
                         </ul>
                     </li>
 
