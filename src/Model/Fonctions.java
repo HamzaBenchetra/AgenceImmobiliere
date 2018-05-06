@@ -6,10 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 public class Fonctions {
 	private static Connection connexion;
 	public static boolean ValiderRDV(int id){
@@ -101,7 +98,7 @@ public class Fonctions {
 		   return c ;
 
 }
-public static ArrayList<Client> RecupererListClient(){
+	public static ArrayList<Client> RecupererListClient(){
 		
 		ConnecterBD();
 		   ArrayList<Client> c = new ArrayList<Client>();
@@ -165,7 +162,7 @@ public static ArrayList<Client> RecupererListClient(){
 	   return k ;
 
 }
-public static boolean Valider(int id, String t){
+	public static boolean Valider(int id, String t){
 			int statut = -5;
 			ConnecterBD();
 			try {
@@ -184,9 +181,7 @@ public static boolean Valider(int id, String t){
 				return false;
 			}
 			}
-		
-		
-		public static boolean SupprimerClient(int id){
+	public static boolean SupprimerClient(int id){
 			int statut = -5;
 			ConnecterBD();
 			try {
@@ -245,8 +240,6 @@ public static boolean Valider(int id, String t){
 			}
 		public static ArrayList<RDV> RecupererListeRDVAgent(int ida){
 			ConnecterBD();
-			DateFormat dt= new SimpleDateFormat("yyyy-MM-dd");
-			Date date=new Date();
 			
 			   ArrayList<RDV> R = new ArrayList<RDV>();
 			   try {
@@ -274,8 +267,6 @@ public static boolean Valider(int id, String t){
 			}
 			   return R ;		
 		}	
-		
-		
 		public static ArrayList<DemandeAchat> RecupererListeDemandesA() {
 				ConnecterBD();
 				   ArrayList<DemandeAchat> D = new ArrayList<DemandeAchat>();
@@ -335,16 +326,24 @@ public static boolean Valider(int id, String t){
 				PreparedStatement psttt=connexion.prepareStatement("update rdv set etat =1 where idApp="+idA+";");
 				psttt.executeUpdate();
 				Statement s=connexion.createStatement();
-				ResultSet r=s.executeQuery("select mail,date from client as c , rdv as r where c.idClient=r.idC and r.idApp="+idA+" and c.idclient<>"+idc+" and r.date>CURDATE() ;");
+				ResultSet r=s.executeQuery("select mail,date,numtel from client as c , rdv as r where c.idClient=r.idC and r.idApp="+idA+" and c.idclient<>"+idc+" and r.date>CURDATE() ;");
 				String mail=" ";
 				String date=" ";
+				String tel=" ";
 				while (r.next()) {
 					mail=r.getString(1);
 					date=r.getString(2);
+					tel=r.getString(3);
 					System.out.println(mail);
-					System.out.println(date);					
+					System.out.println(date);
+					System.out.println(tel);
+					if(mail.equalsIgnoreCase("null")) {
+						int t=Integer.parseInt(tel);
+						tel="213"+t;
+						Contact.sendSms(tel,date);
+					}else {
 					Contact.EnvoyerMailAppartVendu(mail,date);
-					
+					}
 				}
 				/*je prend le num tel
 				 * le lui fais un parseInt
@@ -356,7 +355,6 @@ public static boolean Valider(int id, String t){
 				
 				return true;
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 				return false;
 			}
@@ -364,8 +362,6 @@ public static boolean Valider(int id, String t){
 		}
 		public static ArrayList<RDV> RecupererListeRDVAgentE(int ida){
 			ConnecterBD();
-			DateFormat dt= new SimpleDateFormat("yyyy-MM-dd");
-			Date date=new Date();
 			
 			   ArrayList<RDV> R = new ArrayList<RDV>();
 			   try {

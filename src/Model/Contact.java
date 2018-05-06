@@ -1,6 +1,12 @@
 package Model;
+//imports pour sms
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 //imports pour mail
 import java.util.Properties;
+
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -8,14 +14,6 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-//imports pour sms
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLEncoder;
 
 public class Contact {
 	private static String username="societeimmobiliere933@gmail.com";
@@ -47,13 +45,13 @@ public class Contact {
 		}
 		
 	}
-	public static String sendSms(String date) {
+	public static String sendSms(String date, String tel) {
 		try {
 			// Construct data
-			String apiKey = "apikey=" + "7qd1CZ3+OsU-FOhVZTUuO5K8lfsFDmmyHvlxsbFJQw";
+			String apiKey = "apikey=" + "7qd1CZ3+OsU-4X90WIFZgUjF4NmSBewqwHjU4UCAPA";
 			String message = "&message=" + "Votre RDV de "+date+" est annulé";
 			String sender = "&sender=" + "Agence Immo";
-			String numbers = "&numbers=" + "213557633214";
+			String numbers = "&numbers=" + tel;
 			
 			// Send data
 			HttpURLConnection conn = (HttpURLConnection) new URL("https://api.txtlocal.com/send/?").openConnection();
@@ -78,6 +76,6 @@ public class Contact {
 	}
 	
 public static void main(String[] args) {
-	//sendSms();
+	sendSms("213794204107","2018-05-12 10:00:00.0");
 }
 }

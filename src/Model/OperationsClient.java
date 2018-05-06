@@ -88,16 +88,15 @@ public class OperationsClient {
 				i++;
 			}
 			if(i==0) {
+				int idA=0;
 				Statement st=connexion.createStatement();
-				ResultSet rs=st.executeQuery("Select idAgent from Agent where etat=1 and idAgent not in(select idA FROM RDV where date="+d+")");
-				int[] tab=new int[5];
-				int j=0;
-				while(rs.next()) {
-					tab[j]=rs.getInt("idAgent");
-					j++;
+				ResultSet rs=st.executeQuery("select idAgent,count(idRDV) from Agent left join rdv on Agent.idAgent=rdv.idA where idAgent not in (select idA From RDV where date="+d+" ) group by idAgent order by count(idRDV) asc;");
+				if(rs.next()) {
+					idA=rs.getInt("idAgent");
+					
 				}
 				
-				PreparedStatement ss=connexion.prepareStatement("insert into RDV (idApp,idA,idC,date)values("+id+","+tab[0]+","+idc+","+d+");");
+				PreparedStatement ss=connexion.prepareStatement("insert into RDV (idApp,idA,idC,date)values("+id+","+idA+","+idc+","+d+");");
 				ss.executeUpdate();
 				System.out.println(i);
 				System.out.println("RDV ok");
