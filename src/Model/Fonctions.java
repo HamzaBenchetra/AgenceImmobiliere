@@ -346,6 +346,13 @@ public static boolean Valider(int id, String t){
 					Contact.EnvoyerMailAppartVendu(mail,date);
 					
 				}
+				/*je prend le num tel
+				 * le lui fais un parseInt
+				 * le 0 au debut va disparaitre
+				 * ensuite je fais numt="213"+n
+				 * cequi me donnera 213555098350 parEx
+				 * ensuite je le passe en parametre
+				 * */
 				
 				return true;
 			} catch (SQLException e) {
