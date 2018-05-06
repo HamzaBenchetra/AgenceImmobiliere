@@ -118,7 +118,7 @@ public static ArrayList<RDV> RecupererListeRDV(int idc){
 		   try {
 				
 		 Statement statement = connexion.createStatement();
-			String Query="SELECT * from rdv where idC="+idc+";";
+			String Query="SELECT * from rdv where idC="+idc+" and etat=0;";
 			ResultSet rs=statement.executeQuery(Query);
 			
 		//	ResultSet r = null;

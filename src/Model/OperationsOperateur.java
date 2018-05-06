@@ -135,7 +135,7 @@ public static ArrayList<RDV> RecupererListeRDV(String tel){
 		   try {
 				
 		 Statement statement = connexion.createStatement();
-			String Query="select * from rdv where idC=(SELECT idClient from client where numtel='"+tel+"');";
+			String Query="select * from rdv where idC=(SELECT idClient from client where numtel='"+tel+"') and etat=0;";
 			ResultSet rs=statement.executeQuery(Query);
 			
 		//	ResultSet r = null;
@@ -166,7 +166,7 @@ public static RDV RecupererRDVAcheteur(int i){
 	   try {
 			
 	 Statement statement = connexion.createStatement();
-		String Query="select * from rdv where idRDV="+i+";";
+		String Query="select * from rdv where idRDV="+i+" and etat=0;";
 		ResultSet rs=statement.executeQuery(Query);
 		
 	//	ResultSet r = null;

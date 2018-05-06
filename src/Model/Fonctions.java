@@ -243,36 +243,6 @@ public static boolean Valider(int id, String t){
 				return false;
 			}
 			}
-		public static ArrayList<RDV> RecupererListeRDVAgentNN(int ida){
-			ConnecterBD();
-			   ArrayList<RDV> R = new ArrayList<RDV>();
-			   try {
-					
-			 Statement statement = connexion.createStatement();
-				String Query="SELECT * from rdv where idA="+ida+" And etat=1;";
-				ResultSet rs=statement.executeQuery(Query);
-				
-			//	ResultSet r = null;
-				while(rs.next()){
-					RDV r=new RDV ();
-					r.setIdRDV(rs.getInt("idRDV"));
-					r.setIdApp(rs.getInt("idApp"));
-					r.setIdAgent(rs.getInt("idA"));
-					r.setD(rs.getString("date"));
-					r.setEtat(rs.getBoolean("etat"));
-					
-					R.add(r);
-				}
-				return R ;
-		   } catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				
-			}
-			   return R ;		
-		}	
-		
-		
 		public static ArrayList<RDV> RecupererListeRDVAgent(int ida){
 			ConnecterBD();
 			DateFormat dt= new SimpleDateFormat("yyyy-MM-dd");
@@ -282,7 +252,7 @@ public static boolean Valider(int id, String t){
 			   try {
 					
 			 Statement statement = connexion.createStatement();
-				String Query="SELECT * from rdv where idA="+ida+" And date>(SELECT DATE_ADD(CURDATE(),INTERVAL 1 DAY)) order by date;";
+				String Query="SELECT * from rdv where idA="+ida+" and etat=0 And date>(SELECT DATE_ADD(CURDATE(),INTERVAL 1 DAY)) order by date;";
 				ResultSet rs=statement.executeQuery(Query);
 				
 			//	ResultSet r = null;
@@ -360,18 +330,20 @@ public static boolean Valider(int id, String t){
 			try {
 				PreparedStatement ps=connexion.prepareStatement("insert into Contrat(idCL,IdApp) values ("+idc+","+idA+");");
 				ps.executeUpdate();
-				PreparedStatement pst=connexion.prepareStatement("DELETE FROM demandesachat WHERE idC="+idc+";");
-				pst.executeUpdate();
 				PreparedStatement pstt=connexion.prepareStatement("update appartement set etat =1 where idAppart="+idA+";");
 				pstt.executeUpdate();
+				PreparedStatement psttt=connexion.prepareStatement("update rdv set etat =1 where idApp="+idA+";");
+				psttt.executeUpdate();
 				Statement s=connexion.createStatement();
-				ResultSet r=s.executeQuery("select mail from client as c , rdv as r where c.idClient=r.idC and r.idApp="+idA+" and c.idclient<>"+idc+" and r.date>CURDATE() Group by mail ;");
-				String a=" ";
+				ResultSet r=s.executeQuery("select mail,date from client as c , rdv as r where c.idClient=r.idC and r.idApp="+idA+" and c.idclient<>"+idc+" and r.date>CURDATE() ;");
+				String mail=" ";
+				String date=" ";
 				while (r.next()) {
-					a=r.getString(1);
-					System.out.println(a);
-					
-					Contact.EnvoyerMailAppartVendu(a);
+					mail=r.getString(1);
+					date=r.getString(2);
+					System.out.println(mail);
+					System.out.println(date);					
+					Contact.EnvoyerMailAppartVendu(mail,date);
 					
 				}
 				

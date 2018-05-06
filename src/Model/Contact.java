@@ -1,7 +1,6 @@
 package Model;
 
 import java.util.Properties;
-
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -14,7 +13,7 @@ public class Contact {
 	private static String username="societeimmobiliere933@gmail.com";
 	private static String password="motdepass1234";
 	
-	public static void EnvoyerMailAppartVendu(String d) {
+	public static void EnvoyerMailAppartVendu(String d,String date) {
 		Properties props=new Properties();
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.starttls.enable", "true");
@@ -31,8 +30,8 @@ public class Contact {
 			Message message=new MimeMessage(session);
 			message.setFrom(new InternetAddress(username));
 			message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(d));
-			message.setSubject("test mail via java");
-			message.setText("Ceci est un mail envoyé via java ...");
+			message.setSubject("Votre Rendez-Vous");
+			message.setText("Nous avons le regret de vous annoncer que votre Rendez vous du "+date+" est annulé car l'appartement a été vendu");
 			Transport.send(message);
 			System.out.println("ok");
 		}catch(MessagingException e) {
@@ -42,7 +41,6 @@ public class Contact {
 	}
 	
 public static void main(String[] args) {
-	String a="hamza.ben2zelda@gmail.com";
-	EnvoyerMailAppartVendu(a);
+	
 }
 }
