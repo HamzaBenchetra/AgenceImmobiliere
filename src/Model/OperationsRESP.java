@@ -190,10 +190,38 @@ public static int StatMAXAppart(){
 
 		 		
 	}
+	public static float ratio() {
+		ConnecterBD();
+		Statement s;
+		Statement ss;
+		int nbRDV=0;
+		int nbCont=0;
+		try {
+			s = connexion.createStatement();
+			ResultSet rs=s.executeQuery("select count(idrdv) from rdv;");
+			while(rs.next()) {
+				nbRDV=rs.getInt(1);
+				System.out.println(nbRDV);
+			}
+			ss = connexion.createStatement();
+			ResultSet rss=ss.executeQuery("select count(idContrat) from contrat;");
+			while(rss.next()) {
+				nbCont=rss.getInt(1);
+				System.out.println(nbCont);
+
+			}
+			//System.out.println(nbCont/nbRDV);
+			return (float)nbCont/nbRDV;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		// System.out.println(StatLocalite(2));
-		 System.out.println(StatAppartvendus("F4"));
+		 System.out.println(ratio());
 	}
 
 }
