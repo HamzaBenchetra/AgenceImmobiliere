@@ -14,6 +14,5 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry exported="true" kind="lib" path="C:/java-mail-1.4.4.jar"/>
-	<classpathentry kind="lib" path="C:/itextpdf-5.1.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
