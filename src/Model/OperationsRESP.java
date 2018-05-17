@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 public class OperationsRESP {
 	private static Connection connexion;
@@ -26,90 +27,88 @@ public class OperationsRESP {
 			}                   
 	        
 	  }
-	public static String StatAgent(int ID){
-		DecimalFormat df = new DecimalFormat("#.##");
-
+	public static ArrayList<StatsAgent> StatAgent(){
 		ConnecterBD();
-		int MAX=StatMAX();
-		double M=0;
-				try {
-				
+		try {
+		 ArrayList<StatsAgent> ls=new ArrayList<StatsAgent>();
+		 
 		 Statement statement = connexion.createStatement();
-			String Query="SELECT COUNT(*) FROM rdv where idA="+ID+";";
-			ResultSet rs=statement.executeQuery(Query);
-			
-				
+		 String query="select nom,prenom,count(idRDV) from Agent left join rdv on Agent.idAgent=rdv.idA group by nom order by count(idRDV);";
+		 ResultSet rs=statement.executeQuery(query);
 			while(rs.next()){
-				 M=rs.getInt("COUNT(*)");
+				StatsAgent s=new StatsAgent();
+				 s.setNom(rs.getString(1));
+				 s.setPrenom(rs.getString(2));
+				 s.setCountA(rs.getInt(3));
+				 ls.add(s);
+				 
 			}
-				double x=(M/MAX)*100;
-				return (df.format(x));
+				return ls;
 
 	   } catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			
-		}
-		return null;
+	   }
+				return null;
 
 		 		
 	}
-	public static String StatAppart(String type){
-		DecimalFormat df = new DecimalFormat("#.##");
-
+	
+	public static ArrayList<StatsLocalite> StatLocalite(){
 		ConnecterBD();
-		int MAX=StatMAX();
-		double M=0;
-				try {
-				
+		try {
+		 ArrayList<StatsLocalite> ls=new ArrayList<StatsLocalite>();
+		 
 		 Statement statement = connexion.createStatement();
-			String Query="select COUNT(*) from appartement as a,rdv as r where  r.idApp=a.idAppart and type='"+type+"';";
-			ResultSet rs=statement.executeQuery(Query);
-			
-				
+		 String query="select nomLocalite,Count(idRDV) from Batiment b,Localite l, Appartement a left join rdv r on a.idAppart=r.idApp where a.idBat=b.idBatiment and b.idLocal=l.idLocalite group by idLocalite;";
+		 ResultSet rs=statement.executeQuery(query);
 			while(rs.next()){
-				 M=rs.getInt("COUNT(*)");
+				StatsLocalite s=new StatsLocalite();
+				 s.setNomLocalite(rs.getString(1));
+				 s.setCountL(rs.getInt(2));
+				 ls.add(s);
+				 
 			}
-				double x=(M/MAX)*100;
-				return (df.format(x));
+				return ls;
 
 	   } catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			
-		}
-		return null;
+	   }
+				return null;
 
 		 		
 	}
-	public static String StatLocalite(int IdLocal){
-		DecimalFormat df = new DecimalFormat("#.##");
-
+	
+	public static ArrayList<StatsType> StatType(){
 		ConnecterBD();
-		int MAX=StatMAX();
-		double M=0;
-				try {
-				
+		try {
+		 ArrayList<StatsType> ls=new ArrayList<StatsType>();
+		 
 		 Statement statement = connexion.createStatement();
-			String Query="select COUNT(*) from appartement as a, batiment as b ,rdv as r where a.idBat=b.idBatiment and r.idApp=a.idAppart and idLocal="+IdLocal+";";
-			ResultSet rs=statement.executeQuery(Query);
-			
-				
+		 String query="select type,count(idRDV) from appartement a left join rdv r on a.idAppart=r.idApp group by type;";
+		 ResultSet rs=statement.executeQuery(query);
 			while(rs.next()){
-				 M=rs.getInt("COUNT(*)");
+				StatsType s=new StatsType();
+				 s.setType(rs.getString(1));
+				 s.setCountT(rs.getInt(2));
+				 ls.add(s);
+				 
 			}
-				double x=(M/MAX)*100;
-				return (df.format(x));
+				return ls;
 
 	   } catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			
-		}
-		return null;
+	   }
+				return null;
 
 		 		
 	}
+	
 	public static String StatAppartvendus(String type){
 		DecimalFormat df = new DecimalFormat("#.##");
 
@@ -138,7 +137,7 @@ public class OperationsRESP {
 
 		 		
 	}
-public static int StatMAXAppart(){
+	public static int StatMAXAppart(){
 		
 		ConnecterBD();
 		int MAX = 0;
@@ -218,10 +217,22 @@ public static int StatMAXAppart(){
 		}
 		return 0;
 	}
-	public static void main(String[] args) {
+	
+public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		// System.out.println(StatLocalite(2));
-		 System.out.println(ratio());
+		 ArrayList<StatsAgent> A=StatAgent();
+		 ArrayList<StatsLocalite> B=StatLocalite();
+		 ArrayList<StatsType> C=StatType();
+		 for(StatsAgent s: A) {
+			 System.out.println(s.getNom()+" "+s.getPrenom()+" "+s.getCountA());
+		 }
+		 for(StatsLocalite s: B) {
+			 System.out.println(s.getNomLocalite()+" "+s.getCountL());
+		 }
+		 for(StatsType s: C) {
+			 System.out.println(s.getType()+" "+s.getCountT());
+		 }
 	}
 
 }

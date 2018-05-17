@@ -1,5 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@page import="Model.StatsAgent"%>
+    <%@page import="Model.StatsType"%>
+    <%@page import="Model.StatsLocalite"%>
+    <%@page import="java.util.ArrayList"%>
+	<%@page import="Model.OperationsRESP" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -65,10 +70,9 @@
 				<li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Statistiques</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="StattypeAppart.jsp">Par type Appartements</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="StatAgent.jsp">Par  Agent</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="StatAppartV.jsp">Par Appartements vendus </a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="StatLocalite.jsp">Par Localité</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="http://192.168.43.108:8080/AgenceImmobiliere/Statistiques">Statistiques</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="http://192.168.43.108:8080/AgenceImmobiliere/Ratio">Ratio des ventes</a></li>
+                            
                         </ul>
                     </li>
 
@@ -253,39 +257,76 @@
                 </div>
             </div>
         </div>
-              
-                 <div class="card-body card-block">
-                        <form action="http://192.168.43.108:8080/AgenceImmobiliere/StatAppartV" method="post" class="form-horizontal">
-                      
-                          
-                          
-                          <div class="row form-group">
-                            <div class="col col-md-3"><label for="select" class=" form-control-label">Type D Appartement Vendus</label></div>
-                            <div class="col-12 col-md-9">
-                              <select name="type" id="select" class="form-control">
-                                <option value="0">Type d'appartement</option>
-                                <option value="F3">F3</option>
-                                <option value="F4">F4</option>
-                                <option value="F5">F5</option>
-                              </select>
-                            </div>
-                          </div>
-                          
-                         
-                        <button type="submit" class="btn btn-primary btn-sm">
-                          <i class="fa fa-dot-circle-o"></i> Voir Statistiques
-                        </button>
-                        
+		<div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+                        <form action="http://192.168.43.108:8080/AgenceImmobiliere/Imprimer" method="get">
+                        	<input type="hidden" name="TypeI" value="Excel">
+                        	<button type="submit" class="btn btn-primary">Exporter en excel</button>
                         </form>
-                      </div>
+				</div>
+
+            </div><!-- .animated -->
+        </div>
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="mb-3">Nombre de visites par agent </h4>
+                                    <canvas id="myChart" width="200" height="200"></canvas>
+                                </div>
+                            </div>
+                        </div><!-- /# column -->
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="mb-3">Nombre de visites par localite </h4>
+                                    <canvas id="myChart1" width="200" height="200"></canvas>
+                                </div>
+                            </div>
+                        </div>
+				</div>
+
+            </div><!-- .animated -->
+        </div><!-- .content -->
         
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="mb-3">Nombre de visites par type d'appartement </h4>
+                                    <canvas id="myChart2" width="200" height="200"></canvas>
+                                </div>
+                            </div>
+                        </div><!-- /# column -->
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="mb-3">Ratio des ventes </h4>
+                                    <canvas id="myDoughnutChart " width="100" height="100"></canvas>
+                                </div>
+                            </div>
+                        </div>
+				</div>
+
+            </div><!-- .animated -->
+        </div>
+        <!-- .content -->
 
 
- 
+    </div><!-- /#right-panel -->
 
     <!-- Right Panel -->
-	
 
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
     <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/plugins.js"></script>
@@ -293,6 +334,128 @@
         <!--  Chart js -->
     <script src="assets/js/lib/chart-js/Chart.bundle.js"></script>
     <script src="assets/js/lib/chart-js/chartjs-init.js"></script>
+    <%ArrayList<StatsAgent> LA=(ArrayList<StatsAgent>)request.getAttribute("ListA"); %>
+    <%ArrayList<StatsLocalite> LL=(ArrayList<StatsLocalite>)request.getAttribute("ListL"); %>
+	<%ArrayList<StatsType> LT=(ArrayList<StatsType>)request.getAttribute("ListT"); %>
+	 
+	<script>
+		var ctx = document.getElementById("myChart").getContext('2d');
+		var myChart = new Chart(ctx, {
+		    type: 'bar',
+		    data: {
+		        labels: [<%for(StatsAgent s: LA) {%><%="\""+s.getNom()+" "+s.getPrenom()+"\","%><%}%>],
+		        datasets: [{
+		            label: '# de visites',
+		            data: [<%for(StatsAgent s: LA) {%><%=s.getCountA()+","%><%}%>],
+		            backgroundColor: [
+		                'rgba(255, 99, 132, 0.2)',
+		                'rgba(54, 162, 235, 0.2)',
+		                'rgba(255, 206, 86, 0.2)',
+		                'rgba(75, 192, 192, 0.2)'
+		            ],
+		            borderColor: [
+		                'rgba(255,99,132,1)',
+		                'rgba(54, 162, 235, 1)',
+		                'rgba(255, 206, 86, 1)',
+		                'rgba(75, 192, 192, 1)'
+		            ],
+		            borderWidth: 1
+		        }]
+		    },
+		    options: {
+		        scales: {
+		            yAxes: [{
+		                ticks: {
+		                    beginAtZero:true
+		                }
+		            }]
+		        }
+		    }
+		});
+	</script>
+	
+	<script>
+		var ctx = document.getElementById("myChart1").getContext('2d');
+		var myChart1 = new Chart(ctx, {
+		    type: 'bar',
+		    data: {
+		        labels: [<%for(StatsLocalite s: LL) {%><%="\""+s.getNomLocalite()+"\","%><%}%>],
+		        datasets: [{
+		            label: '# de visites',
+		            data: [<%for(StatsLocalite s: LL) {%><%=s.getCountL()+","%><%}%>],
+		            backgroundColor: [
+		                'rgba(255, 99, 132, 0.2)',
+		                'rgba(54, 162, 235, 0.2)',
+		                'rgba(255, 206, 86, 0.2)'
+		            ],
+		            borderColor: [
+		                'rgba(255,99,132,1)',
+		                'rgba(54, 162, 235, 1)',
+		                'rgba(255, 206, 86, 1)'
+		            ],
+		            borderWidth: 1
+		        }]
+		    },
+		    options: {
+		        scales: {
+		            yAxes: [{
+		                ticks: {
+		                    beginAtZero:true
+		                }
+		            }]
+		        }
+		    }
+		});
+	</script>
+	
+	<script>
+		var ctx = document.getElementById("myChart2").getContext('2d');
+		var myChart2 = new Chart(ctx, {
+		    type: 'bar',
+		    data: {
+		        labels: [<%for(StatsType s: LT) {%><%="\""+s.getType()+"\","%><%}%>],
+		        datasets: [{
+		            label: '# de visites',
+		            data: [<%for(StatsType s: LT) {%><%=s.getCountT()+","%><%}%>],
+		            backgroundColor: [
+		                'rgba(255, 99, 132, 0.2)',
+		                'rgba(54, 162, 235, 0.2)',
+		                'rgba(255, 206, 86, 0.2)'
+		            ],
+		            borderColor: [
+		                'rgba(255,99,132,1)',
+		                'rgba(54, 162, 235, 1)',
+		                'rgba(255, 206, 86, 1)'
+		            ],
+		            borderWidth: 1
+		        }]
+		    },
+		    options: {
+		        scales: {
+		            yAxes: [{
+		                ticks: {
+		                    beginAtZero:true
+		                }
+		            }]
+		        }
+		    }
+		});
+	</script>
+	  <% float R=(float)request.getAttribute("Ratio");%>
+	<script>
+	var myDoughnutChart = new Chart(ctx, {
+	    type: 'doughnut',
+	    data: data = {
+	    	    datasets: [{
+	    	        data: [<%=R*100%>,<%=(100-(R*100))%>]
+	    	    }],
 
+	    	    // These labels appear in the legend and in the tooltips when hovering different arcs
+	    	    labels: [<%="\""+R+"\""%>,
+	    	       ' '
+	    	    ]
+	    	},
+	});
+	</script>
 </body>
 </html>

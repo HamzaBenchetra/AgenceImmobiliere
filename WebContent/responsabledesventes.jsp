@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -65,10 +65,8 @@
 				<li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Statistiques</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="StattypeAppart.jsp">Par type Appartements</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="StatAgent.jsp">Par  Agent</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="StatAppartV.jsp">Par Appartements vendus </a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="StatLocalite.jsp">Par Localité</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="http://192.168.43.108:8080/AgenceImmobiliere/Statistiques">Statistiques</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="http://192.168.43.108:8080/AgenceImmobiliere/Ratio">Ratio des ventes</a></li>
                             
                         </ul>
                     </li>

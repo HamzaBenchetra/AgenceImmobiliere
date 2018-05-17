@@ -260,7 +260,10 @@
                                         <div class="alert alert-success" role="alert">
                                             <h4 class="alert-heading">Informations du contrat enregistrer avec succès</h4>
                                             <hr>
-                                            <p class="mb-0"><button class="btn btn-secondary">Afficher les détails du contrat</button></p>
+                                            <form action="http://192.168.43.108:8080/AgenceImmobiliere/Imprimer" method="get">
+					                        	<input type="hidden" name="TypeI" value="PDF">
+					                        	<button type="submit" class="btn btn-primary">Afficher les détails du contrat</button>
+					                        </form> 
                                         </div>
                                     </div>
                                 </div>
