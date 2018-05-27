@@ -444,7 +444,7 @@
 	  <% float R=(float)request.getAttribute("Ratio");%>
 	<script>
 	var myDoughnutChart = new Chart(ctx, {
-	    type: 'doughnut',
+	    type: 'pie',
 	    data: data = {
 	    	    datasets: [{
 	    	        data: [<%=R*100%>,<%=(100-(R*100))%>]

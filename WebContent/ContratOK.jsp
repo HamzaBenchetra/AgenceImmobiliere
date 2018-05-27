@@ -252,6 +252,7 @@
                 </div>
             </div>
         </div>
+        <a href="Contrats\Contrat.pdf">aaa</a>
 		<div class="card">
                                     <div class="card-header">
                                         <strong class="card-title">Succès</strong>

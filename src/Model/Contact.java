@@ -45,7 +45,7 @@ public class Contact {
 		}
 		
 	}
-	public static String sendSms(String date, String tel) {
+	public static String sendSms(String tel,String date) {
 		try {
 			// Construct data
 			String apiKey = "apikey=" + "7qd1CZ3+OsU-4X90WIFZgUjF4NmSBewqwHjU4UCAPA";
