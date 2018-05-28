@@ -9,13 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Model.Appartement;
 import Model.OperationsClient;
+
 @WebServlet("/ConsuListApparts")
 public class ConsuListApparts extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     public ConsuListApparts() {
         super();
-        int i;
-
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<Appartement> allA = OperationsClient.RecupererListeApparts();
