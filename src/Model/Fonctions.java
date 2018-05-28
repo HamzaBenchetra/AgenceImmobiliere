@@ -388,5 +388,40 @@ public class Fonctions {
 				
 			}
 			   return R ;		
-		}	
+		}
+		public static int Recuperer(String mail) {
+			ConnecterBD();
+			
+			try {
+				int i=0;
+				Statement s=connexion.createStatement();
+				ResultSet r=s.executeQuery("SELECT count(*) from Client where mail='"+mail+"';  ");
+				if(r.next()) {
+					i=r.getInt("count(*)");
+				}
+				if(i!=0) {
+					int code=(int)(Math.random() * ( 9999 - 1000 ));
+					return code;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return -1;
+		}
+		public static void EnregistrerCode(int code,String mail) {
+			ConnecterBD();
+			try {
+				PreparedStatement ps=connexion.prepareStatement("INSERT into Recuperation (mail,code) values('"+mail+"','"+code+"');");
+				ps.executeUpdate();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		public static void main(String[] args) {
+			//System.out.println(Recuperer("hamza.ben2zelda@gmail.com"));
+		}
+		
 }

@@ -1,6 +1,7 @@
 package Controle;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Model.OperationsOperateur;
-import Model.RDV;
 
 @WebServlet("/DemanderAchat")
 public class DemanderAchat extends HttpServlet {

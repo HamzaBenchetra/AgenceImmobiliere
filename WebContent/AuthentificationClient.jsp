@@ -57,7 +57,7 @@
                                 <input type="checkbox"> Remember Me
                             </label>
                             <label class="pull-right">
-                                <a href="#">Mot de pass oublié</a>
+                                <a href="http://192.168.43.108:8080/AgenceImmobiliere/RecupererM">Mot de pass oublié</a>
                             </label>
 
                         </div>
