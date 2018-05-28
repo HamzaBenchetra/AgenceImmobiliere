@@ -6,11 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.sql.Statement;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 public class OperationsClient {
 	private static Connection connexion;
@@ -146,7 +142,5 @@ public static ArrayList<RDV> RecupererListeRDV(int idc){
 	
 	public static void main(String[] args) {
 		//prendreRDV(1,1,"'2018-04-22 08:00:00'");
-		String s=new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
-		System.out.print(s);
 	}
 }
