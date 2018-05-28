@@ -190,6 +190,34 @@ public static int StatMAXAppart(){
 
 		 		
 	}
+public static int TestRDV(String d){
+		
+		ConnecterBD();
+	
+				try {
+				
+		 Statement statement = connexion.createStatement();
+			String Query="select COUNT(*) from rdv where date='"+d+"';";
+			ResultSet rs=statement.executeQuery(Query);
+			
+			while(rs.next()){
+				int res=rs.getInt("COUNT(*)");
+				if(res==1)
+					return 1;
+				
+			}
+				
+			
+
+	   } catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}
+		return 0;
+
+		 		
+	}
 	public static float ratio() {
 		ConnecterBD();
 		Statement s;
@@ -221,7 +249,7 @@ public static int StatMAXAppart(){
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		// System.out.println(StatLocalite(2));
-		 System.out.println(ratio());
+				System.out.println(TestRDV("2018-01-02 08:00:00"));
 	}
 
 }
