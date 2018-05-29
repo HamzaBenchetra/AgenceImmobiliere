@@ -252,7 +252,6 @@
                 </div>
             </div>
         </div>
-        <a href="Contrats\Contrat.pdf">aaa</a>
 		<div class="card">
                                     <div class="card-header">
                                         <strong class="card-title">Succès</strong>
@@ -261,9 +260,8 @@
                                         <div class="alert alert-success" role="alert">
                                             <h4 class="alert-heading">Informations du contrat enregistrer avec succès</h4>
                                             <hr>
-                                            <form action="http://192.168.43.108:8080/AgenceImmobiliere/Imprimer" method="get">
-					                        	<input type="hidden" name="TypeI" value="PDF">
-					                        	<button type="submit" class="btn btn-primary">Afficher les détails du contrat</button>
+                                            <form action="Contrats\Contrat.pdf" >
+					                        	<button type="submit" class="btn btn-primary" >Afficher les détails du contrat</button>
 					                        </form> 
                                         </div>
                                     </div>

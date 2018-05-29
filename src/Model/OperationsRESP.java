@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class OperationsRESP {
@@ -109,86 +108,7 @@ public class OperationsRESP {
 		 		
 	}
 	
-	public static String StatAppartvendus(String type){
-		DecimalFormat df = new DecimalFormat("#.##");
-
-		ConnecterBD();
-		int MAX=StatMAXAppart();
-		double M=0;
-				try {
-				
-		 Statement statement = connexion.createStatement();
-			String Query="select COUNT(*) from appartement where etat=1 and type='"+type+"';";
-			ResultSet rs=statement.executeQuery(Query);
-			
-				
-			while(rs.next()){
-				 M=rs.getInt("COUNT(*)");
-			}
-				double x=(M/MAX)*100;
-				return (df.format(x));
-
-	   } catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			
-		}
-		return null;
-
-		 		
-	}
-	public static int StatMAXAppart(){
-		
-		ConnecterBD();
-		int MAX = 0;
-		
-				try {
-				
-		 Statement statement = connexion.createStatement();
-			String Query="select COUNT(*) from appartement  ;";
-			ResultSet rs=statement.executeQuery(Query);
-			
-			while(rs.next()){
-				 MAX=rs.getInt("COUNT(*)");
-			}
-				
-				return(MAX);
-
-	   } catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			
-		}
-		return MAX;
-
-		 		
-	}
-	public static int StatMAX(){
-		
-		ConnecterBD();
-		int MAX = 0;
-		
-				try {
-				
-		 Statement statement = connexion.createStatement();
-			String Query="select COUNT(*) from appartement as a, batiment as b ,rdv as r where a.idBat=b.idBatiment and r.idApp=a.idAppart ;";
-			ResultSet rs=statement.executeQuery(Query);
-			
-			while(rs.next()){
-				 MAX=rs.getInt("COUNT(*)");
-			}
-				
-				return(MAX);
-
-	   } catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			
-		}
-		return MAX;
-
-		 		
-	}
+	
 	public static float ratio() {
 		ConnecterBD();
 		Statement s;

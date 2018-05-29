@@ -260,7 +260,7 @@
 		<div class="content mt-3">
             <div class="animated fadeIn">
                 <div class="row">
-                        <form action="http://192.168.43.108:8080/AgenceImmobiliere/Imprimer" method="get">
+                        <form action="http://192.168.43.108:8080/AgenceImmobiliere/StatsExcel" method="get">
                         	<input type="hidden" name="TypeI" value="Excel">
                         	<button type="submit" class="btn btn-primary">Exporter en excel</button>
                         </form>
@@ -373,7 +373,24 @@
 		    }
 		});
 	</script>
-	
+	<% float R=(float)request.getAttribute("Ratio");%>
+	<script>
+	var ctx = document.getElementById("myDoughnutChart").getContext('2d');
+
+	var myDoughnutChart = new Chart(ctx, {
+	    type: 'pie',
+	    data:  {
+	    	    datasets: [{
+	    	        data: [<%=R*100%>,<%=(100-(R*100))%>]
+	    	    }],
+
+	    	    // These labels appear in the legend and in the tooltips when hovering different arcs
+	    	    labels: [<%="\""+R+"\""%>,
+	    	       ' '
+	    	    ]
+	    	},
+	});
+	</script>
 	<script>
 		var ctx = document.getElementById("myChart1").getContext('2d');
 		var myChart1 = new Chart(ctx, {
@@ -441,21 +458,6 @@
 		    }
 		});
 	</script>
-	<% float R=(float)request.getAttribute("Ratio");%>
-	<script>
-	var myDoughnutChart = new Chart(ctx, {
-	    type: 'pie',
-	    data: data = {
-	    	    datasets: [{
-	    	        data: [<%=R*100%>,<%=(100-(R*100))%>]
-	    	    }],
-
-	    	    // These labels appear in the legend and in the tooltips when hovering different arcs
-	    	    labels: [<%="\""+R+"\""%>,
-	    	       ' '
-	    	    ]
-	    	},
-	});
-	</script>
+	
 </body>
 </html>

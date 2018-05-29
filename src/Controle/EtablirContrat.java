@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Model.Fonctions;
+import Model.Impression;
 
 @WebServlet("/EtablirContrat")
 public class EtablirContrat extends HttpServlet {
@@ -23,6 +24,7 @@ public class EtablirContrat extends HttpServlet {
 		int idc=Integer.parseInt(request.getParameter("IDC"));
 		int idA=Integer.parseInt(request.getParameter("IDA"));
 		Fonctions.EtablirC(idc,idA);
+		Impression.imprimerContrat();
 		this.getServletContext().getRequestDispatcher("/ContratOK.jsp").forward(request, response);
 		
 	}

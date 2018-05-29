@@ -337,13 +337,13 @@ public class Fonctions {
 					System.out.println(mail);
 					System.out.println(date);
 					System.out.println(tel);
-					if(mail.equalsIgnoreCase("null")) {
+					/*if(mail.equalsIgnoreCase("null")) {
 						int t=Integer.parseInt(tel);
 						tel="213"+t;
 						Contact.sendSms(tel,date);
-					}else {
+					}else {*/
 					Contact.EnvoyerMailAppartVendu(mail,date);
-					}
+					//}
 				}
 				/*je prend le num tel
 				 * le lui fais un parseInt

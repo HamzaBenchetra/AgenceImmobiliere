@@ -48,8 +48,8 @@ public class Contact {
 	public static String sendSms(String tel,String date) {
 		try {
 			// Construct data
-			String apiKey = "apikey=" + "7qd1CZ3+OsU-4X90WIFZgUjF4NmSBewqwHjU4UCAPA";
-			String message = "&message=" + "Votre RDV de "+date+" est annulé";
+			String apiKey = "apikey=" + "7qd1CZ3+OsU-sPfOFJmFJCvU8WOnKGHlhhkKLZL8MO";
+			String message = "&message=" + "Votre RDV du "+date+" est annulé car l'appartement a été vendu";
 			String sender = "&sender=" + "Agence Immo";
 			String numbers = "&numbers=" + tel;
 			
@@ -76,6 +76,6 @@ public class Contact {
 	}
 	
 public static void main(String[] args) {
-	sendSms("213794204107","2018-05-12 10:00:00.0");
+	sendSms("213558716148","2018-05-12 10:00:00.0");
 }
 }
