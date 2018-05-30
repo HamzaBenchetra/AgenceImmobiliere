@@ -248,7 +248,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Acceuil</h1>
+                        <h1>Rechercher client pour achat</h1>
                     </div>
                 </div>
             </div>

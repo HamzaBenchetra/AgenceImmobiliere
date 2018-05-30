@@ -252,7 +252,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Accueil</h1>
+                        <h1>Valider les inscriptions</h1>
                     </div>
                 </div>
             </div>
