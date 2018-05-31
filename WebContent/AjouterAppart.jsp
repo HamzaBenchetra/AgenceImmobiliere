@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -240,25 +241,71 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Acceuil</h1>
+                        <h1>Ajouter un appartement</h1>
                     </div>
                 </div>
             </div>
         </div>
-		<div>
-			<form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+        <div class="content mt-3">
+        <div class="col-lg-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <strong>Gérer les appartements</strong> Ajouter
+                      </div>
+                      <div class="card-body card-block">
+                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                          
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Num Tel</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="numtel" name="numtel" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                            <div class="col col-md-3"><label for="IdBat" class=" form-control-label">Id du Batiment</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="IdBat" name="IdBat" placeholder="Text" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-3"><label for="etage" class=" form-control-label">Etage</label></div>
+                            <div class="col-12 col-md-9">
+                              <select name="etage" id="etage" class="form-control">
+                                <option value="0">Selectionnez l'etage</option>
+                              </select>
+                            </div>
                           </div>
                           
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nom</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="nom" name="nom" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                            <div class="col col-md-3"><label for="Type" class=" form-control-label">Type</label></div>
+                            <div class="col-12 col-md-9">
+                              <select name="Type" id="Type" class="form-control">
+                                <option value="0">Selectionner le type</option>
+                                <option value="F2">F2</option>
+                                <option value="F3">F3</option>
+                                <option value="F4">F4</option>
+                                <option value="F5">F5</option>
+                              </select>
+                            </div>
                           </div>
-            </form>
-		</div>
-        
+                          <div class="row form-group">
+                            <div class="col col-md-3"><label for="prix" class=" form-control-label">Prix</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="prix" name="prix" placeholder="Text" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-3"><label for="description" class=" form-control-label">Description de l'appartement</label></div>
+                            <div class="col-12 col-md-9"><textarea name="description" id="description" rows="9" placeholder="Description Generale..." class="form-control"></textarea></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-3"><label for="file-multiple-input" class=" form-control-label">Photos</label></div>
+                            <div class="col-12 col-md-9"><input type="file" id="Image" name="Image" multiple="" class="form-control-file"></div>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="card-footer">
+                        <button type="submit" class="btn btn-primary btn-sm">
+                          <i class="fa fa-dot-circle-o"></i> Submit
+                        </button>
+                        <button type="reset" class="btn btn-danger btn-sm">
+                          <i class="fa fa-ban"></i> Reset
+                        </button>
+                      </div>
+                    </div>
+                    
+                  </div>
+        		</div>
 
 
     </div><!-- /#right-panel -->
@@ -272,21 +319,28 @@
     <script src="assets/js/main.js"></script>
         <!--  Chart js -->
     <script src="assets/js/lib/chart-js/Chart.bundle.js"></script>
-    <script src="assets/js/lib/chart-js/chartjs-init.js"></script>
+    <!--   <script src="assets/js/lib/chart-js/chartjs-init.js"></script>-->
     <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
-    
-    <script>$( "#numtel" ).change(function() {
+    <script>$( "#IdBat" ).change(function() {
 
-    	   $.ajax({url: "http://localhost:8080/AgenceImmobiliere/api?action=complete&val="+$( "#numtel" ).val(),
+    	   $.ajax({url: "http://localhost:8080/AgenceImmobiliere/api?action=idbat&val="+$( "#IdBat" ).val(),
     			   success: function(result){
     				   if(result ==="ghalt"){//hna tgerer lgholta
-    					   $( "#numtel" ).css({'background-color': 'red'});
+    					   $( "#IdBat" ).css({'background-color': '#ef5350'});
     					   
     					   }else{
-    						   $( "#numtel" ).css({'background-color': 'white'});
-    					   }
-    				   
-    	        $("#nom").val(result);
+    						   console.log(result);
+    						   $( "#IdBat" ).css({'background-color': 'white'});
+    				   var a = parseInt(result)
+    				   console.log(a);
+    				   var i;
+    				   $( "#etage" ).html("");
+    				   for( i=1;i<=a;i++){
+    					   console.log(i);
+    					   $('#etage').append("<option value = \""+i+"\">"+i+"</option>");
+    					   
+    				   }
+    				}
     	    },
     	    error :  function(error){}
     	   
@@ -295,6 +349,7 @@
     
     
     });</script>
+    
 
 </body>
 </html>

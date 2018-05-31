@@ -294,6 +294,7 @@ public class Fonctions {
 			}
 		public static Client AfficherClient(int id) {
 				Client ca=new Client();
+				
 				ConnecterBD();
 				Statement s;
 				try {
@@ -422,6 +423,71 @@ public class Fonctions {
 		}
 		public static void main(String[] args) {
 			//System.out.println(Recuperer("hamza.ben2zelda@gmail.com"));
+		}
+		public static Client getClient(String val) {
+			Client ca=new Client();
+			ConnecterBD();
+			Statement s;
+			try {
+				s = connexion.createStatement();
+				ResultSet rs=s.executeQuery("SELECT * from client where Numtel='"+val+"';");
+				while(rs.next()) {
+					ca.setIdc(rs.getInt("idClient"));
+					ca.setNom(rs.getString("nom"));
+					ca.setPrenom(rs.getString("prenom"));
+					ca.setNumtel(rs.getString("numtel"));
+					ca.setAdresse(rs.getString("adresse"));
+					ca.setDatenais(rs.getString("datenais"));
+					ca.setMail(rs.getString("mail"));
+					ca.setSexe(rs.getString("sexe"));
+				}
+				return ca;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return ca;
+			
+		}
+		public static int getNbE(String val) {
+			ConnecterBD();
+			Statement s;
+			int nb=0;
+			try {
+				s = connexion.createStatement();
+				ResultSet rs=s.executeQuery("SELECT * from batiment where idbatiment="+val+";");
+				
+				if(rs.next()) {
+					nb=rs.getInt("nbrEtages");
+					System.out.println(nb);
+				}
+				return nb;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return nb;
+		}
+		public static Appartement getAppart(int id) {
+			ConnecterBD();
+			Statement s;
+			Appartement a=new Appartement();
+			try {
+				s = connexion.createStatement();
+				ResultSet rs=s.executeQuery("SELECT * from APPARTEMENT where idappart="+id+";");
+				
+				if(rs.next()) {
+					a.setIdBatiment(rs.getInt("idbat"));
+					a.setPrix(rs.getFloat("prix"));
+					a.setType(rs.getString("Type"));
+					a.setEtage(rs.getInt("etage"));
+				}
+				return a;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return null;
 		}
 		
 }
